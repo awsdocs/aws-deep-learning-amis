@@ -1,0 +1,27 @@
+# Selecting the Instance Type for DLAMI<a name="instance-select"></a>
+
+ Selecting the instance type can be another challenge, but we'll make this easier for you with a few pointers on how to choose the best one\. Remember, the DLAMI is free, but the underlying compute resources are not\. 
+
++  If you're new to deep learning, then you probably want an "entry\-level" instance with a single GPU\.
+
++  If you're budget conscious, then you will need to start a bit smaller and look at the CPU\-only instances\. 
+
++  If you're interested in running a trained model for inference and predictions \(and not training\), then you might want a CPU instance with a lot of memory, or even a cluster of these for high\-volume services\. 
+
++  If you're interested in training a model with a lot of data, then you might want a larger instance or even a cluster of GPU instances\. 
+
+ DLAMIs are not available in every region, but it is possible to copy DLAMIs to the region of your choice\. See [Copying an AMI](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html) for more info\. Each region supports a different range of instance types and often an instance type has a slightly different cost in different regions\. On each DLAMI main page, you will see a list of instance costs\. Note the region selection list and be sure you pick a region that's close to you or your customers\. If you plan to use more than one DLAMI and potentially create a cluster, be sure to use the same region for all of nodes in the cluster\. 
+
++ For more detail on instances, check out [EC2 Instance Types](https://aws.amazon.com/instance-types/)\.
+
++ For a more info on regions, visit [EC2 Regions](http://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region)\.
+
+So with all of those points in mind, make note of the instance type that best applies to your use case and budget\. The rest of the topics in this guide help further inform you and go into more detail\. 
+
+
++ [Recommended GPU Instances](gpu.md)
++ [Recommended CPU Instances](cpu.md)
++ [Pricing for the DLAMI](pricing.md)
+
+**Next Up**  
+[Recommended GPU Instances](gpu.md)
