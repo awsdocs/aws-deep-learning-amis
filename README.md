@@ -4,16 +4,17 @@ This is the documentation for AWS Deep Learning AMIs (DLAMI): your one-stop shop
 
 ## Contents
 
-* [What are Deep Learning AMIs?](what-is-dlami.md)
-* [Example Uses](examples.md)
-* [Features](features.md)
-* [Getting Started](gs.md)
-* [Selecting a DLAMI](options.md)
-* [Selecting an Instance](instance-select.md)
-* [Launching a DLAMI](launch-config.md)
-* [Tutorials](tutorials.md)
-* [Resources: FAQs and Blogs](resources.md)
-* [Deep Learning AMI Options](ami-options.md)
+* [What are Deep Learning AMIs?](doc_source/what-is-dlami.md)
+* [Example Uses](doc_source/examples.md)
+* [Features](doc_source/features.md)
+* [Getting Started](doc_source/gs.md)
+* [Selecting a DLAMI](doc_source/options.md)
+* [Selecting an Instance](doc_source/instance-select.md)
+* [Launching a DLAMI](doc_source/launch-config.md)
+* [Tutorials](doc_source/tutorials.md)
+* [Resources: FAQs and Blogs](doc_source/resources.md)
+* [Deep Learning AMI Options](doc_source/ami-options.md)
+
 
 ## License Summary
 
