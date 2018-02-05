@@ -1,6 +1,6 @@
 # What Is the AWS Deep Learning AMI?<a name="what-is-dlami"></a>
 
-Welcome to the User Guide for the *AWS Deep Learning AMI*\.
+Welcome to the User Guide for the AWS Deep Learning AMI\.
 
 The AWS Deep Learning AMI \(DLAMI\) is your one\-stop shop for deep learning in the cloud\. This customized machine instance is available in most Amazon EC2 regions for a variety of instance types, from a small CPU\-only instance to the latest high\-powered multi\-GPU instances\. It comes preconfigured with [NVIDIA CUDA](https://developer.nvidia.com/cuda-zone) and [NVIDIA cuDNN](https://developer.nvidia.com/cudnn), as well as the latest releases of the most popular deep learning frameworks\.
 

@@ -8,4 +8,4 @@ Keep a copy of the SSH login command handy if you want to do the Jupyter setup a
 If you launch an Amazon Linux instance, the connect dialog box has "root@" in the SSH login command\. This should be replaced with "ec2\-user@"\.
 
 **Next Step**  
-[Step 3: Test Your DLAMI](launch-config-test.md)
+[Step 4: Test Your DLAMI](launch-config-test.md)

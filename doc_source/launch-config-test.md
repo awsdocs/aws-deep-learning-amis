@@ -1,4 +1,4 @@
-# Step 3: Test Your DLAMI<a name="launch-config-test"></a>
+# Step 4: Test Your DLAMI<a name="launch-config-test"></a>
 
 Depending on your DLAMI version, you have different testing options:
 
