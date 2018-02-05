@@ -12,7 +12,7 @@
 
  DLAMIs are not available in every region, but it is possible to copy DLAMIs to the region of your choice\. See [Copying an AMI](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html) for more info\. Each region supports a different range of instance types and often an instance type has a slightly different cost in different regions\. On each DLAMI main page, you will see a list of instance costs\. Note the region selection list and be sure you pick a region that's close to you or your customers\. If you plan to use more than one DLAMI and potentially create a cluster, be sure to use the same region for all of nodes in the cluster\. 
 
-+ For more detail on instances, check out [EC2 Instance Types](https://aws.amazon.com/instance-types/)\.
++ For more detail on instances, check out [EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/)\.
 
 + For a more info on regions, visit [EC2 Regions](http://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region)\.
 

@@ -16,6 +16,7 @@ Windows DLAMIs are available in these regions:
 | GovCloud | ec2\-us\-gov\-west\-1 | 
 | US West \(N\. California\) | ec2\-us\-west\-1 | 
 | US West \(Oregon\) | ec2\-us\-west\-2 | 
+| Beijing \(China\) | cn\-north\-1 | 
 | Asia Pacific \(Mumbai\) | ec2\-ap\-south\-1 | 
 | Asia Pacific \(Seoul\) | ec2\-ap\-northeast\-2 | 
 | Asia Pacific \(Singapore\) | ec2\-ap\-southeast\-1 | 

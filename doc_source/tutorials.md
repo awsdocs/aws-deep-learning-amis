@@ -11,6 +11,9 @@
 + [PyTorch](tutorial-pytorch.md)
 + [TensorFlow](tutorial-tensorflow.md)
 + [Theano](tutorial-theano.md)
++ [MXNet Model Server](tutorial-mms.md)
++ [TensorFlow Serving](tutorial-tfserving.md)
++ [TensorBoard](tutorial-tensorboard.md)
 
 The following sections describe how the Deep Learning AMI with Conda can be used to switch environments, run sample code from each of the frameworks, and how to run Jupyter so you can try out different notebook tutorials\.
 

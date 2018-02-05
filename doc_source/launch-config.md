@@ -12,6 +12,7 @@ We will use p2\.xlarge as the default instance type in the examples\. Just repla
 + [EC2 Console](launch-from-console.md)
 + [Marketplace Search](launch-from-marketplace.md)
 + [Step 2: Connect to the DLAMI](launch-config-connect.md)
-+ [Step 3: Test Your DLAMI](launch-config-test.md)
++ [Step 3: Secure Your DLAMI Instance](launch-config-secure.md)
++ [Step 4: Test Your DLAMI](launch-config-test.md)
 + [Clean Up](launch-config-cleanup.md)
 + [Set up a Jupyter Notebook Server](setup-jupyter.md)
