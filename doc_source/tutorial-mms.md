@@ -6,7 +6,7 @@
 
 MMS comes preinstalled with Deep Learning AMI with Conda\! You can get MMS model serving up and running very quickly with just a few commands\. 
 
- For this tutorial, we will skip over most of the features, but be sure to take a look at the [MMS documentation](https://github.com/awslabs/mxnet-model-server/docs) when you're ready for more\. Here is an easy example for serving an image classification model\. You run the server, which will listen for prediction requests\. Then you upload an image, and the server will return a prediction of the top 5 out of 1,000 classes that is was trained on\.
+ For this tutorial, we will skip over most of the features, but be sure to take a look at the [MMS documentation](https://github.com/awslabs/mxnet-model-server/tree/master/docs) when you're ready for more\. Here is an easy example for serving an image classification model\. You run the server, which will listen for prediction requests\. Then you upload an image, and the server will return a prediction of the top 5 out of 1,000 classes that is was trained on\.
 
 First, connect to your Deep Learning AMI with Conda and activate an MXNet environmenent\.
 
