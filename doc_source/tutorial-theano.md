@@ -1,14 +1,16 @@
 # Theano<a name="tutorial-theano"></a>
 
+## Theano Tutorial<a name="tutorial-theano-overview"></a>
+
 To activate the framework, follow these instructions on your Deep Learning AMI with Conda\.
 
-For Theano \+ Keras in Python 3 with CUDA 9:
+For Theano \+ Keras in Python 3 with CUDA 9 with cuDNN 7:
 
 ```
 $ source activate theano_p36
 ```
 
-For Theano \+ Keras in Python 2 with CUDA 9:
+For Theano \+ Keras in Python 2 with CUDA 9 with cuDNN 7:
 
 ```
 $ source activate theano_p27
@@ -35,5 +37,6 @@ pp(gy)
 
 You should see Theano computing a symbolic gradient\.
 
-**More Tutorials**  
+## More Tutorials<a name="tutorial-theano-more"></a>
+
 For further tutorials and examples refer to the framework's official docs, [Theano Python API](http://deeplearning.net/software/theano/library/index.html), and the [Theano](http://deeplearning.net/software/theano/) website\.

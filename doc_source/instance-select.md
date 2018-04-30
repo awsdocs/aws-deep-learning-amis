@@ -18,6 +18,9 @@
 
 So with all of those points in mind, make note of the instance type that best applies to your use case and budget\. The rest of the topics in this guide help further inform you and go into more detail\. 
 
+**Important**  
+The Deep Learning AMIs include drivers, software, or toolkits developed, owned, or provided by NVIDIA Corporation\. You agree to use these NVIDIA drivers, software, or toolkits only on Amazon EC2 instances that include NVIDIA hardware\.
+
 
 + [Recommended GPU Instances](gpu.md)
 + [Recommended CPU Instances](cpu.md)

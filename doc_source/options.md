@@ -12,8 +12,8 @@ The rest of the topics in this guide will help further inform you and go into mo
 
 
 + [Deep Learning AMI with Conda](overview-conda.md)
-+ [Deep Learning AMI with Source Code](overview-source.md)
 + [Deep Learning Base AMI](overview-base.md)
++ [Deep Learning AMI with Source Code](overview-source.md)
 + [CUDA Installations and Framework Bindings](overview-cuda.md)
 + [DLAMI Operating System Options](overview-os.md)
 

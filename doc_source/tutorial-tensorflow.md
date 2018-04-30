@@ -1,35 +1,46 @@
 # TensorFlow<a name="tutorial-tensorflow"></a>
 
-To activate the framework, follow these instructions on your Deep Learning AMI with Conda\.
+This tutorial shows how to activate TensorFlow on an instance running the Deep Learning AMI with Conda \(DLAMI on Conda\) and run a TensorFlow program\.
 
-For TensorFlow \+ Keras 2 on Python 3 with CUDA 8:
+**To run TensorFlow on the DLAMI with Conda**
 
-```
-$ source activate tensorflow_p36
-```
+1. To activate TensorFlow, open an Amazon Elastic Compute Cloud \(Amazon EC2\) instance of the DLAMI with Conda\.
 
-For TensorFlow \+ Keras 2 on Python 2 with CUDA 8:
+   + For TensorFlow \+ Keras 2 on Python 3 with CUDA 8, run this command:
 
-```
-$ source activate tensorflow_p27
-```
+     ```
+     $ source activate tensorflow_p36
+     ```
 
-Start the iPython terminal\.
+   + For TensorFlow \+ Keras 2 on Python 2 with CUDA 8, run this command:
 
-```
-(tensorflow_p36)$ ipython
-```
+     ```
+     $ source activate tensorflow_p27
+     ```
 
-Run a quick TensorFlow program\.
+1. Start the iPython terminal:
 
-```
-import tensorflow as tf
-hello = tf.constant('Hello, TensorFlow!')
-sess = tf.Session()
-print(sess.run(hello))
-```
+   ```
+   (tensorflow_p36)$ ipython
+   ```
 
-You should see "Hello, Tensorflow\!"
+1. Run a TensorFlow program to verify that it is working properly:
 
-**More Tutorials**  
-You can find more tutorials in the Deep Learning AMI with Conda tutorials folder in the home directory of the DLAMI\. For further tutorials and examples refer to the framework's official docs, [TensorFlow Python API](https://www.tensorflow.org/api_docs/python/), and the [TensorFlow](https://www.tensorflow.org) website\.
+   ```
+   import tensorflow as tf
+   hello = tf.constant('Hello, TensorFlow!')
+   sess = tf.Session()
+   print(sess.run(hello))
+   ```
+
+   `Hello, TensorFlow!` should appear on your screen\.
+
+## More Info<a name="tutorial-tensorflow-project"></a>
+
+[TensorBoard](tutorial-tensorboard.md)
+
+[TensorFlow Serving](tutorial-tfserving.md)
+
+For tutorials, see the folder called `Deep Learning AMI with Conda tutorials`in the home directory of the DLAMI\. 
+
+For even more tutorials and examples, see the TensorFlow documentation for the [TensorFlow Python API](https://www.tensorflow.org/api_docs/python/), and visit the [TensorFlow](https://www.tensorflow.org) website\.

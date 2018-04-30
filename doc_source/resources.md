@@ -13,11 +13,11 @@
 
 + [Updated List of Articles Related to Deep Learning AMIs](https://aws.amazon.com/blogs/ai/category/artificial-intelligence/aws-deep-learning-amis/)
 
++ [Launch a AWS Deep Learning AMI \(in 10 minutes\)](https://aws.amazon.com/getting-started/tutorials/get-started-dlami/)
+
++ [Faster Training with Optimized TensorFlow 1\.6 on Amazon EC2 C5 and P3 Instances](https://aws.amazon.com/blogs/machine-learning/faster-training-with-optimized-tensorflow-1-6-on-amazon-ec2-c5-and-p3-instances/)
+
 + [New AWS Deep Learning AMIs for Machine Learning Practitioners](https://aws.amazon.com/blogs/ai/new-aws-deep-learning-amis-for-machine-learning-practitioners/)
-
-+ [Get Started with Deep Learning Using the AWS Deep Learning AMI](https://aws.amazon.com/blogs/ai/get-started-with-deep-learning-using-the-aws-deep-learning-ami/)
-
-+ [Announcing New AWS Deep Learning AMI for Amazon EC2 P3 Instances](https://aws.amazon.com/blogs/ai/announcing-new-aws-deep-learning-ami-for-amazon-ec2-p3-instances/)
 
 + [New Training Courses Available: Introduction to Machine Learning & Deep Learning on AWS](https://aws.amazon.com/blogs/apn/new-training-courses-available-introduction-to-machine-learning-deep-learning-on-aws/)
 

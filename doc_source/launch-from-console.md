@@ -25,7 +25,7 @@
 1. Review the details and pricing\. Choose **Launch**\.
 
 **Tip**  
-Check out [Get Started with Deep Learning Using the AWS Deep Learning AMI](https://aws.amazon.com/blogs/ai/get-started-with-deep-learning-using-the-aws-deep-learning-ami/) for a walk\-through with screenshots\!
+Check out for a walk\-through with screenshots\!
 
 **Next Step**  
 [Step 2: Connect to the DLAMI](launch-config-connect.md)

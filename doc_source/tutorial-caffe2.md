@@ -1,8 +1,10 @@
 # Caffe2<a name="tutorial-caffe2"></a>
 
+## Caffe2 Tutorial<a name="tutorial-caffe2-overview"></a>
+
 To activate the framework, follow these instructions on your Deep Learning AMI with Conda\.
 
-There is only the Python 2 with CUDA 9 option:
+There is only the Python 2 with CUDA 9 with cuDNN 7 option:
 
 ```
 $ source activate caffe2_p27
@@ -30,5 +32,6 @@ print(x2)
 
 You should see the initial numpy random arrays printed and then those loaded into a Caffe2 blob\. Note that after loading they are the same\.
 
-**More Tutorials**  
+## More Tutorials<a name="tutorial-caffe2-more"></a>
+
 For more tutorials and examples refer to the framework's official Python docs, [Python API for Caffe2](https://caffe2.ai/doxygen-python/html/annotated.html), and the [Caffe2](https://caffe2.ai) website\.

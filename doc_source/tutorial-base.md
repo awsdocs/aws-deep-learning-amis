@@ -12,7 +12,7 @@ CUDA 9 portion of the LD\_LIBRARY\_PATH string \(installed by default\)
 
 Replace with CUDA 8
 
-**\.\.\. *:/usr/local/cuda\-8\.0/lib64:/usr/local/cuda\-8\.0/extras/CUPTI/lib64:/lib/nccl/cuda\-9* :\.\.\.rest of LD\_LIBRARY\_PATH value**
+**\.\.\. *:/usr/local/cuda\-8\.0/lib64:/usr/local/cuda\-8\.0/extras/CUPTI/lib64:/lib/nccl/cuda\-8* :\.\.\.rest of LD\_LIBRARY\_PATH value**
 
 **Tip**  
 Refer to the release notes for information regarding known issues:  

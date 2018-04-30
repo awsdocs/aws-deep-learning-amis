@@ -52,7 +52,7 @@ Even if you use a CPU\-only instance, the DLAMI will have [NVIDIA CUDA](https://
 
 Deep Learning AMI with Conda comes preinstalled with two kinds of model servers, one for MXNet and one for TensorFlow, as well as TensorBoard, for model visualizations\.
 
-+ [MXNet Model Server](tutorial-mms.md)
++ [Running Model Server for Apache MXNet on the Deep Learning AMI with Conda](tutorial-mms.md)
 
 + [TensorFlow Serving](tutorial-tfserving.md)
 

@@ -1,5 +1,8 @@
 # Deep Learning AMI with Source Code<a name="source"></a>
 
+**Important**  
+**These DLAMI are no longer being updated\. It is advised to use the [Deep Learning AMI with Conda](overview-conda.md) or [Deep Learning Base AMI](overview-base.md)**\.
+
 Use the [Launching and Configuring a DLAMI](launch-config.md) guide to continue with one of these DLAMI\.
 
 + [Deep Learning AMI with Source Code \(CUDA 9, Ubuntu\)](https://aws.amazon.com/marketplace/pp/B076TGJHY1)
@@ -17,6 +20,7 @@ These DLAMIs are available in these regions:
 | --- | --- | 
 | US East \(Ohio\) | ec2\-us\-east\-2 | 
 | US East \(N\. Virginia\) | ec2\-us\-east\-1 | 
+| US West \(N\. California\) | ec2\-us\-west\-1 | 
 | US West \(Oregon\) | ec2\-us\-west\-2 | 
 | Beijing \(China\) | cn\-north\-1 | 
 | Asia Pacific \(Mumbai\) | ec2\-ap\-south\-1 | 
@@ -24,5 +28,9 @@ These DLAMIs are available in these regions:
 | Asia Pacific \(Singapore\) | ec2\-ap\-southeast\-1 | 
 | Asia Pacific \(Sydney\) | ec2\-ap\-southeast\-2 | 
 | Asia Pacific \(Tokyo\) | ec2\-ap\-northeast\-1 | 
+| Canada \(Central\) | ec2\-ca\-central\-1 | 
 | EU \(Frankfurt\) | ec2\-eu\-central\-1 | 
 | EU \(Ireland\) | ec2\-eu\-west\-1 | 
+| EU \(London\) | ec2\-eu\-west\-2 | 
+| EU \(Paris\) | ec2\-eu\-west\-3 | 
+| SA \(Sao Paulo\) | ec2\-sa\-east\-1 | 

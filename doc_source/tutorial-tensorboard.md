@@ -1,48 +1,72 @@
 # TensorBoard<a name="tutorial-tensorboard"></a>
 
-[TensorBoard](https://www.tensorflow.org/get_started/summaries_and_tensorboard) is used to visualize your TensorFlow graph, plot quantitative metrics about the execution of your graph, and show additional data like images that pass through it\.
+ [TensorBoard](https://www.tensorflow.org/get_started/summaries_and_tensorboard) lets you to visually inspect and interpret your TensorFlow runs and graphs\. It runs a web server that serves a webpage for viewing and interacting with the TensorBoard visualizations\. 
 
-## Train an MNIST Model then Visualize with TensorBoard<a name="tutorial-tensorboard-example"></a>
+TensorFlow and TensorBoard are preinstalled with the Deep Learning AMI with Conda \(DLAMI with Conda\)\. The DLAMI with Conda also includes an example script that uses TensorFlow to train an MNIST model with extra logging features enabled\. MNIST is a database of handwritten numbers that is commonly used to train image recognition models\. In this tutorial, you use the script to train an MNIST model, and TensorBoard and the logs to create visualizations\. 
 
-The `tensorboard` tool is pre\-installed with Deep Learning AMI with Conda\! You will find an example script to train MNIST model with extra logging features in `~/tutorials/TensorFlow/board`\. These logs are used by TensorBoard to create visualizations\. TensorBoard runs a webserver to serve a web page for viewing and interacting with the visualizations\.
 
-First, connect to your Deep Learning AMI with Conda and activate the Python 2\.7 TensorFlow environmenent\. Then change directories to the TensorBoard example scripts folder\.
++ [Train an MNIST Model and Visualize the Training with TensorBoard](#tutorial-tensorboard-example)
++ [More Info](#tutorial-tensorboard-project)
 
-```
-$ source activate tensorflow_p27
-$ cd ~/tutorials/TensorFlow/board
-```
+## Train an MNIST Model and Visualize the Training with TensorBoard<a name="tutorial-tensorboard-example"></a>
 
-Run the script that will train the MNIST model while taking care of extended logging\.
+**Visualize MNIST model training with TensorBoard**
 
-```
-$ python mnist_with_summaries.py
-```
+1. Connect to your Amazon Elastic Compute Cloud \(Amazon EC2\) instance of the DLAMI with Conda\. 
 
- The script is hard\-coded to write the logs to `/tmp/tensorflow/mnist`\. This location is the parameter you need to pass to `tensorboard`: 
+1. Activate the Python 2\.7 TensorFlow environment and navigate to the directory that contains the folder with the TensorBoard example scripts:
 
-```
-$ tensorboard --logdir=/tmp/tensorflow/mnist
-```
+   ```
+   $ source activate tensorflow_p27
+   $ cd ~/tutorials/TensorFlow/board
+   ```
 
-By default it will launch the visualization server on port 6006\. Changing this to port 80 or another port may be required for ease of access from your local browser\. You will need to open this port in the EC2 Security Group for your DLAMI\. You can also use port forwarding\. Instructions for changing your security group settings and port forwarding are just like how you [Set up a Jupyter Notebook Server](setup-jupyter.md)\. Note that if you want to run both Jupyter server and a TensorBoard server, you need to pick different ports for each\. 
+1. Run the script that trains an MNIST model with extended logging enabled:
 
-To open port 6006 \(or one of your choosing\) on your instance's firewall:
+   ```
+   $ python mnist_with_summaries.py
+   ```
 
-Open your EC2 dashboard and choose **Security Groups** on the EC2 navigation bar in the **Network & Security** section\. On this page, there will be one or more security groups in the list\. Find the most recent one \(the description has a timestamp in it\), select it, choose the **Inbound** tab, and then click **Edit**\. Then click **Add Rule**\. This adds a new row\. Fill in the fields with the following information: 
+   The script writes the logs to `/tmp/tensorflow/mnist`\. 
 
-**Type** : Custom **TCP Rule**
+1. Pass the location of the logs to `tensorboard`: 
 
-**Protocol**: **TCP**
+   ```
+   $ tensorboard --logdir=/tmp/tensorflow/mnist
+   ```
 
-**Port Range**: **6006**
+   TensorBoard launches the visualization web server on port 6006\.
 
-**Source**: **Anywhere** \(**0\.0\.0\.0/0,::/0**\)
+1. For easy access from your local browser, you can change the web server port to port 80 or another port\. Whichever port you use, you will need to open this port in the EC2 security group for your DLAMI\. You can also use port forwarding\. For instructions on changing your security group settings and port forwarding, see [Set up a Jupyter Notebook Server](setup-jupyter.md)\. The default settings are described in the next step\.
+**Note**  
+If you need to run both Jupyter server and a TensorBoard server, use a different port for each\. 
 
-Open the web page for the TensorBoard visualizations using the public IP or DNS of your DLAMI and the port you opened for TensorBoard: 
+1. Open port 6006 \(or the port you assigned to the visualization web server\) on your EC2 instance\.
 
-**http://** ***YourInstancePublicDNS*:6006**
+   1. Open your EC2 instance in the Amazon EC2console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
 
-## More Features and Examples<a name="tutorial-tensorboard-project"></a>
+   1. In the Amazon EC2 console, choose **Network & Security**, then choose**Security Groups**\.
 
-If you are interested in learning more about TensorBoard, visit the [TensorBoard website](https://www.tensorflow.org/get_started/summaries_and_tensorboard)\.
+   1. For **Security Group**, , choose the one that was created most recently \(see the timestamp in the description\)\.
+
+   1.  Choose the **Inbound** tab, and choose **Edit**\.
+
+   1. Choose **Add Rule**\. 
+
+   1. In the new row, type the followings: 
+
+      **Type** : Custom **TCP Rule**
+
+      **Protocol**: **TCP**
+
+      **Port Range**: **6006** \(or the port that you assigned to the visualization server\)
+
+      **Source**: **Anywhere** \(**0\.0\.0\.0/0,::/0**\)
+
+1. Open the web page for the TensorBoard visualizations by using the public IP or DNS address of the EC2 instance that's running the DLAMI with Conda and the port that you opened for TensorBoard: 
+
+   **http://** ***YourInstancePublicDNS*:6006**
+
+## More Info<a name="tutorial-tensorboard-project"></a>
+
+To learn more about TensorBoard, see the [TensorBoard website](https://www.tensorflow.org/get_started/summaries_and_tensorboard)\.

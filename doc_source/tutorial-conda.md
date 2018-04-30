@@ -64,6 +64,9 @@ This signifies that the environment will have MXNet and Python 2 \(with Keras 1 
 
 We will test MXNet first to give you a general idea of how easy it is\.
 
+**Note**  
+When you launch your first Conda environment, please be patient while it loads\. The Deep Learning AMI with Conda automatically installs the most optimized version of the framework for your EC2 instance upon the framework's first activation\. You should not expect subsequent delays\.
+
 + Activate the MXNet virtual environment for Python 3\.
 
   ```

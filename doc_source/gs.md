@@ -8,19 +8,7 @@ If you're new to using AWS or using Amazon EC2, start with the [Deep Learning AM
 
 If you're already familiar with using AMIs and want to spin one up now, you can go to the AMI Marketplace now\. But first we recommend that you check out [Choosing Your DLAMI](options.md) to get an idea of which instance type might be best for your application\.
 
-## Sign Up for AWS<a name="whats-next"></a>
-
-If you don't have an AWS account yet, use the following steps to sign up first, then return to [Choosing Your DLAMI](options.md) to continue\.
-
-**Sign up for an AWS account**
-
-1. Open [https://aws\.amazon\.com/](https://aws.amazon.com/), and then choose **Create an AWS Account**\.
-**Note**  
-This might be unavailable in your browser if you previously signed into the AWS Management Console\. In that case, choose **Sign in to a different account**, and then choose **Create a new AWS account**\.
-
-1. Follow the online instructions\.
-
-   Part of the sign\-up procedure involves receiving a phone call and entering a PIN using the phone keypad\.
+Another option is this quick tutorial: [Launch a AWS Deep Learning AMI \(in 10 minutes\)](https://aws.amazon.com/getting-started/tutorials/get-started-dlami/)\. 
 
 **Next Step**  
 [Choosing Your DLAMI](options.md)
