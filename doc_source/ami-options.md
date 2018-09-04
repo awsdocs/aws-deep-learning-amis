@@ -2,7 +2,7 @@
 
 The following topics describe the categories of AWS Deep Learning AMIs\.
 
-
+**Topics**
 + [Deep Learning AMI with Conda](conda.md)
 + [Deep Learning Base AMI](base.md)
 + [Deep Learning AMI with Source Code](source.md)

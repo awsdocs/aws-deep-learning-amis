@@ -6,7 +6,7 @@
 
 The `tensorflow-serving-api` is pre\-installed with Deep Learning AMI with Conda\! You will find an example scripts to train, export, and serve an MNIST model in `~/tutorials/TensorFlow/serving`\. For this tutorial we will export a model then serve it with the `tensorflow_model_server` application\. Finally, you can test the model server with an example client script\.
 
-First, connect to your Deep Learning AMI with Conda and activate the Python 2\.7 TensorFlow environmenent\. The example scripts are not compatible with Python 3\.x\.
+First, connect to your Deep Learning AMI with Conda and activate the Python 2\.7 TensorFlow environment\. The example scripts are not compatible with Python 3\.x\.
 
 ```
 $ source activate tensorflow_p27

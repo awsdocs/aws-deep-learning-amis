@@ -1,4 +1,4 @@
-# Apache MXNet<a name="tutorial-mxnet"></a>
+# Apache MXNet \(incubating\)<a name="tutorial-mxnet"></a>
 
 ## MXNet Tutorial<a name="tutorial-mxnet-overview"></a>
 
@@ -43,6 +43,6 @@ array([[ 0.,  0.,  0.,  0.,  0.],
 
 You can find more tutorials in the Deep Learning AMI with Conda tutorials folder in the home directory of the DLAMI\. Your Deep Learning AMI with Conda also comes with: 
 
-1. [Running Model Server for Apache MXNet on the Deep Learning AMI with Conda](tutorial-mms.md)
+1. [Model Server for Apache MXNet \(MMS\)](tutorial-mms.md)
 
 For further tutorials and examples refer to the framework's official Python docs, [Python API for MXNet](https://mxnet.incubator.apache.org/api/python/index.html), and the [Apache MXNet](https://mxnet.incubator.apache.org/) website\.

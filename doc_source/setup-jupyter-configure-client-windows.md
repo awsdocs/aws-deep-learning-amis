@@ -3,9 +3,7 @@
 ## Prepare<a name="setup-jupyter-configure-client-prepare"></a>
 
 Be sure you have the following information, which you need to set up the SSH tunnel:
-
 + The public DNS name of your Amazon EC2 instance\. You can find the public DNS name in the EC2 console\. 
-
 + The key pair for the private key file\. For more information about accessing your key pair, see [Amazon EC2 Key Pairs](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in the *Amazon EC2 User Guide for Linux Instances*\. 
 
 ## Set up PuTTY<a name="setup-jupyter-win"></a>
@@ -23,17 +21,11 @@ The following step\-by\-step instructions explain how to connect to your EC2 ins
    **Port:** 22
 
    Be sure to specify the appropriate user name for your AMI\. For example:
-
    + For an Amazon Linux AMI, the user name is ec2\-user\.
-
    + For a RHEL AMI, the user name is ec2\-user or root\.
-
    + For an Ubuntu AMI, the user name is ubuntu or root\.
-
    + For a Centos AMI, the user name is centos\.
-
    + For a Fedora AMI, the user name is ec2\-user\.
-
    + For SUSE, the user name is ec2\-user or root\.
 
    Otherwise, if ec2\-user and root don't work, check with the AMI provider\.  

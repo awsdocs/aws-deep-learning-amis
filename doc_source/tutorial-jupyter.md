@@ -50,4 +50,4 @@ At this point you'll need to rerun any cells because a change in the kernel will
 Switching between frameworks can be fun and educational, however you can run out of memory\. If you start running into errors, look at the terminal window that has the Jupyter server running\. There are helpful messages and error logging here, and you may see an out\-of\-memory error\. To fix this, you can go to the home page of your Jupyter server, click the **Running** tab, then click **Shutdown** for each of the tutorials that are probably still running in the background and eating up all of your memory\.
 
 **Next Up**  
-For more examples and sample code from each framework, click **Next** or continue to [Apache MXNet](tutorial-mxnet.md)\.
+For more examples and sample code from each framework, click **Next** or continue to [Apache MXNet \(incubating\)](tutorial-mxnet.md)\.

@@ -29,11 +29,8 @@ Python 2\.7 and Python 3\.6 are supported in the AMI\.
 The AMI supports CPU Instance Types\.
 
 ## GPU Drivers Installed<a name="gpu-drivers-a"></a>
-
 + Nvidia 384\.81
-
 + CUDA 9
-
 + CuDNN 7
 
 ## Launching Deep Learning Instance<a name="launching-dl-a"></a>
@@ -45,31 +42,20 @@ Choose the flavor of the AMI from the list below in the region of your choice an
 ## Deep Learning AMI \(Ubuntu\)<a name="amazonlinuxami-a"></a>
 
 This AMI is available in the following regions:
-
-+ US East \(Ohio\): ec2\-us\-east\-2
-
-+ US East \(N\. Virginia\): ec2\-us\-east\-1
-
-+ US West \(N\. California\): ec2\-us\-west\-1
-
-+ US West \(Oregon\): ec2\-us\-west\-2
-
-+ Asia Pacific \(Seoul\): ec2\-ap\-northeast\-2
-
-+ Asia Pacific \(Singapore\): ec2\-ap\-southeast\-1
-
-+ Asia Pacific \(Tokyo\): ec2\-ap\-northeast\-1
-
-+ EU \(Ireland\): ec2\-eu\-west\-1
++ US East \(Ohio\): us\-east\-2
++ US East \(N\. Virginia\): us\-east\-1
++ US West \(N\. California\): us\-west\-1
++ US West \(Oregon\): us\-west\-2
++ Asia Pacific \(Seoul\): ap\-northeast\-2
++ Asia Pacific \(Singapore\): ap\-southeast\-1
++ Asia Pacific \(Tokyo\): ap\-northeast\-1
++ EU \(Ireland\): eu\-west\-1
 
 ## Test Environments<a name="test-environments-a"></a>
-
 + Built on p2\.16xlarge\.
-
 + Also tested on p2\.xlarge, c4\.4xlarge\.
 
 ## Deep Learning Base AMI \(Ubuntu\) Known Issues<a name="BASE_UBUNTU-known-issues"></a>
-
 + **Issue**: The MOTD has an incorrect link to these release notes\.
 
   **Workaround**: If you made here, then you already know\.

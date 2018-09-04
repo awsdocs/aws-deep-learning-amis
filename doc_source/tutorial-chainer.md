@@ -1,10 +1,10 @@
 # Chainer<a name="tutorial-chainer"></a>
 
-[Chainer](https://chainer.org/) is a flexible Python\-based framework for easily and intuitively writing complex neural network architectures\. Chainer makes it easy to use multi\-GPU instances for training\. Chainer also automatically logs results, graph loss and accuracy, and produces output for visualualizing the neural network with a [computational graph](https://docs.chainer.org/en/stable/reference/graph.html)\. It is included with the Deep Learning AMI with Conda \(DLAMI with Conda\)\. 
+[Chainer](https://chainer.org/) is a flexible Python\-based framework for easily and intuitively writing complex neural network architectures\. Chainer makes it easy to use multi\-GPU instances for training\. Chainer also automatically logs results, graph loss and accuracy, and produces output for visualizing the neural network with a [computational graph](https://docs.chainer.org/en/stable/reference/graph.html)\. It is included with the Deep Learning AMI with Conda \(DLAMI with Conda\)\. 
 
 The following topics show you how to train on multiple GPUs, a single GPU, and a CPU, create visualizations, and test your Chainer installation\.
 
-
+**Topics**
 + [Training a Model with Chainer](#tutorial-chainer-model)
 + [Use Chainer to Train on Multiple GPUs](#tutorial-chainer-multi-gpu)
 + [Use Chainer to Train on a Single GPU](#tutorial-chainer-gpu)
@@ -21,7 +21,7 @@ This tutorial shows you how to use example Chainer scripts to train a model with
 
 **To train on multiple GPUs**
 
-1. Connect to the instance running Deep Learning AMI with Conda\. Refer to the [Selecting the Instance Type for DLAMI](instance-select.md) or the [Amazon EC2 documentation](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html) on how to select or connect to an instance\.
+1. Connect to the instance running Deep Learning AMI with Conda\. Refer to the [Selecting the Instance Type for DLAMI](instance-select.md) or the [Amazon EC2 documentation](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html) on how to select or connect to an instance\. To run this tutorial, you will want to use an instance with at least two GPUs\.
 
 1. Activate the Python 3 Chainer environment:
 
@@ -29,12 +29,11 @@ This tutorial shows you how to use example Chainer scripts to train a model with
    $ source activate chainer_p36
    ```
 
-1. To get the latest tutorials, clone the Chainer repository, checkout Chainer version 3\.5\.0, and navigate to the examples folder:
+1. To get the latest tutorials, clone the Chainer repository, and navigate to the examples folder:
 
    ```
    (chainer_p36) :~$ cd ~/src
    (chainer_p36) :~/src$ git clone https://github.com/chainer/chainer.git
-   (chainer_p36) :~/src$ git checkout tags/v3.5.0
    (chainer_p36) :~/src$ cd chainer/examples/mnist
    ```
 
@@ -127,7 +126,6 @@ This tutorial shows you how to use example Chainer scripts to train a model with
 This example shows how to train on a single GPU\. You might do this if you have only one GPU available or just to see how multi\-GPU training might scale with Chainer\. 
 
 **To use Chainer to train on a single GPU**
-
 + For this example, you use another script, `train_mnist.py`, and tell it to use just GPU 0 with the `--gpu=0` argument\. To see how a different GPUs activate in the `nvidia-smi` console, you can tell the script to use GPU number 1 by using `--gpu=1` \.
 
   ```

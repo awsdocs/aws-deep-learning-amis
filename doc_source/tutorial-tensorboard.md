@@ -4,7 +4,7 @@
 
 TensorFlow and TensorBoard are preinstalled with the Deep Learning AMI with Conda \(DLAMI with Conda\)\. The DLAMI with Conda also includes an example script that uses TensorFlow to train an MNIST model with extra logging features enabled\. MNIST is a database of handwritten numbers that is commonly used to train image recognition models\. In this tutorial, you use the script to train an MNIST model, and TensorBoard and the logs to create visualizations\. 
 
-
+**Topics**
 + [Train an MNIST Model and Visualize the Training with TensorBoard](#tutorial-tensorboard-example)
 + [More Info](#tutorial-tensorboard-project)
 
@@ -18,7 +18,7 @@ TensorFlow and TensorBoard are preinstalled with the Deep Learning AMI with Cond
 
    ```
    $ source activate tensorflow_p27
-   $ cd ~/tutorials/TensorFlow/board
+   $ cd ~/examples/tensorboard/
    ```
 
 1. Run the script that trains an MNIST model with extended logging enabled:
@@ -47,7 +47,7 @@ If you need to run both Jupyter server and a TensorBoard server, use a different
 
    1. In the Amazon EC2 console, choose **Network & Security**, then choose**Security Groups**\.
 
-   1. For **Security Group**, , choose the one that was created most recently \(see the timestamp in the description\)\.
+   1. For **Security Group**, , choose the one that was created most recently \(see the time stamp in the description\)\.
 
    1.  Choose the **Inbound** tab, and choose **Edit**\.
 

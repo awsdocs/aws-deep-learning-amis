@@ -6,9 +6,7 @@ Look at our guide on [Stable versus Bleeding Edge](overview-conda.md#overview-co
 
 **CUDA Support**  
 The Deep Learning AMI with Source Code's CUDA version and the frameworks supported for each:
-
 + [Deep Learning AMI with CUDA 9](cuda9.md): Apache MXNet, Caffe2, PyTorch, TensorFlow
-
 + [Deep Learning AMI with CUDA 8](cuda8.md): Apache MXNet, Caffe, Caffe2, CNTK, PyTorch, Theano, TensorFlow, and Torch
 
 Specific framework version numbers can be found in the [DLAMI: Release Notes](appendix-ami-release-notes.md)
@@ -16,9 +14,7 @@ Specific framework version numbers can be found in the [DLAMI: Release Notes](ap
 Choose this DLAMI type or learn more about the different DLAMIs with the Next Up option\.
 
 Choose one of the CUDA versions and review the full list of DLAMIs that have that version in the Appendix, or learn more about the different DLAMIs with the Next Up option\.
-
 + [Deep Learning AMI with CUDA 9](cuda9.md)
-
 + [Deep Learning AMI with CUDA 8](cuda8.md)
 
 **Next Up**  
