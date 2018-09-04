@@ -5,14 +5,12 @@ This tutorial shows how to activate TensorFlow on an instance running the Deep L
 **To run TensorFlow on the DLAMI with Conda**
 
 1. To activate TensorFlow, open an Amazon Elastic Compute Cloud \(Amazon EC2\) instance of the DLAMI with Conda\.
-
-   + For TensorFlow \+ Keras 2 on Python 3 with CUDA 8, run this command:
+   + For TensorFlow and Keras 2 on Python 3 with CUDA 8, run this command:
 
      ```
      $ source activate tensorflow_p36
      ```
-
-   + For TensorFlow \+ Keras 2 on Python 2 with CUDA 8, run this command:
+   + For TensorFlow and Keras 2 on Python 2 with CUDA 8, run this command:
 
      ```
      $ source activate tensorflow_p27

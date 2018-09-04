@@ -1,6 +1,6 @@
 # Using the Deep Learning AMI with Conda<a name="tutorial-conda"></a>
 
-
+**Topics**
 + [Introduction to the Deep Learning AMI with Conda](#tutorial-conda-overview)
 + [Step 1: Log in to Your DLAMI](#tutorial-conda-login)
 + [Step 2: Start the MXNet Python 3 Environment](#tutorial-conda-switch-mxnet)
@@ -15,7 +15,7 @@ The Deep Learning AMI with Conda has been configured for you to easily switch be
 
 ## Step 1: Log in to Your DLAMI<a name="tutorial-conda-login"></a>
 
-After you log in to your server, you will see a server "message of the day" \(MOTD\) describing various conda commands that you can use to switch between the different deep learning frameworks\.
+After you log in to your server, you will see a server "message of the day" \(MOTD\) describing various Conda commands that you can use to switch between the different deep learning frameworks\. Below is an example MOTD\. Your specific MOTD may vary as new versions of the DLAMI are released\.
 
 ```
 =============================================================================
@@ -24,25 +24,29 @@ After you log in to your server, you will see a server "message of the day" \(MO
       ___|\___|___|
 =============================================================================
 
-Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.4.0-1039-aws x86_64v)
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-1062-aws x86_64v)
 
 Please use one of the following commands to start the required environment with the framework of your choice:
-for MXNet(+Keras1) with Python3 (CUDA 9) _____________________ source activate mxnet_p36
-for MXNet(+Keras1) with Python2 (CUDA 9) _____________________ source activate mxnet_p27
-for TensorFlow(+Keras2) with Python3 (CUDA 8) ________________ source activate tensorflow_p36
-for TensorFlow(+Keras2) with Python2 (CUDA 8) ________________ source activate tensorflow_p27
-for Theano(+Keras2) with Python3 (CUDA 9) ____________________ source activate theano_p36
-for Theano(+Keras2) with Python2 (CUDA 9) ____________________ source activate theano_p27
-for PyTorch with Python3 (CUDA 8) ____________________________ source activate pytorch_p36
-for PyTorch with Python2 (CUDA 8) ____________________________ source activate pytorch_p27
-for CNTK(+Keras2) with Python3 (CUDA 8) ______________________ source activate cntk_p36
-for CNTK(+Keras2) with Python2 (CUDA 8) ______________________ source activate cntk_p27
-for Caffe2 with Python2 (CUDA 9) _____________________________ source activate caffe2_p27
-for base Python2 (CUDA 9) ____________________________________ source activate python2
-for base Python3 (CUDA 9) ____________________________________ source activate python3
+for MXNet(+Keras2) with Python3 (CUDA 9.0 and Intel MKL-DNN) _______________________________ source activate mxnet_p36
+for MXNet(+Keras2) with Python2 (CUDA 9.0 and Intel MKL-DNN) _______________________________ source activate mxnet_p27
+for TensorFlow(+Keras2) with Python3 (CUDA 9.0 and Intel MKL-DNN) _____________________ source activate tensorflow_p36
+for TensorFlow(+Keras2) with Python2 (CUDA 9.0 and Intel MKL-DNN) _____________________ source activate tensorflow_p27
+for Theano(+Keras2) with Python3 (CUDA 9.0) _______________________________________________ source activate theano_p36
+for Theano(+Keras2) with Python2 (CUDA 9.0) _______________________________________________ source activate theano_p27
+for PyTorch with Python3 (CUDA 9.0 and Intel MKL) ________________________________________ source activate pytorch_p36
+for PyTorch with Python2 (CUDA 9.0 and Intel MKL) ________________________________________ source activate pytorch_p27
+for CNTK(+Keras2) with Python3 (CUDA 9.0 and Intel MKL-DNN) _________________________________ source activate cntk_p36
+for CNTK(+Keras2) with Python2 (CUDA 9.0 and Intel MKL-DNN) _________________________________ source activate cntk_p27
+for Caffe2 with Python2 (CUDA 9.0) ________________________________________________________ source activate caffe2_p27
+for Caffe with Python2 (CUDA 8.0) __________________________________________________________ source activate caffe_p27
+for Caffe with Python3 (CUDA 8.0) __________________________________________________________ source activate caffe_p35
+for Chainer with Python2 (CUDA 9.0 and Intel iDeep) ______________________________________ source activate chainer_p27
+for Chainer with Python3 (CUDA 9.0 and Intel iDeep) ______________________________________ source activate chainer_p36
+for base Python2 (CUDA 9.0) __________________________________________________________________ source activate python2
+for base Python3 (CUDA 9.0) __________________________________________________________________ source activate python3
 ```
 
-Each conda command has the following pattern:
+Each Conda command has the following pattern:
 
 `source activate framework_python-version`
 
@@ -66,7 +70,6 @@ We will test MXNet first to give you a general idea of how easy it is\.
 
 **Note**  
 When you launch your first Conda environment, please be patient while it loads\. The Deep Learning AMI with Conda automatically installs the most optimized version of the framework for your EC2 instance upon the framework's first activation\. You should not expect subsequent delays\.
-
 + Activate the MXNet virtual environment for Python 3\.
 
   ```
@@ -77,7 +80,7 @@ This activates the environment for MXNet with Python 3\. Alternatively, you coul
 
 ## Step 3: Test Some MXNet Code<a name="tutorial-conda-test-mxnet"></a>
 
-To test your installation, use Python to write MXNet code that creates and prints an array using the `NDArray` API\. For more information, see [NDArray API](http://mxnet.io/api/python/ndarray.html)\.
+To test your installation, use Python to write MXNet code that creates and prints an array using the `NDArray` API\. For more information, see [NDArray API](https://mxnet.incubator.apache.org/api/python/ndarray/ndarray.html)\.
 
 1. Start the iPython terminal\.
 

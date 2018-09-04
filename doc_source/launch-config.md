@@ -7,7 +7,7 @@ You should also know which instance type and region you're going to choose\. If 
 **Note**  
 We will use p2\.xlarge as the default instance type in the examples\. Just replace this with whichever instance type you have in mind\.
 
-
+**Topics**
 + [Step 1: Launch a DLAMI](launch.md)
 + [EC2 Console](launch-from-console.md)
 + [Marketplace Search](launch-from-marketplace.md)

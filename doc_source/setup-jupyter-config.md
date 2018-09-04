@@ -26,7 +26,7 @@ Connect to the Amazon EC2 instance, and then complete the following procedure\.
       At the iPython prompt, run the `passwd()`command to set the password\.
 
       ```
-      iPythonPrompt> from IPython.lib import passwd 
+      iPythonPrompt> from IPython.lib import passwd
       iPythonPrompt> passwd()
       ```
 
@@ -58,7 +58,6 @@ Connect to the Amazon EC2 instance, and then complete the following procedure\.
       c = get_config()  # Get the config object.
       c.NotebookApp.certfile = u'/home/ubuntu/ssl/cert.pem' # path to the certificate we generated
       c.NotebookApp.keyfile = u'/home/ubuntu/ssl/cert.key' # path to the certificate key we generated
-      c.IPKernelApp.pylab = 'inline'  # in-line figure when using Matplotlib
       c.NotebookApp.ip = '*'  # Serve notebooks locally.
       c.NotebookApp.open_browser = False  # Do not open a browser window by default when using notebooks.
       c.NotebookApp.password = 'sha1:fc216:3a35a98ed980b9...'

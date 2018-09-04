@@ -5,13 +5,11 @@ Now you are ready to log in to the Jupyter notebook server\.
 **Your next step is to test the connection to the server through your browser\.**
 
 1. In the address bar of your browser, type the following URL\.
-
    + For macOS and Linux clients, type the following URL\.
 
      ```
      http://127.0.0.1:8157
      ```
-
    + For Windows clients, use localhost or the public DNS name of the Amazon EC2 instance and the Jupyter port number\. The Jupyter port is typically 8888\.
 
      ```
@@ -31,4 +29,4 @@ Now you are ready to log in to the Jupyter notebook server\.
 **Note**  
 The Jupyter login screen will ask for a token by default\. However, if you set up a password, the prompt will ask for a password instead\.
 
-   Now you have access to the Jupyter notebook server that is running on the DLAMI\. You can create new notebooks or run the provided [Tutorials and Examples](tutorials.md)\.
+   Now you have access to the Jupyter notebook server that is running on the DLAMI\. You can create new notebooks or run the provided [Tutorials](tutorials.md)\.
