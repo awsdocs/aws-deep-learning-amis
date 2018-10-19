@@ -2,6 +2,11 @@
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Installing TensorFlow from a Nightly Build](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-tensorflow.html) | A tutorial was added that covers how you can uninstall TensorFlow, then install a nightly build of TensorFlow on your Deep Learning AMI with Conda\. | October 16, 2018 | 
+| [Installing MXNet from a Nightly Build](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-mxnet.html) | A tutorial was added that covers how you can uninstall MXNet, then install a nightly build of MXNet on your Deep Learning AMI with Conda\. | October 16, 2018 | 
+| [Installing CNTK from a Nightly Build](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-cntk.html) | A tutorial was added that covers how you can uninstall CNTK, then install a nightly build of CNTK on your Deep Learning AMI with Conda\. | October 16, 2018 | 
+| [Installing PyTorch from a Nightly Build](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-pytorch.html) | A tutorial was added that covers how you can uninstall PyTorch, then install a nightly build of PyTorch on your Deep Learning AMI with Conda\. | September 25, 2018 | 
+| [Docker is now pre\-installed on your DLAMI](https://docs.aws.amazon.com/dlami/latest/devguide/resources.html) | Since v14 of the Deep Learning AMI with Conda, Docker and NVIDIA's version of Docker for GPUs has been pre\-installed\. | September 25, 2018 | 
 | [TensorBoard Tutorial](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-tensorboard.html) | Example was moved to \~/examples/tensorboard\. Tutorial paths updated\. | July 23, 2018 | 
 | [MXBoard Tutorial](https://docs.aws.amazon.com/dlami/latest/devguide/debugging-and-visualization.html) | A tutorial on how to use MXBoard for visualization of MXNet models was addded\. | July 23, 2018 | 
 | [Distributed Training Tutorials](https://docs.aws.amazon.com/dlami/latest/devguide/distributed-training.html) | A tutorial on how to use Keras\-MXNet for multi\-GPU training was added\. Chainer's tutorial was updated to for v4\.2\.0\. | July 23, 2018 | 

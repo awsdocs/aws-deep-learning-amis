@@ -149,7 +149,7 @@ Deep Learning AMI \(Amazon Linux\)s are available in the following regions:
 + **Issue**: Module not found error running Caffe2 examples\. 
 
   **Workaround**: [Caffe2 optional dependencies are needed for some tutorials](https://caffe2.ai/docs/getting-started.html)
-+ **Issue**: Caffe2 model download features result in 404\. The models have changed locations since the v0\.8\.1 release\. Update models/download\.py to use the [update from master](https://github.com/caffe2/caffe2/blob/master/caffe2/python/models/download.py#L40)\.
++ **Issue**: Caffe2 model download features result in 404\. The models have changed locations since the v0\.8\.1 release\. Update models/download\.py to use the [update from master](https://github.com/pytorch/pytorch/blob/master/caffe2/python/models/download.py#L40)\.
 + **Issue**: matplotlib can only render png\. 
 
   **Workaround**: Install Pillow then restart your kernel\.

@@ -122,7 +122,7 @@ The following tests have been run against each of the frameworks:
 + Torch: This [example](https://github.com/torch/demos/blob/master/train-a-digit-classifier/train-on-mnist.lua) inside the Torch tree\. Validation accuracy threshold is 93%\.
 + Caffe: This [example](https://github.com/BVLC/caffe/blob/master/examples/mnist/train_lenet.sh) inside the Caffe repository\. Validation accuracy threshold is 98%\.
 + CNTK: This [example](https://github.com/Microsoft/CNTK/blob/master/Examples/Image/GettingStarted/03_OneConvDropout.cntk) inside the CNTK repository\. Validation accuracy threshold is 97%\.
-+ Caffe2: Based on this [example](https://github.com/caffe2/caffe2/blob/master/caffe2/python/tutorials/MNIST.ipynb) inside the Caffe2 repository\. Validation accuracy threshold is 90%\.
++ Caffe2: Based on this [example](https://github.com/caffe2/tutorials/blob/master/MNIST.ipynb) inside the Caffe2 repository\. Validation accuracy threshold is 90%\.
 
 ## Ubuntu AMI<a name="ubuntu-ami-5"></a>
 

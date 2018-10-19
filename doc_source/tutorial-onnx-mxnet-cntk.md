@@ -1,4 +1,4 @@
-# Chainer to ONNX to CNTK Tutorial<a name="tutorial-onnx-chainer-cntk"></a>
+# Apache MXNet to ONNX to CNTK Tutorial<a name="tutorial-onnx-mxnet-cntk"></a>
 
 ## ONNX Overview<a name="tutorial-onnx-overview"></a>
 
@@ -12,42 +12,51 @@ To use this ONNX tutorial, you must have access to a Deep Learning AMI with Cond
 
 Launch a terminal session with your Deep Learning AMI with Conda to begin the following tutorial\.
 
-## Convert a Chainer Model to ONNX, then Load the Model into CNTK<a name="tutorial-onnx-chainer-cntk-detail"></a>
+## Convert an Apache MXNet \(incubating\) Model to ONNX, then Load the Model into CNTK<a name="tutorial-onnx-mxnet-cntk-detail"></a>
 
-First, activate the Chainer environment:
+**How to Export a Model from Apache MXNet \(incubating\)**
 
-```
-$ source activate chainer_p36
-```
+You can install the latest MXNet build into either or both of the MXNet Conda environments on your Deep Learning AMI with Conda\.
 
-Create a new file with your text editor, and use the following program in a script to fetch a model from Chainer's model zoo, then export it to the ONNX format\.
+1. 
+   + \(Option for Python 3\) \- Activate the Python 3 MXNet environment:
 
-```
-import numpy as np
-import chainer
-import chainercv.links as L
-import onnx_chainer
+     ```
+     $ source activate mxnet_p36
+     ```
+   + \(Option for Python 2\) \- Activate the Python 2 MXNet environment:
 
-# Fetch a vgg16 model
-model = L.VGG16(pretrained_model='imagenet')
+     ```
+     $ source activate mxnet_p27
+     ```
 
-# Prepare an input tensor
-x = np.random.rand(1, 3, 224, 224).astype(np.float32) * 255
+1. The remaining steps assume that you are using the `mxnet_p36` environment\.
 
-# Run the model on the data
-with chainer.using_config('train', False):
-chainer_out = model(x).array
+1. Download the model files\.
 
-# Export the model to a .onnx file
-out = onnx_chainer.export(model, x, filename='vgg16.onnx')
+   ```
+   curl -O https://s3.amazonaws.com/onnx-mxnet/model-zoo/vgg16/vgg16-symbol.json
+   curl -O https://s3.amazonaws.com/onnx-mxnet/model-zoo/vgg16/vgg16-0000.params
+   ```
 
-# Check that the newly created model is valid and meets ONNX specification.
-import onnx
-model_proto = onnx.load("vgg16.onnx")
-onnx.checker.check_model(model_proto)
-```
+1. To export the model files from MXNet to the ONNX format, create a new file with your text editor and use the following program in a script\.
 
-After you run this script, you will see the newly created \.onnx file in the same directory\.
+   ```
+   import numpy as np
+   import mxnet as mx
+   from mxnet.contrib import onnx as onnx_mxnet
+   converted_onnx_filename='vgg16.onnx'
+   
+   # Export MXNet model to ONNX format via MXNet's export_model API
+   converted_onnx_filename=onnx_mxnet.export_model('vgg16-symbol.json', 'vgg16-0000.params', [(1,3,224,224)], np.float32, converted_onnx_filename)
+   
+   # Check that the newly created model is valid and meets ONNX specification.
+   import onnx
+   model_proto = onnx.load(converted_onnx_filename)
+   onnx.checker.check_model(model_proto)
+   ```
+
+   You may see some warning messages, but you can safely ignore those for now\. After you run this script, you will see the newly created \.onnx file in the same directory\. 
 
 ## Use an ONNX Model with CNTK<a name="tutorial-cntk-inference"></a>
 
@@ -122,8 +131,8 @@ After you run this script, you will see the newly created \.onnx file in the sam
    ```
 
 ## ONNX Tutorials<a name="tutorial-onnx-footer"></a>
-+ [Apache MXNet to ONNX to CNTK Tutorial](tutorial-onnx-mxnet-cntk.md)
-+ [Chainer to ONNX to CNTK Tutorial](#tutorial-onnx-chainer-cntk)
++ [Apache MXNet to ONNX to CNTK Tutorial](#tutorial-onnx-mxnet-cntk)
++ [Chainer to ONNX to CNTK Tutorial](tutorial-onnx-chainer-cntk.md)
 + [Chainer to ONNX to MXNet Tutorial](tutorial-onnx-chainer-mxnet.md)
 + [PyTorch to ONNX to MXNet Tutorial](tutorial-onnx-pytorch-mxnet.md)
 + [PyTorch to ONNX to CNTK Tutorial](tutorial-onnx-pytorch-cntk.md)

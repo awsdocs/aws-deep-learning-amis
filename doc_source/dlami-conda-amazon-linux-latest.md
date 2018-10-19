@@ -125,6 +125,7 @@ Available in the following regions:
 | US West \(N\. California\) | us\-west\-1 | 
 | US West \(Oregon\) | us\-west\-2 | 
 | Beijing \(China\) | cn\-north\-1 | 
+| Ningxia \(China\) | cn\-northwest\-1 | 
 | Asia Pacific \(Mumbai\) | ap\-south\-1 | 
 | Asia Pacific \(Seoul\) | ap\-northeast\-2 | 
 | Asia Pacific \(Singapore\) | ap\-southeast\-1 | 
@@ -160,7 +161,7 @@ Available in the following regions:
 + **Issue**: Module not found error running Caffe2 examples\. 
 
   **Workaround**: [Caffe2 optional dependencies are needed for some tutorials](https://caffe2.ai/docs/getting-started.html)
-+ **Issue**: Caffe2 model download features result in 404\. The models have changed locations since the v0\.8\.1 release\. Update models/download\.py to use the [update from master](https://github.com/caffe2/caffe2/blob/master/caffe2/python/models/download.py#L40)\.
++ **Issue**: Caffe2 model download features result in 404\. The models have changed locations since the v0\.8\.1 release\. Update models/download\.py to use the [update from master](https://github.com/pytorch/pytorch/blob/master/caffe2/python/models/download.py#L40)\.
 + **Issue**: matplotlib can only render png\. 
 
   **Workaround**: Install Pillow then restart your kernel\.

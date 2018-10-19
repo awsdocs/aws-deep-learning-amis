@@ -48,7 +48,7 @@
   Check what instance type you used\. It needs to have a GPU for many examples and tutorials to work\. If running `nvidia-smi` shows no GPU, then you need to spin up another DLAMI using an instance with one or more GPUs\. See [Selecting the Instance Type for DLAMI](instance-select.md) for more info\.
 + **Q\.** Can I use Docker?
 
-  Docker is not installed, but you can install it and use it\. Note that you will want to use [nvidia\-docker](https://github.com/NVIDIA/nvidia-docker) on GPU instances to make use of the GPU\. In this situation, a [AWS Deep Learning AMI, Ubuntu Versions](ubuntu.md) is your best choice, as there are currently some incompatibilities with [nvidia\-docker](https://github.com/NVIDIA/nvidia-docker) and the Deep Learning AMI \(Amazon Linux\)\.
+  Docker has been pre\-installed since version 14 of the Deep Learning AMI with Conda\. Note that you will want to use [nvidia\-docker](https://github.com/NVIDIA/nvidia-docker) on GPU instances to make use of the GPU\.
 + **Q\.** What regions are Linux DLAMIs available in?    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dlami/latest/devguide/resources.html)
 + **Q\.** What regions are Windows DLAMIs available in?    
