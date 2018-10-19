@@ -96,7 +96,7 @@ The following scripts test the various frameworks:
 The following tests have been run against each of the frameworks:
 + MXNet: This [example](https://github.com/dmlc/mxnet/blob/master/example/image-classification/train_mnist.py) inside the MXNet repository\. Validation accuracy threshold tested for is 97%\.
 + Tensorflow: This [example](https://github.com/fchollet/keras/blob/master/examples/mnist_cnn.py) inside the keras repository\. Validation accuracy threshold tested for is 95%\.
-+ Caffe2: Based on this [example](https://github.com/caffe2/caffe2/blob/master/caffe2/python/tutorials/MNIST.ipynb) inside the Caffe2 repository\. Validation accuracy threshold is 90%\.
++ Caffe2: Based on this [example](https://github.com/caffe2/tutorials/blob/master/MNIST.ipynb) inside the Caffe2 repository\. Validation accuracy threshold is 90%\.
 
 ## AMI Region Availability<a name="dlami-source-amazon-linux-latest-regions"></a>
 
@@ -111,6 +111,7 @@ Available in the following regions:
 | US West \(N\. California\) | us\-west\-1 | 
 | US West \(Oregon\) | us\-west\-2 | 
 | Beijing \(China\) | cn\-north\-1 | 
+| Ningxia \(China\) | cn\-northwest\-1 | 
 | Asia Pacific \(Mumbai\) | ap\-south\-1 | 
 | Asia Pacific \(Seoul\) | ap\-northeast\-2 | 
 | Asia Pacific \(Singapore\) | ap\-southeast\-1 | 
@@ -149,7 +150,7 @@ Available in the following regions:
 + **Issue**: Module not found error running Caffe2 examples\. 
 
   **Workaround**: [Caffe2 optional dependencies are needed for some tutorials](https://caffe2.ai/docs/getting-started.html)
-+ **Issue**: Caffe2 model download features result in 404\. The models have changed locations since the v0\.8\.1 release\. Update models/download\.py to use the [update from master](https://github.com/caffe2/caffe2/blob/master/caffe2/python/models/download.py#L40)\.
++ **Issue**: Caffe2 model download features result in 404\. The models have changed locations since the v0\.8\.1 release\. Update models/download\.py to use the [update from master](https://github.com/pytorch/pytorch/blob/master/caffe2/python/models/download.py#L40)\.
 + **Issue**: matplotlib can only render png\. 
 
   **Workaround**: Install Pillow then restart your kernel\.
