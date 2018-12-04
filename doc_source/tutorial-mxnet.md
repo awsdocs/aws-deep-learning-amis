@@ -90,7 +90,11 @@ The remaining steps assume you are using the `mxnet_p36` environment\.
 
 ## More Tutorials<a name="tutorial-mxnet-more"></a>
 
-You can find more tutorials in the Deep Learning AMI with Conda tutorials folder, which is in the home directory of the DLAMI\. Your Deep Learning AMI with Conda also comes with 
+You can find more tutorials in the Deep Learning AMI with Conda tutorials folder, which is in the home directory of the DLAMI\.
+
+1. [Use Apache MXNet for Inference with a ResNet 50 Model](tutorial-mxnet-inference-resnet50.md)
+
+1. [Use Apache MXNet for Inference with an ONNX Model](tutorial-mxnet-inference-onnx.md)
 
 1. [Model Server for Apache MXNet \(MMS\)](tutorial-mms.md)
 

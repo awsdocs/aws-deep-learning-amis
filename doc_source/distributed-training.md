@@ -5,4 +5,4 @@ Learn about the options the DLAMI has for training with multiple GPUs\. Click on
 **Topics**
 + [Chainer](tutorial-chainer.md)
 + [Keras with MXNet](keras-mxnet.md)
-+ [TensorFlow with Horovod](tutorial-horovod.md)
++ [TensorFlow with Horovod](tutorial-horovod-tensorflow.md)

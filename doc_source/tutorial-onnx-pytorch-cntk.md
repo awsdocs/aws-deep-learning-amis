@@ -10,6 +10,9 @@ This tutorial shows you how to use the Deep Learning AMI with Conda with ONNX\. 
 
 To use this ONNX tutorial, you must have access to a Deep Learning AMI with Conda version 12 or later\. For more information about how to get started with a Deep Learning AMI with Conda, see [Deep Learning AMI with Conda](overview-conda.md)\.
 
+**Important**  
+These examples use functions that might require up to 8 GB of memory \(or more\)\. Be sure to choose an instance type with enough memory\.
+
 Launch a terminal session with your Deep Learning AMI with Conda to begin the following tutorial\.
 
 ## Convert a PyTorch Model to ONNX, then Load the Model into CNTK<a name="tutorial-onnx-pytorch-cntk-detail"></a>

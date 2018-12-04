@@ -1,11 +1,11 @@
 # Model Server for Apache MXNet \(MMS\)<a name="tutorial-mms"></a>
 
-[Model Server for Apache MXNet \(MMS\)](https://github.com/awslabs/mxnet-model-server/)is a flexible tool for serving deep learning models that have been exported from [Apache MXNet \(incubating\)](http://mxnet.io/)\. MMS comes preinstalled with the DLAMI with Conda\. This tutorial for MMS will demonstrate how to serve an image classification model, and guide you to finding a Single Shot Detector \(SSD\) example that is included on the DLAMI with Conda\.
+[Model Server for Apache MXNet \(MMS\)](https://github.com/awslabs/mxnet-model-server/) is a flexible tool for serving deep learning models that have been exported from [Apache MXNet \(incubating\)](http://mxnet.io/) or exported to an Open Neural Network Exchange \(ONNX\) model format\. MMS comes preinstalled with the DLAMI with Conda\. This tutorial for MMS will demonstrate how to serve an image classification model\.
 
 **Topics**
 + [Serve an Image Classification Model on MMS](#tutorial-mms-serve-mxnet-model)
-+ [Multi\-class Detection Example](#tutorial-mms-ssd-example)
-+ [More Info](#tutorial-mms-project)
++ [Other Examples](#tutorial-mms-examples)
++ [More Info](#tutorial-mms-more)
 
 ## Serve an Image Classification Model on MMS<a name="tutorial-mms-serve-mxnet-model"></a>
 
@@ -16,27 +16,42 @@ This tutorial shows how to serve an image classification model with MMS\. The mo
 1. Connect to an Amazon Elastic Compute Cloud \(Amazon EC2\) instance of the Deep Learning AMI with Conda\. 
 
 1. Activate an MXNet environment:
+   + For MXNet and Keras 2 on Python 3 with CUDA 9\.0 and MKL\-DNN, run this command:
+
+     ```
+     $ source activate mxnet_p36
+     ```
+   + For MXNet and Keras 2 on Python 2 with CUDA 9\.0 and MKL\-DNN, run this command:
+
+     ```
+     $ source activate mxnet_p27
+     ```
+
+1. Run MMS with the following command\. Adding ` > /dev/null` will quiet the log output while you run further tests\. 
 
    ```
-   $ source activate mxnet_p36
-   ```
-
-1. Run MMS with the following command\. This command also downloads the model and serves it\.
-
-   ```
-   $ mxnet-model-server \
-   --models squeezenet=https://s3.amazonaws.com/model-server/models/squeezenet_v1.1/squeezenet_v1.1.model
+   $ mxnet-model-server --start > /dev/null
    ```
 
    MMS is now running on your host, and is listening for inference requests\. 
 
-1. To test MMS, in a new terminal window, connect to the instance that is running the DLAMI\. 
+1. Next, use a curl command to administer MMS's management endpoints, and tell it what model you want it to serve\.
+
+   ```
+   $ curl -X POST "http://localhost:8081/models?url=https%3A%2F%2Fs3.amazonaws.com%2Fmodel-server%2Fmodels%2Fsqueezenet_v1.1%2Fsqueezenet_v1.1.model"
+   ```
+
+1. MMS needs to know the number of workers you would like to use\. For this test you can try 3\.
+
+   ```
+   $ curl -v -X PUT "http://localhost:8081/models/squeezenet_v1.1?min_worker=3"
+   ```
 
 1. Download an image of a kitten and send it to the MMS predict endpoint: 
 
    ```
    $ curl -O https://s3.amazonaws.com/model-server/inputs/kitten.jpg
-   $ curl -X POST http://127.0.0.1:8080/squeezenet/predict -F "data=@kitten.jpg"
+   $ curl -X POST http://127.0.0.1:8080/predictions/squeezenet_v1.1 -T kitten.jpg
    ```
 
    The predict endpoint returns a prediction in JSON similar to the following top five predictions, where the image has a 94% probability of containing an Egyptian cat, followed by a 5\.5% chance it has a lynx or catamount: 
@@ -69,12 +84,18 @@ This tutorial shows how to serve an image classification model with MMS\. The mo
    }
    ```
 
-This tutorial focuses on basic model serving\. When you're ready to learn more about other MMS features, see the MMS documentation on GitHub\.
+1. Test out some more images, or if you have finished testing, stop the server:
 
-## Multi\-class Detection Example<a name="tutorial-mms-ssd-example"></a>
+   ```
+   $ mxnet-model-server --stop
+   ```
 
-The DLAMI with Conda includes an example application that uses MMS to serve a Single Shot MultiBox Detector \(SSD\) model\. To see the example, open the DLAMI in a terminal, and navigate to the `~/tutorials/MXNet-Model-Server/ssd` folder\. For instructions on running the example, see the `README.md` file or the [latest version of the example](https://github.com/awslabs/mxnet-model-server/blob/master/examples/ssd/README.md) in the MMS GitHub repository\.
+This tutorial focuses on basic model serving\. When you're ready to learn more about other MMS features, see the [MMS documentation on GitHub](https://github.com/awslabs/mxnet-model-server/blob/master/docs/README.md)\.
 
-## More Info<a name="tutorial-mms-project"></a>
+## Other Examples<a name="tutorial-mms-examples"></a>
 
-For more MMS examples—such as examples of exporting models and setting up MMS with Docker—or to take advantage of the latest MMS features, star [the MMS project page](https://github.com/awslabs/mxnet-model-server) on GitHub\.
+MMS has a variety of examples that you can run on your DLAMI\. You can view them on the [MMS project repository](https://github.com/awslabs/mxnet-model-server/tree/master/examples)\.
+
+## More Info<a name="tutorial-mms-more"></a>
+
+For more MMS documentation, including how to set up MMS with Docker—or to take advantage of the latest MMS features, star [the MMS project page](https://github.com/awslabs/mxnet-model-server) on GitHub\.

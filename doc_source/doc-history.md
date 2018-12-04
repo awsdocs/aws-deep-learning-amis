@@ -2,6 +2,7 @@
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [MMS v1\.0 released on the DLAMI\.](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-mms.html) | The MMS tutorial was updated to use the new model archive format \(\.mar\) and demonstrates the new start and stop features\. | November 15, 2018 | 
 | [Installing TensorFlow from a Nightly Build](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-tensorflow.html) | A tutorial was added that covers how you can uninstall TensorFlow, then install a nightly build of TensorFlow on your Deep Learning AMI with Conda\. | October 16, 2018 | 
 | [Installing MXNet from a Nightly Build](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-mxnet.html) | A tutorial was added that covers how you can uninstall MXNet, then install a nightly build of MXNet on your Deep Learning AMI with Conda\. | October 16, 2018 | 
 | [Installing CNTK from a Nightly Build](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-cntk.html) | A tutorial was added that covers how you can uninstall CNTK, then install a nightly build of CNTK on your Deep Learning AMI with Conda\. | October 16, 2018 | 
