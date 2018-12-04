@@ -10,6 +10,9 @@ This tutorial shows you how to use the Deep Learning AMI with Conda with ONNX\. 
 
 To use this ONNX tutorial, you must have access to a Deep Learning AMI with Conda version 12 or later\. For more information about how to get started with a Deep Learning AMI with Conda, see [Deep Learning AMI with Conda](overview-conda.md)\.
 
+**Important**  
+These examples use functions that might require up to 8 GB of memory \(or more\)\. Be sure to choose an instance type with enough memory\.
+
 Launch a terminal session with your Deep Learning AMI with Conda to begin the following tutorial\.
 
 ## Convert an Apache MXNet \(incubating\) Model to ONNX, then Load the Model into CNTK<a name="tutorial-onnx-mxnet-cntk-detail"></a>
@@ -58,77 +61,8 @@ You can install the latest MXNet build into either or both of the MXNet Conda en
 
    You may see some warning messages, but you can safely ignore those for now\. After you run this script, you will see the newly created \.onnx file in the same directory\. 
 
-## Use an ONNX Model with CNTK<a name="tutorial-cntk-inference"></a>
-
-**How to Use an ONNX Model for Inference with CNTK**
-
-1. 
-   + \(Option for Python 3\) \- Activate the Python 3 CNTK environment:
-
-     ```
-     $ source activate cntk_p36
-     ```
-   + \(Option for Python 2\) \- Activate the Python 2 CNTK environment:
-
-     ```
-     $ source activate cntk_p27
-     ```
-
-1. The remaining steps assume you are using the `cntk_p36` environment\.
-
-1. Create a new file with your text editor, and use the following program in a script to open ONNX format file in CNTK\.
-
-   ```
-   import cntk as C
-   # Import the Chainer model into CNTK via CNTK's import API
-   z = C.Function.load("vgg16.onnx", device=C.device.cpu(), format=C.ModelFormat.ONNX)
-   print("Loaded vgg16.onnx!")
-   ```
-
-   After you run this script, CNTK will have loaded the model\.
-
-1. You may also try running inference with CNTK\. First, download a picture of a husky\.
-
-   ```
-   $ curl -O https://upload.wikimedia.org/wikipedia/commons/b/b5/Siberian_Husky_bi-eyed_Flickr.jpg
-   ```
-
-1. Next, download a list of classes will work with this model\.
-
-   ```
-   $ curl -O https://gist.githubusercontent.com/yrevar/6135f1bd8dcf2e0cc683/raw/d133d61a09d7e5a3b36b8c111a8dd5c4b5d560ee/imagenet1000_clsid_to_human.pkl
-   ```
-
-1. Edit the previously created script to have the following content\. This new version will use the image of the husky, get a prediction result, then look this up in the file of classes, returning a prediction result\.
-
-   ```
-   import cntk as C
-   import numpy as np
-   from PIL import Image
-   from IPython.core.display import display
-   import pickle
-   
-   # Import the model into CNTK via CNTK's import API
-   z = C.Function.load("vgg16.onnx", device=C.device.cpu(), format=C.ModelFormat.ONNX)
-   print("Loaded vgg16.onnx!")
-   img = Image.open("Siberian_Husky_bi-eyed_Flickr.jpg")
-   img = img.resize((224,224))
-   rgb_img = np.asarray(img, dtype=np.float32) - 128
-   bgr_img = rgb_img[..., [2,1,0]]
-   img_data = np.ascontiguousarray(np.rollaxis(bgr_img,2))
-   predictions = np.squeeze(z.eval({z.arguments[0]:[img_data]}))
-   top_class = np.argmax(predictions)
-   print(top_class)
-   labels_dict = pickle.load(open("imagenet1000_clsid_to_human.pkl", "rb"))
-   print(labels_dict[top_class])
-   ```
-
-1. Then run the script, and you should see a result as follows:
-
-   ```
-   248
-   Eskimo dog, husky
-   ```
+1. Now that you have an ONNX file you can try running inference with it with the following example:
+   + [Use CNTK for Inference with an ONNX Model](tutorial-cntk-inference-onnx.md)
 
 ## ONNX Tutorials<a name="tutorial-onnx-footer"></a>
 + [Apache MXNet to ONNX to CNTK Tutorial](#tutorial-onnx-mxnet-cntk)

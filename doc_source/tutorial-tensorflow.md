@@ -84,6 +84,8 @@ The remaining steps assume you are using the `mxnet_p36` environment\.
 
 ## More Tutorials<a name="tutorial-tensorflow-more"></a>
 
+[TensorFlow with Horovod](tutorial-horovod-tensorflow.md)
+
 [TensorBoard](tutorial-tensorboard.md)
 
 [TensorFlow Serving](tutorial-tfserving.md)

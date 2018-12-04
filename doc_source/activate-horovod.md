@@ -48,6 +48,6 @@ Only P3\.\*, P2\.\*, and G3\.\* instance types are supported\.
    ```
 
 ## More Info<a name="activate-horovod-project"></a>
-+ [TensorFlow with Horovod](tutorial-horovod.md)
++ [TensorFlow with Horovod](tutorial-horovod-tensorflow.md)
 + For tutorials, see the `examples/horovod` folder in the home directory of the DLAMI\. 
 + For even more tutorials and examples, see the [Horovod GitHub project](https://github.com/uber/horovod)\.

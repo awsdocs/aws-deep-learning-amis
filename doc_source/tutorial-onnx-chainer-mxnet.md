@@ -10,6 +10,9 @@ This tutorial shows you how to use the Deep Learning AMI with Conda with ONNX\. 
 
 To use this ONNX tutorial, you must have access to a Deep Learning AMI with Conda version 12 or later\. For more information about how to get started with a Deep Learning AMI with Conda, see [Deep Learning AMI with Conda](overview-conda.md)\.
 
+**Important**  
+These examples use functions that might require up to 8 GB of memory \(or more\)\. Be sure to choose an instance type with enough memory\.
+
 Launch a terminal session with your Deep Learning AMI with Conda to begin the following tutorial\.
 
 ## Convert a Chainer Model to ONNX, then Load the Model into MXNet<a name="tutorial-onnx-chainer-mxnet-detail"></a>
@@ -30,6 +33,14 @@ import onnx_chainer
 
 # Fetch a vgg16 model
 model = L.VGG16(pretrained_model='imagenet')
+
+# Prepare an input tensor
+x = np.random.rand(1, 3, 224, 224).astype(np.float32) * 255
+
+# Run the model on the data
+with chainer.using_config('train', False):
+  chainer_out = model(x).array
+
 # Export the model to a .onnx file
 out = onnx_chainer.export(model, x, filename='vgg16.onnx')
 
@@ -39,29 +50,10 @@ model_proto = onnx.load("vgg16.onnx")
 onnx.checker.check_model(model_proto)
 ```
 
-After you run this script, you will see the newly created \.onnx file in the same directory\. Now, switch to the MXNet Conda environment to load the model with MXNet\.
+After you run this script, you will see the newly created \.onnx file in the same directory\.
 
-Next, activate the MXNet environment:
-
-```
-$ source deactivate
-$ source activate mxnet_p36
-```
-
-Create a new file with your text editor, and use the following program in a script to open ONNX format file in MXNet\.
-
-```
-import mxnet as mx
-from mxnet.contrib import onnx as onnx_mxnet
-import numpy as np
-
-# Import the ONNX model into MXNet's symbolic interface
-sym, arg, aux = onnx_mxnet.import_model("vgg16.onnx")
-print("Loaded vgg16.onnx!") 
-print(sym.get_internals())
-```
-
-After you run this script, MXNet will have loaded the model\.
+Now that you have an ONNX file you can try running inference with it with the following example:
++ [Use Apache MXNet for Inference with an ONNX Model](tutorial-mxnet-inference-onnx.md)
 
 ## ONNX Tutorials<a name="tutorial-onnx-footer"></a>
 + [Apache MXNet to ONNX to CNTK Tutorial](tutorial-onnx-mxnet-cntk.md)

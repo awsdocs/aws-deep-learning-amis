@@ -19,6 +19,8 @@
 1. Review the details, and then choose **Continue**\.
 
 1. Choose an instance type\.
+**Note**  
+If you want to use [Elastic Inference](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-inference.html) \(EI\), click **Configure Instance Details**, select **Add an Amazon EI accelerator**, then select the size of the Amazon EI accelerator\.
 
 1. Choose **Review and Launch**\.
 
