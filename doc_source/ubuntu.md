@@ -1,10 +1,8 @@
-# AWS Deep Learning AMI, Ubuntu Versions<a name="ubuntu"></a>
+# AWS Deep Learning AMI, Ubuntu Options<a name="ubuntu"></a>
 
 Use the [Launching and Configuring a DLAMI](launch-config.md) guide to continue with one of these DLAMI\.
-+ [Deep Learning AMI \(Ubuntu\)](https://aws.amazon.com/marketplace/pp/B077GCH38C)
-+ [Deep Learning Base AMI \(Ubuntu\)](https://aws.amazon.com/marketplace/pp/B077GCZ4GR)
-+ [Deep Learning AMI with Source Code \(CUDA 9, Ubuntu\)](https://aws.amazon.com/marketplace/pp/B076TGJHY1)
-+ [Deep Learning AMI with Source Code \(CUDA 8, Ubuntu\)](https://aws.amazon.com/marketplace/pp/B06VSPXKDX)
++ [Deep Learning AMI \(Ubuntu\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B077GCH38C)
++ [Deep Learning Base AMI \(Ubuntu\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B077GCZ4GR)
 
 These DLAMIs are available in these regions:
 

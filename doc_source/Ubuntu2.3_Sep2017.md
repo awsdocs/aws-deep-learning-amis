@@ -99,7 +99,7 @@ cd /home/ubuntu/src/anaconda3/bin
 
 Choose the flavor of the AMI from the list below in the region of your choice and follow the steps at:
 
-[EC2 Documentation to launch P2 Instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html)
+[EC2 Documentation to launch P2 Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html)
 
 ## Testing the Frameworks<a name="ubuntu-testing-frameworks-8"></a>
 

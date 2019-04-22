@@ -2,17 +2,26 @@
 
 | Change | Description | Date | 
 | --- |--- |--- |
-| [MMS v1\.0 released on the DLAMI\.](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-mms.html) | The MMS tutorial was updated to use the new model archive format \(\.mar\) and demonstrates the new start and stop features\. | November 15, 2018 | 
-| [Installing TensorFlow from a Nightly Build](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-tensorflow.html) | A tutorial was added that covers how you can uninstall TensorFlow, then install a nightly build of TensorFlow on your Deep Learning AMI with Conda\. | October 16, 2018 | 
-| [Installing MXNet from a Nightly Build](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-mxnet.html) | A tutorial was added that covers how you can uninstall MXNet, then install a nightly build of MXNet on your Deep Learning AMI with Conda\. | October 16, 2018 | 
-| [Installing CNTK from a Nightly Build](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-cntk.html) | A tutorial was added that covers how you can uninstall CNTK, then install a nightly build of CNTK on your Deep Learning AMI with Conda\. | October 16, 2018 | 
-| [Installing PyTorch from a Nightly Build](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-pytorch.html) | A tutorial was added that covers how you can uninstall PyTorch, then install a nightly build of PyTorch on your Deep Learning AMI with Conda\. | September 25, 2018 | 
-| [Docker is now pre\-installed on your DLAMI](https://docs.aws.amazon.com/dlami/latest/devguide/resources.html) | Since v14 of the Deep Learning AMI with Conda, Docker and NVIDIA's version of Docker for GPUs has been pre\-installed\. | September 25, 2018 | 
-| [TensorBoard Tutorial](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-tensorboard.html) | Example was moved to \~/examples/tensorboard\. Tutorial paths updated\. | July 23, 2018 | 
-| [MXBoard Tutorial](https://docs.aws.amazon.com/dlami/latest/devguide/debugging-and-visualization.html) | A tutorial on how to use MXBoard for visualization of MXNet models was addded\. | July 23, 2018 | 
-| [Distributed Training Tutorials](https://docs.aws.amazon.com/dlami/latest/devguide/distributed-training.html) | A tutorial on how to use Keras\-MXNet for multi\-GPU training was added\. Chainer's tutorial was updated to for v4\.2\.0\. | July 23, 2018 | 
-| [Conda Tutorial](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-conda.html) | The example MOTD was updated to reflect a more recent release\. | July 23, 2018 | 
-| [Chainer Tutorial](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-chainer.html) | The tutorial was updated to use the latest examples from Chainer's source\. | July 23, 2018 | 
+| [AWS Deep Learning Containers on Amazon EC2](deep-learning-containers-ec2.md) | AWS Deep Learning Containers on Amazon EC2 prerequisites and related info were added to the setup guide\. | March 27, 2019 | 
+| [AWS Deep Learning Containers](deep-learning-containers.md) | Added a new guide for using Deep Learning Containers\. | March 27, 2019 | 
+| [Using EI with MXNet Symbol API Example Updates](tutorial-mxnet-elastic-inference.md) | Updates to the code examples were provided\. | February 4, 2019 | 
+| [TensorFlow Elastic Inference Predictor and Example Updates](tutorial-tf-elastic-inference.md) | Elastic Inference support for TensorFlow Predictor \(EIPredictor\) was added\. An example on how to use EIPredictor with a Single Shot Detector \(SSD\) model was added\. The TensorFlow Serving with EI example was updated to use the same SSD model\. | January 23, 2019 | 
+| [PyTorch 1\.0 with CUDA 10](overview-conda.md#overview-conda-cuda) | The Deep Learning AMI with Conda now comes with PyTorch 1\.0 with CUDA 10\. | December 13, 2018 | 
+| [CUDA 10 available on the Deep Learning Base AMI](overview-cuda.md) | CUDA 10 was added as on option for the Deep Learning Base AMI\. Instructions on how to change and test CUDA versions\. | December 11, 2018 | 
+| [Using TensorFlow Serving with an Inception Model](tutorial-tfserving.md) | An example for using inference with an Inception model was added for TensorFlow Serving, for both with and without Elastic Inference\. | November 28, 2018 | 
+| [Training with 256 GPUs with TensorFlow and Horovod](tutorial-horovod-tensorflow.md) | The TensorFlow with Horovod tutorial was updated to add an example of multi\-node training\. | November 28, 2018 | 
+| [Elastic Inference](launch-config.md) | Elastic inference prerequisites and related info was added to the setup guide\. | November 28, 2018 | 
+| [MMS v1\.0 released on the DLAMI\.](tutorial-mms.md) | The MMS tutorial was updated to use the new model archive format \(\.mar\) and demonstrates the new start and stop features\. | November 15, 2018 | 
+| [Installing TensorFlow from a Nightly Build](tutorial-tensorflow.md) | A tutorial was added that covers how you can uninstall TensorFlow, then install a nightly build of TensorFlow on your Deep Learning AMI with Conda\. | October 16, 2018 | 
+| [Installing MXNet from a Nightly Build](tutorial-mxnet.md) | A tutorial was added that covers how you can uninstall MXNet, then install a nightly build of MXNet on your Deep Learning AMI with Conda\. | October 16, 2018 | 
+| [Installing CNTK from a Nightly Build](tutorial-cntk.md) | A tutorial was added that covers how you can uninstall CNTK, then install a nightly build of CNTK on your Deep Learning AMI with Conda\. | October 16, 2018 | 
+| [Installing PyTorch from a Nightly Build](tutorial-pytorch.md) | A tutorial was added that covers how you can uninstall PyTorch, then install a nightly build of PyTorch on your Deep Learning AMI with Conda\. | September 25, 2018 | 
+| [Docker is now pre\-installed on your DLAMI](resources.md#faq) | Since v14 of the Deep Learning AMI with Conda, Docker and NVIDIA's version of Docker for GPUs has been pre\-installed\. | September 25, 2018 | 
+| [TensorBoard Tutorial](tutorial-tensorboard.md#tutorial-tensorboard-example) | Example was moved to \~/examples/tensorboard\. Tutorial paths updated\. | July 23, 2018 | 
+| [MXBoard Tutorial](debugging-and-visualization.md) | A tutorial on how to use MXBoard for visualization of MXNet models was addded\. | July 23, 2018 | 
+| [Distributed Training Tutorials](distributed-training.md) | A tutorial on how to use Keras\-MXNet for multi\-GPU training was added\. Chainer's tutorial was updated to for v4\.2\.0\. | July 23, 2018 | 
+| [Conda Tutorial](tutorial-conda.md#tutorial-conda-login) | The example MOTD was updated to reflect a more recent release\. | July 23, 2018 | 
+| [Chainer Tutorial](tutorial-chainer.md#tutorial-chainer-multi-gpu) | The tutorial was updated to use the latest examples from Chainer's source\. | July 23, 2018 | 
 
 *Earlier Updates:*
 

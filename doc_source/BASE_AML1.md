@@ -37,7 +37,7 @@ The AMI supports CPU Instance Types\.
 
 Choose the flavor of the AMI from the list below in the region of your choice and follow the steps at:
 
-[AWS Deep Learning AMI Developer Guide](http://docs.aws.amazon.com/dlami/latest/devguide/gs.html)
+[AWS Deep Learning AMI Developer Guide](https://docs.aws.amazon.com/dlami/latest/devguide/gs.html)
 
 ## Deep Learning AMI \(Amazon Linux\)<a name="BASE_AML1-amazonlinuxami"></a>
 

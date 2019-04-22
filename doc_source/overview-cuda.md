@@ -1,21 +1,33 @@
 # CUDA Installations and Framework Bindings<a name="overview-cuda"></a>
 
-Deep learning is all pretty cutting edge, however, each framework offers "stable" versions\. These stable versions may not work with the latest CUDA or cuDNN implementation and features\. How do you decide? This ultimately points to your use case and the features you require\. If you are not sure, then go with the latest [Deep Learning AMI with Conda](conda.md)\. It has official pip binaries of all frameworks with both CUDA 8 and CUDA 9, using whichever most recent version is supported by each framework\. 
+Deep learning is all pretty cutting edge, however, each framework offers "stable" versions\. These stable versions may not work with the latest CUDA or cuDNN implementation and features\. How do you decide? This ultimately points to your use case and the features you require\. If you are not sure, then go with the latest Deep Learning AMI with Conda\. It has official pip binaries of all frameworks with CUDA 8, CUDA 9, and CUDA 10, using whichever most recent version is supported by each framework\. If you want the latest versions, and to customize your deep learning environment, go with the Deep Learning Base AMI\.
 
-Look at our guide on [Stable versus Bleeding Edge](overview-conda.md#overview-conda-stability) for further guidance\.
+Look at our guide on [Stable versus Release Candidates](overview-conda.md#overview-conda-stability) for further guidance\.
 
-**CUDA Support**  
-The Deep Learning AMI with Source Code's CUDA version and the frameworks supported for each:
-+ [Deep Learning AMI with CUDA 9](cuda9.md): Apache MXNet, Caffe2, PyTorch, TensorFlow
-+ [Deep Learning AMI with CUDA 8](cuda8.md): Apache MXNet, Caffe, Caffe2, CNTK, PyTorch, Theano, TensorFlow, and Torch
+## Choosing a DLAMI with CUDA<a name="w4aab7b5c17b7"></a>
+
+The [Deep Learning Base AMI](overview-base.md) has CUDA 8, 9 and 10\.
+
+The [Deep Learning AMI with Conda](overview-conda.md) has CUDA 8 and 9, and 10\.
++ CUDA 10 with cuDNN 7: PyTorch
++ CUDA 9 with cuDNN 7: Apache MXNet, Caffe2, Chainer, CNTK, Keras, TensorFlow, Theano
++ CUDA 8 with cuDNN 6: Caffe
+
+For installation options for DLAMI types and operating systems, refer to each of the CUDA version and options pages:
++ [Deep Learning AMI with CUDA 10 Options](cuda10.md)
++ [Deep Learning AMI with CUDA 9 Options](cuda9.md)
++ [Deep Learning AMI with CUDA 8 Options](cuda8.md)
++ [Deep Learning AMI with Conda Options](conda.md)
++ [Deep Learning Base AMI Options](base.md)
 
 Specific framework version numbers can be found in the [DLAMI: Release Notes](appendix-ami-release-notes.md)
 
 Choose this DLAMI type or learn more about the different DLAMIs with the Next Up option\.
 
 Choose one of the CUDA versions and review the full list of DLAMIs that have that version in the Appendix, or learn more about the different DLAMIs with the Next Up option\.
-+ [Deep Learning AMI with CUDA 9](cuda9.md)
-+ [Deep Learning AMI with CUDA 8](cuda8.md)
 
 **Next Up**  
 [DLAMI Operating System Options](overview-os.md)
+
+## Related Topics<a name="w4aab7b5c17b9"></a>
++ For instructions on switching between CUDA versions, refer to the [Using the Deep Learning Base AMI](tutorial-base.md) tutorial\.

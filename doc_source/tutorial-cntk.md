@@ -71,17 +71,17 @@ You can install the latest CNTK build into either or both of the CNTK Conda envi
 1. To install the CNTK nightly build, you first need to find the version you want to install from the [CNTK nightly website\.](https://cntk.ai/nightly-linux.html)
 
 1. 
-   + \(Option for GPU instances\) \- To install the nightly build that was available at the time of this writing, you would use the following:
+   + \(Option for GPU instances\) \- To install the nightly build, you would use the following, substituting in the desired build:
 
      ```
-     (cntk_p36)$ pip install https://cntk.ai/PythonWheel/GPU/cntk_gpu-2.6rc0.dev20181015-cp36-cp36m-linux_x86_64.whl
+     (cntk_p36)$ pip install https://cntk.ai/PythonWheel/GPU/latest-nightly-build
      ```
 
      Replace the URL in the previous command with the GPU version for your current Python environment\.
-   + \(Option for CPU instances\) \- To install the nightly build that was available at the time of this writing, you would use the following:
+   + \(Option for CPU instances\) \- To install the nightly build, you would use the following, substituting in the desired build:
 
      ```
-     (cntk_p36)$ pip install https://cntk.ai/PythonWheel/CPU-Only/cntk-2.6rc0.dev20181015-cp36-cp36m-linux_x86_64.whl
+     (cntk_p36)$ pip install https://cntk.ai/PythonWheel/CPU-Only/latest-nightly-build
      ```
 
      Replace the URL in the previous command with the CPU version for your current Python environment\.

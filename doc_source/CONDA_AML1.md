@@ -100,7 +100,7 @@ The AMI supports CPU Instance Types for all frameworks\.
 
 Choose the flavor of the AMI from the list below in the region of your choice and follow the steps at:
 
-[AWS Deep Learning AMI Developer Guide](http://docs.aws.amazon.com/dlami/latest/devguide/gs.html)
+[AWS Deep Learning AMI Developer Guide](https://docs.aws.amazon.com/dlami/latest/devguide/gs.html)
 
 ## Testing the Frameworks<a name="CONDA_AML1-testing-frameworks"></a>
 

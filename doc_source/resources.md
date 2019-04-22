@@ -36,7 +36,7 @@
   Yes, but only on the [Deep Learning AMI with Conda](overview-conda.md)\.
 + **Q\.** What version of Python is installed?
 
-  Each DLAMI has both Python 2 and 3\. The [Deep Learning AMI with Conda](overview-conda.md) have environments for both versions for each framework\. The [Deep Learning AMI with Source Code](overview-source.md) has the deep learning frameworks installed into specific Python versions, denoted with "2" or "3" in the folder names\.
+  Each DLAMI has both Python 2 and 3\. The [Deep Learning AMI with Conda](overview-conda.md) have environments for both versions for each framework\.
 + **Q\.** Is Keras installed?
 
   This depends on the AMI\. The [Deep Learning AMI with Conda](overview-conda.md) has Keras available as a front end for each framework\. The version of Keras depends on the framework's support for it\.
