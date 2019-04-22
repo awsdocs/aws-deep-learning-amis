@@ -21,7 +21,7 @@
 1. Start the iPython terminal:
 
    ```
-   (tensorflow_p36)$ ipython
+   (chainer_p36)$ ipython
    ```
 
 1. Test importing Chainer to verify that it is working properly:

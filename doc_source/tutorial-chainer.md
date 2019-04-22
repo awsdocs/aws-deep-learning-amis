@@ -37,11 +37,14 @@ This tutorial shows you how to use example Chainer scripts to train a model with
    (chainer_p36) :~/src$ cd chainer/examples/mnist
    ```
 
-1. Run the example in the `train_mnist_data_parallel.py` script\. By default, the script uses the GPUs running on your instance of Deep Learning AMI with Conda\. The script can be run on a maximum of two GPUs\. It will ignore any GPUs past the first two\. It detects one or both automatically\. If you are running an instance without GPUs, skip to [Use Chainer to Train with CPUs](#tutorial-chainer-cpu), later in this tutorial\.
+1. Run the example in the `train_mnist_data_parallel.py` script\. By default, the script uses the GPUs running on your instance of Deep Learning AMI with Conda\. The script can be run on a maximum of two GPUs\. It will ignore any GPUs past the first two\. It detects one or both automatically\. If you are running an instance without GPUs, skip to [Use Chainer to Train with CPUs](#tutorial-chainer-cpu), later in this tutorial\. 
 
    ```
    (chainer_p36) :~/src/chainer/examples/mnist$ python train_mnist_data_parallel.py
    ```
+**Note**  
+This example will return the following error due to the inclusion of a beta feature not included in the DLAMI\.  
+`chainerx ModuleNotFoundError: No module named 'chainerx'`
 
     While the Chainer script trains a model using the MNIST database, you see the results for each epoch\.
 
@@ -227,7 +230,7 @@ Chainer also automatically logs results, graph loss and accuracy, and produces o
 
 1. To view the graphs, use the `scp` command to copy them to your local computer\.
 
-   In a macOS terminal, running the following `scp` command downloads all three files to your `Downloads` folder\. Replace the placeholders for the location of the key file and server address with your information\. For other operating systems, use the appropriate `scp` command format\. 
+   In a macOS terminal, running the following `scp` command downloads all three files to your `Downloads` folder\. Replace the placeholders for the location of the key file and server address with your information\. For other operating systems, use the appropriate `scp` command format\. Note, for an Amazon Linux AMI, the user name is ec2\-user\.
 
    ```
    (chainer_p36) :~/src/chainer/examples/mnist/result$ scp -i "your-key-file.pem" ubuntu@your-dlami-address.compute-1.amazonaws.com:~/src/chainer/examples/mnist/result/*.png ~/Downloads

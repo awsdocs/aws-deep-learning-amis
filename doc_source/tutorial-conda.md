@@ -6,6 +6,7 @@
 + [Step 2: Start the MXNet Python 3 Environment](#tutorial-conda-switch-mxnet)
 + [Step 3: Test Some MXNet Code](#tutorial-conda-test-mxnet)
 + [Step 4: Switch to the TensorFlow Environment](#tutorial-conda-switch-tf)
++ [Removing Environments](#tutorial-conda-remove-env)
 
 ## Introduction to the Deep Learning AMI with Conda<a name="tutorial-conda-overview"></a>
 
@@ -148,3 +149,12 @@ Refer to the release notes for information regarding known issues:
 
 **Next Up**  
 [Running Jupyter Notebook Tutorials](tutorial-jupyter.md)
+
+## Removing Environments<a name="tutorial-conda-remove-env"></a>
+
+If you run out of space on the DLAMI, you can choose to uninstall Conda packages that you are not using:
+
+```
+conda env list
+conda env remove –name <env_name>
+```

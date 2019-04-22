@@ -6,13 +6,13 @@ When a stable Conda package of a framework is released, it's tested and pre\-ins
 
 To activate the currently installed framework, follow these instructions on your Deep Learning AMI with Conda\.
 
-For PyTorch on Python 3 with CUDA 9\.2 and MKL\-DNN, run this command:
+For PyTorch on Python 3 with CUDA 10 and MKL\-DNN, run this command:
 
 ```
 $ source activate pytorch_p36
 ```
 
-For PyTorch on Python 2 with CUDA 9\.2 and MKL\-DNN, run this command:
+For PyTorch on Python 2 with CUDA 10 and MKL\-DNN, run this command: 
 
 ```
 $ source activate pytorch_p27
@@ -62,10 +62,10 @@ You can install the latest PyTorch build into either or both of the PyTorch Cond
    ```
 
 1. 
-   + \(Option for GPU instances\) \- Install the latest nightly build of PyTorch with CUDA 9\.0:
+   + \(Option for GPU instances\) \- Install the latest nightly build of PyTorch with CUDA 10\.0:
 
      ```
-     (pytorch_p36)$ pip install torch_nightly -f https://download.pytorch.org/whl/nightly/cu90/torch_nightly.html
+     (pytorch_p36)$ pip install torch_nightly -f https://download.pytorch.org/whl/nightly/cu100/torch_nightly.html
      ```
    + \(Option for CPU instances\) \- Install the latest nightly build of PyTorch for instances with no GPUs:
 

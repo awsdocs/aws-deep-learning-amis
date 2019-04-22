@@ -86,7 +86,7 @@ The remaining steps assume you are using the `mxnet_p36` environment\.
    print (mxnet.__version__)
    ```
 
-   The output should print something similar to `1.3.1`
+   The output should print the latest stable version of MXNet\.
 
 ## More Tutorials<a name="tutorial-mxnet-more"></a>
 

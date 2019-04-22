@@ -2,7 +2,7 @@
 
 1. Open a terminal\.
 
-1. Run the following command to forward all requests on local port 8157 to port 8888 on your remote Amazon EC2 instance\. Update the command by replacing *ec2\-\#\#\#\-\#\#\-\#\#\-\#\#\#\.compute\-1\.amazonaws\.com* with the public DNS name of your EC2 instance\.
+1. Run the following command to forward all requests on local port 8157 to port 8888 on your remote Amazon EC2 instance\. Update the command by replacing *ec2\-\#\#\#\-\#\#\-\#\#\-\#\#\#\.compute\-1\.amazonaws\.com* with the public DNS name of your EC2 instance\. Note, for an Amazon Linux AMI, the user name is ec2\-user\.
 
    ```
    $ ssh -i ~/mykeypair.pem -L 8157:127.0.0.1:8888 ubuntu@ec2-###-##-##-###.compute-1.amazonaws.com

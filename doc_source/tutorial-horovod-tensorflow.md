@@ -7,6 +7,12 @@ Only P3\.\*, P2\.\*, and G3\.\* instance types are supported\.
 
 ## Activate and Test TensorFlow with Horovod<a name="tutorial-horovod-tensorflow-activate"></a>
 
+1. Verify that your instance has active GPUs\. NVIDIA provides a tool for this:
+
+   ```
+   $ nvidia-smi
+   ```
+
 1. Activate the Python 3 TensorFlow environment:
 
    ```
@@ -26,7 +32,7 @@ Only P3\.\*, P2\.\*, and G3\.\* instance types are supported\.
    hvd.init()
    ```
 
-   The following should appear on your screen \(possibly after a few warning messages\)\.
+   The following may appear on your screen \(possibly after a few warning messages\)\.
 
    ```
    --------------------------------------------------------------------------
@@ -287,6 +293,45 @@ The following command may help get past errors that come up when you experiment 
   ```
   runclust hosts "sudo reboot"
   ```
+
+You may receive the following error code if you try to use TensorFlow with Horovod on an unsupported instance type: 
+
+```
+---------------------------------------------------------------------------
+NotFoundError Traceback (most recent call last)
+<ipython-input-3-e90ed6cabab4> in <module>()
+----> 1 import horovod.tensorflow as hvd
+
+~/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/horovod/tensorflow/__init__.py in <module>()
+** *34* check_extension('horovod.tensorflow', 'HOROVOD_WITH_TENSORFLOW', __file__, 'mpi_lib')
+** *35* 
+---> 36 from horovod.tensorflow.mpi_ops import allgather, broadcast, _allreduce
+** *37* from horovod.tensorflow.mpi_ops import init, shutdown
+** *38* from horovod.tensorflow.mpi_ops import size, local_size, rank, local_rank
+
+~/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/horovod/tensorflow/mpi_ops.py in <module>()
+** *56* 
+** *57* MPI_LIB = _load_library('mpi_lib' + get_ext_suffix(),
+---> 58 ['HorovodAllgather', 'HorovodAllreduce'])
+** *59* 
+** *60* _basics = _HorovodBasics(__file__, 'mpi_lib')
+
+~/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/horovod/tensorflow/mpi_ops.py in _load_library(name, op_list)
+** *43* """
+** *44* filename = resource_loader.get_path_to_datafile(name)
+---> 45 library = load_library.load_op_library(filename)
+** *46* for expected_op in (op_list or []):
+** *47* for lib_op in library.OP_LIST.op:
+
+~/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/tensorflow/python/framework/load_library.py in load_op_library(library_filename)
+** *59* RuntimeError: when unable to load the library or get the python wrappers.
+** *60* """
+---> 61 lib_handle = py_tf.TF_LoadLibrary(library_filename)
+** *62* 
+** *63* op_list_str = py_tf.TF_GetOpList(lib_handle)
+
+NotFoundError: /home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/horovod/tensorflow/mpi_lib.cpython-36m-x86_64-linux-gnu.so: undefined symbol: _ZN10tensorflow14kernel_factory17OpKernelRegistrar12InitInternalEPKNS_9KernelDefEN4absl11string_viewEPFPNS_8OpKernelEPNS_20OpKernelConstructionEE
+```
 
 ## More Info<a name="tutorial-horovod-project"></a>
 

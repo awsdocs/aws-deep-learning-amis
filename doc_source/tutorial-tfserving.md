@@ -126,4 +126,4 @@ $ python mnist_client.py --num_tests=1000 --server=localhost:9000
 
 If you are interested in learning more about TensorFlow Serving, check out the [TensorFlow website](https://www.tensorflow.org/serving/)\.
 
-You can also use TensorFlow Serving with [Elastic Inference](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-inference.html) \(EI\)\. Check out the guide on how to [Use Elastic Inference with TensorFlow](tutorial-tf-elastic-inference.md) for more info\.
+You can also use TensorFlow Serving with [Elastic Inference](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-inference.html) \(EI\)\. Check out the guide on how to [Use Elastic Inference with TensorFlow](tutorial-tf-elastic-inference.md) for more info\.

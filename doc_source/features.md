@@ -4,14 +4,13 @@
 
 There are currently three primary flavors of the DLAMI with other variations related to the operating system \(OS\) and software versions: 
 + [Deep Learning AMI with Conda](overview-conda.md) \- frameworks installed separately using `conda` packages and separate Python environments
-+ [Deep Learning AMI with Source Code](overview-source.md) \- frameworks installed from source together in the same Python environment
 + [Deep Learning Base AMI](overview-base.md) \- no frameworks installed; only [NVIDIA CUDA](https://developer.nvidia.com/cuda-zone) and other dependencies
 
-The new Deep Learning AMI with Conda uses Anaconda environments to isolate each framework, so you can switch between them at will and not worry about their dependencies conflicting\. The Deep Learning AMI with Source Code has all of the deep learning frameworks installed into the same Python environment, along with the frameworks' source\.
+The new Deep Learning AMI with Conda uses Anaconda environments to isolate each framework, so you can switch between them at will and not worry about their dependencies conflicting\.
 
 For more information on selecting the best DLAMI for you, take a look at [Getting Started](gs.md)\.
 
-This is the full list supported frameworks between Deep Learning AMI with Conda and Deep Learning AMI with Source Code:
+This is the full list of supported frameworks by Deep Learning AMI with Conda:
 + Apache MXNet
 + Caffe
 + Caffe2
@@ -20,10 +19,8 @@ This is the full list supported frameworks between Deep Learning AMI with Conda 
 + PyTorch
 + TensorFlow
 + Theano\*\*
-+ Torch\*
 
 **Note**  
-\* Only available on the Deep Learning AMI with Source Code\.  
 \*\* Theano is being phased out, as it is no longer an active project\.
 
 ## Preinstalled GPU Software<a name="features-gpu"></a>

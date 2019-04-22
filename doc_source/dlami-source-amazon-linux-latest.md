@@ -1,4 +1,4 @@
-# Deep Learning AMI with Source Code \(CUDA 9, Amazon Linux\) Version: 2\.0<a name="dlami-source-amazon-linux-latest"></a>
+# Version: 2\.0<a name="dlami-source-amazon-linux-latest"></a>
 
 ## Deep Learning Amazon Machine Image<a name="dlami-source-amazon-linux-latest-dplami"></a>
 
@@ -77,7 +77,7 @@ The AMI supports CPU Instance Types for all frameworks\. MXNet is built with sup
 
 Choose the flavor of the AMI from the list below in the region of your choice and follow the steps at:
 
-[EC2 Documentation to launch P2 Instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html)
+[EC2 Documentation to launch P2 Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html)
 
 ## Testing the FrameWorks<a name="dlami-source-amazon-linux-latest-testing-frameworks"></a>
 

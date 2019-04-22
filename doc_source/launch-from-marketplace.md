@@ -6,7 +6,7 @@
 
 1. Review the details, and then choose **Continue**\.
 
-1. Review the details and make note of the **Region**\. If this isn't your desired AWS Region, change this option before proceeding\. For more information, see [EC2 Regions](http://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region)\.
+1. Review the details and make note of the **Region**\. If this isn't your desired AWS Region, change this option before proceeding\. For more information, see [EC2 Regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region)\.
 
 1. Choose an instance type\.
 

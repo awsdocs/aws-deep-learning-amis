@@ -32,7 +32,7 @@ Only P3\.\*, P2\.\*, and G3\.\* instance types are supported\.
    hvd.init()
    ```
 
-   The following should appear on your screen \(you may ignore any warning messages\)\.
+   The following may appear on your screen \(you may ignore any warning messages\)\.
 
    ```
    --------------------------------------------------------------------------

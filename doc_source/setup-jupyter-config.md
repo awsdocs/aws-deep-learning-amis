@@ -9,7 +9,7 @@ Connect to the Amazon EC2 instance, and then complete the following procedure\.
 1. Create an SSL certificate\.
 
    ```
-   $ cd
+   $ cd ~
    $ mkdir ssl
    $ cd ssl
    $ sudo openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout "cert.key" -out "cert.pem" -batch

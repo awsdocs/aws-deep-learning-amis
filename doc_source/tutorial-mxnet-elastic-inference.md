@@ -1,12 +1,14 @@
 # Use Elastic Inference with MXNet<a name="tutorial-mxnet-elastic-inference"></a>
 
-[Elastic Inference](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-inference.html) \(EI\) is available only on instances that were launched with an Elastic Inference Accelerator\.
+## About Elastic Inference<a name="tutorial-mxnet-elastic-inference-overview"></a>
 
-Review [Selecting the Instance Type for DLAMI](instance-select.md) to select your desired instance type, and also review [Elastic Inference Prerequisites](ei-prerequisites.md) for the instructions related to Elastic Inference\. For detailed instructions on how to launch a DLAMI with an Elastic Inference Accelerator, see the [Elastic Inference](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-inference.html) documentation\.
+[Elastic Inference](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-inference.html) \(EI\) is available only on instances that were launched with an Elastic Inference Accelerator\.
+
+Review [Selecting the Instance Type for DLAMI](instance-select.md) to select your desired instance type, and also review [Elastic Inference Prerequisites](ei-prerequisites.md) for the instructions related to Elastic Inference\. For detailed instructions on how to launch a DLAMI with an Elastic Inference Accelerator, see the [Elastic Inference](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-inference.html) documentation\.
 
 To use an existing MXNet inference script, make one change in the code\. Wherever you set the context to bind your model, such as `mx.cpu()` or `mx.gpu()`, update this to use `mx.eia()` instead\. The following is an example that has this one modification, compared to the tutorial, [Use Elastic Inference with MXNet](#tutorial-mxnet-elastic-inference), where the example runs on the local CPU\. 
 
-## Activate the MXNet EI Environment<a name="tutorial-mxnet-elastic-inference-activate"></a>
+### Activate the MXNet EI Environment<a name="tutorial-mxnet-elastic-inference-activate"></a>
 
 1. Log in to your Deep Learning AMI with Conda console to begin the following tutorial\. Depending on your version of Python, do one of the following:
    + Option for Python 3 \- Activate the Python 3 MXNet EI environment\.
@@ -20,22 +22,37 @@ To use an existing MXNet inference script, make one change in the code\. Whereve
      $ source activate amazonei_mxnet_p27
      ```
 
+1. Verify that you've properly set up your instance with EI\.
+
+   ```
+   $ python ~/anaconda3/bin/EISetupValidator.py
+   ```
+
+   If your instance is not properly set up with an accelerator, running any of the examples in this section will result in the following error:
+
+   ```
+   Error: Failed to query accelerator metadata.
+   Failed to detect any accelerator
+   ```
+
+   For detailed instructions on how to launch a DLAMI with an Elastic Inference Accelerator, see the [Elastic Inference](https://docs.aws.amazon.com/dlami/latest/devguide/ei-prerequisites.html) documentation\.
+
 1. The remaining parts of this guide assume you are using the `amazonei_mxnet_p36` environment\.
 
 **Note**  
 If you are switching between MXNet or TensorFlow Elastic Inference environments, you must Stop and then Start your instance to reattach the Elastic Inference Accelerator\. Rebooting is not sufficient since the process requires a complete shutdown\.
 
-## Using EI with MXNet<a name="ei-mxnet"></a>
+### Using EI with MXNet<a name="ei-mxnet"></a>
 
 The EI\-enabled version of MXNet lets you use EI seamlessly with few changes to your MXNet code\. You can use EI with any of the following MXNet APIs:
 + MXNet Python Symbol API
 + MXNet Python Module API
 
-## Use EI with the MXNet Symbol API<a name="ei-mxnet-symbol"></a>
+### Use EI with the MXNet Symbol API<a name="ei-mxnet-symbol"></a>
 
 Pass `mx.eia()` as the context in a call to either the `simple_bind()` or the `bind()` methods\. For information about the MXNet Symbol API, see [https://mxnet\.incubator\.apache\.org/api/python/symbol/symbol\.html](https://mxnet.incubator.apache.org/api/python/symbol/symbol.html)\.
 
-The EI environment is not compiled with CUDA, so GPU context calls fail\. Check for this in your code to make sure that you don't accidentally use the GPU context\. For example, NDArray computations should be handled by the `mx.cpu()` context when using EI\. You use the `mx.eia()` context only with the bind call\. The following example calls the `simple_bind()` method with the `mx.eia()` context\. 
+The EI environment is not compiled with CUDA, so GPU context is not supported\. Check for this in your code to make sure that you don't accidentally use the GPU context\. For example, NDArray computations should be handled by the `mx.cpu()` context when using EI\. You use the `mx.eia()` context only with the bind call\. The following example calls the `simple_bind()` method with the `mx.eia()` context\. 
 
 ```
 import mxnet as mx
@@ -49,7 +66,7 @@ executor = sym.simple_bind(ctx=mx.eia(), grad_req='null')
 for i in range(10):
 
   # Forward call is performed on remote accelerator
-  executor.forward()
+  executor.forward(data=mx.nd.ones((1,)))
   print('Inference %d, output = %s' % (i, executor.outputs[0]))
 ```
 
@@ -69,9 +86,13 @@ e = c.bind(mx.eia(), {'a': a_data, 'b': b_data})
 
 # Forward call is performed on remote accelerator
 e.forward()
+print('1st Inference, output = %s' % (executor.outputs[0]))
+# Subsequent calls can pass new data in a forward call
+e.forward(a=mx.nd.ones((2,)), b=mx.nd.ones((2,)))
+print('2nd Inference, output = %s' % (executor.outputs[0]))
 ```
 
-## Use EI with the Symbol API and a ResNet\-50 Model<a name="tutorial-mxnet-elastic-inference-symbol-resnet50"></a>
+### Use EI with the Symbol API and a ResNet\-50 Model<a name="tutorial-mxnet-elastic-inference-symbol-resnet50"></a>
 
 The following example calls the `bind()` method on a pre\-trained real model \(Resnet\-50\) from the Symbol API\.
 
@@ -107,7 +128,7 @@ The following example calls the `bind()` method on a pre\-trained real model \(R
    
    exe = sym.bind(ctx=ctx, args=args, aux_states=aux, grad_req='null')
    
-   exe.forward()
+   exe.forward(data=img)
    prob = exe.outputs[0].asnumpy()
    # print the top-5
    prob = np.squeeze(prob)
@@ -134,7 +155,7 @@ The following example calls the `bind()` method on a pre\-trained real model \(R
      probability=0.022557, class=n02085620 Chihuahua
    ```
 
-## Use EI with the Module API and a ResNet\-152 Model<a name="tutorial-mxnet-elastic-inference-module-resnet152"></a>
+### Use EI with the Module API and a ResNet\-152 Model<a name="tutorial-mxnet-elastic-inference-module-resnet152"></a>
 
 The following example uses EI with the Module API on a pre\-trained real model \(Resnet\-152\)\.
 
@@ -178,9 +199,11 @@ The following example uses EI with the Module API on a pre\-trained real model \
      print('probability=%f, class=%s' %(prob[i], labels[i]))
    ```
 
+   Save this script as test\.py
+
 1. Then run the script, and you should see a result similar to the Symbol API ResNet\-50 example output\.
 
-## Considerations When Using EI\-enabled MXNet<a name="ei-mxnet-considerations"></a>
+### Considerations When Using EI\-enabled MXNet<a name="ei-mxnet-considerations"></a>
 + MXNet EI is built with MKLDNN, so all operations when using the `mx.cpu()` context are supported\. MXNet EI doesn't support the `mx.gpu()` context, which means that no operations can be performed on an attached GPU\. Any attempt to use a GPU context throws an error\.
 + EI is not currently supported for either MXNet Imperative mode or the MXNet Gluon API, however, Gluon models can be [hybridized as symbolic and exported](https://gluon.mxnet.io/chapter07_distributed-learning/hybridize.html#Getting-the-best-of-both-worlds-with-MXNet-Gluon%E2%80%99s-HybridBlocks)\.
 + You cannot allocate memory for NDArray on the remote accelerator by writing something like this: `x = mx.nd.array([[1, 2], [3, 4]], ctx=mx.eia())`\. This throws an error\. Instead you should: use `x = mx.nd.array([[1, 2], [3, 4]], ctx=mx.cpu())`\. MXNet automatically transfers your data to the accelerator as necessary, so there is no need to worry about that\. Sample error message:
@@ -213,7 +236,7 @@ The following example uses EI with the Module API on a pre\-trained real model \
   [bt] (8) /usr/lib64/libffi.so.6(ffi_call_unix64+0x4c) [0x7fca559bbcec]
   [bt] (9) /usr/lib64/libffi.so.6(ffi_call+0x1f5) [0x7fca559bb615]
   ```
-+ When you use either the Symbol API or the Module API, do not call the `backward()` method or call `bind()` with `for_training=True`\. This throws an error\. Because the default value of `for_training` is `True`, make sure you set `for_training=False` manually\. Sample error:
++ When you use either the Symbol API or the Module API, do not call the `backward()` method or call `bind()` with `for_training=True`\. This throws an error\. Because the default value of `for_training` is `True`, make sure you set `for_training=False` manually\. Sample error using test\.py:
 
   ```
   Traceback (most recent call last):
@@ -228,7 +251,7 @@ The following example uses EI with the Module API on a pre\-trained real model \
 
   ```
   Traceback (most recent call last):
-    File "test2.py", line 14, in <module>
+    File "test.py", line 14, in <module>
       mod = mx.mod.Module(symbol=sym, context=ctx, label_names=None, group2ctxs={'dev1': mx.eia(2), 'dev2':mx.eia(3)})
     File "/home/ec2-user/.local/lib/python3.6/site-packages/mxnet/module/module.py", line 82, in __init__
       raise ValueError("Maximum one EIA device can be attached to an instance")
@@ -238,7 +261,7 @@ The following example uses EI with the Module API on a pre\-trained real model \
 
   ```
   Traceback (most recent call last):
-    File "test3.py", line 14, in <module>
+    File "test.py", line 14, in <module>
       mod = mx.mod.Module(symbol=sym, context=ctx, label_names=None)
     File "/home/ec2-user/.local/lib/python3.6/site-packages/mxnet/module/module.py", line 82, in __init__
       raise ValueError("Maximum one EIA device can be attached to an instance")
@@ -268,7 +291,7 @@ The following example uses EI with the Module API on a pre\-trained real model \
   ```
 + Calling `reshape` explicitly by using either the Module API or the Symbol API, or implicitly using different shapes for input `ndarrays` in different forward passes can lead to OOM errors\. Before being reshaped, the model is not cleaned up on the accelerator until the session is destroyed\.
 
-## More Models and Resources<a name="tutorial-mxnet-elastic-inference-more"></a>
+### More Models and Resources<a name="tutorial-mxnet-elastic-inference-more"></a>
 
 Here are some more pre\-trained models and examples to try with EI\. 
 

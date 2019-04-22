@@ -2,7 +2,7 @@
 
 Always keep your operating system and other installed software up to date by applying patches and updates as soon as they become available\. 
 
-If you are using Amazon Linux or Ubuntu, when you login to your DLAMI, you are notified if updates are available and see instructions for updating\. For further information on Amazon Linux maintenance, see [Updating Instance Software](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-updates.html)\. For Ubuntu instances, refer to the official [Ubuntu documentation](https://help.ubuntu.com/)\.
+If you are using Amazon Linux or Ubuntu, when you login to your DLAMI, you are notified if updates are available and see instructions for updating\. For further information on Amazon Linux maintenance, see [Updating Instance Software](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-updates.html)\. For Ubuntu instances, refer to the official [Ubuntu documentation](https://help.ubuntu.com/)\.
 
 On Windows, check Windows Update regularly for software and security updates\. If you prefer, have updates applied automatically\.
 

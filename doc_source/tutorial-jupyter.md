@@ -13,7 +13,7 @@ $ source activate python3
 $ jupyter notebook
 ```
 
-Then run the following locally on your macOS or Linux client\. For Windows, see detailed instructions at [Set up PuTTY](setup-jupyter-configure-client-windows.md#setup-jupyter-win)\.
+Then run the following locally on your macOS or Linux client\. For Windows, see detailed instructions at [Set up PuTTY](setup-jupyter-configure-client-windows.md#setup-jupyter-win)\. Note, for an Amazon Linux AMI, the user name is ec2\-user\.
 
 ```
 $ ssh -i ~/mykeypair.pem -L 8157:127.0.0.1:8888 ubuntu@ec2-###-##-##-###.compute-1.amazonaws.com

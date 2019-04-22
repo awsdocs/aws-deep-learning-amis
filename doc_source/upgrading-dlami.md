@@ -5,15 +5,15 @@ DLAMI's system images are updated on a regular basis to take advantage of new de
 **Note**  
 When attaching and moving Amazon EBS volumes between DLAMIs, you must have both the DLAMIs and the new volume in the same Availability Zone\.
 
-1. Use the Amazon EC2console to create a new Amazon EBS volume\. For detailed directions, see [Creating an Amazon EBS Volume](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html)\.
+1. Use the Amazon EC2console to create a new Amazon EBS volume\. For detailed directions, see [Creating an Amazon EBS Volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html)\.
 
-1. Attach your newly created Amazon EBS volume to your existing DLAMI\. For detailed directions, see [Attaching an Amazon EBS Volume](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html)\.
+1. Attach your newly created Amazon EBS volume to your existing DLAMI\. For detailed directions, see [Attaching an Amazon EBS Volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html)\.
 
 1. Transfer your data, such as datasets, checkpoints, and configuration files\.
 
 1. Launch a DLAMI\. For detailed directions, see [Launching and Configuring a DLAMI](launch-config.md)\.
 
-1. Detach the Amazon EBS volume from your old DLAMI\. For detailed directions, see [Detaching an Amazon EBS Volume](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html)\.
+1. Detach the Amazon EBS volume from your old DLAMI\. For detailed directions, see [Detaching an Amazon EBS Volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html)\.
 
 1. Attach the Amazon EBS volume to your new DLAMI\. Follow the instructions from the Step 2 to attach the volume\.
 

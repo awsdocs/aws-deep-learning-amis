@@ -90,7 +90,9 @@ This tutorial shows how to serve an image classification model with MMS\. The mo
    $ mxnet-model-server --stop
    ```
 
-This tutorial focuses on basic model serving\. When you're ready to learn more about other MMS features, see the [MMS documentation on GitHub](https://github.com/awslabs/mxnet-model-server/blob/master/docs/README.md)\.
+This tutorial focuses on basic model serving\. MMS also supports using Elastic Inference with model serving\. For more information, see [ Model Serving with Amazon Elastic Inference](https://github.com/awslabs/mxnet-model-server/blob/master/docs/elastic_inference.md)
+
+When you're ready to learn more about other MMS features, see the [MMS documentation on GitHub](https://github.com/awslabs/mxnet-model-server/blob/master/docs/README.md)\.
 
 ## Other Examples<a name="tutorial-mms-examples"></a>
 

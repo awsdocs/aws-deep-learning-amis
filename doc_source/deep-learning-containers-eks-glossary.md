@@ -1,0 +1,25 @@
+# AWS Deep Learning Containers on EKS Glossary<a name="deep-learning-containers-eks-glossary"></a>
+
+## Glossary of EKS and Deep Learning Container Terms<a name="aOQ9CAKbp8A"></a>
+
+ ​ 
+
+ The following glossary describes the tools that are mentioned in this guide: 
++ <a name="aOQ9CAXgC6F"></a>**AWS CLI**: the command line tool used to interact with many AWS services, e\.g\.  `aws eks --[args]` 
++ <a name="aOQ9CAaGE2h"></a>**aws\-iam\-authenticator**: authenticates an EC2 instance to access EKS with the appropriate AWS credentials\. These credentials can have policies applied to them that grant or deny access and functionality\. 
++ <a name="aOQ9CAYhRYO"></a>**cluster**: one or more containers running on one or more EC2 instances 
++ <a name="aOQ9CA3Xymx"></a>**Container**: a virtualized operating system, service, or combination of both 
++ <a name="aOQ9CASLU3u"></a>**EC2 instance or Amazon Machine Image \(AMI\)**: AMI and instance are often referenced interchangeably\. The AMI is the host operating system and bundled software running on an instance type that can vary in speed, capacity, and computing power\. GPUs are optional computing hardware for instances, and are recommended for most deep learning applications\. EC2 instances are loaded with AMIs and together these are your “cloud computer”\. A container is then run using the operating system from the AMI\. 
++ <a name="aOQ9CA2QbTh"></a>**EKS**: Amazon Elastic Container Service for Kubernetes \(Amazon *EKS*\)\. EKS has tools for managing, scaling and deploying Kubernetes containers and tasks for the containers to run\.  
++ <a name="aOQ9CAgVsEA"></a>**eksctl: **a command line tool to create Kubernetes clusters on EKS\. 
++ <a name="aOQ9CAk6GA2"></a>**IAM**: identity management tool for AWS services 
++ <a name="aOQ9CA6FnGO"></a>**ksonnet**:** **a configuration management tool for Kubernetes manifests\. 
++ <a name="aOQ9CAiRLp9"></a>**ksonnet package**: A ksonnet *application* can be broken down into a series of discrete components\. Components can be as simple as a single Kubernetes resource \(e\.g\. a Deployment\) or as complex as a complete logging stack\. Prototypes are *examples* that you can use as the basis for your components\. Prototypes allow you to avoid copying and pasting boilerplate code, and to focus on the parts of your configuration that are specific to your app\.  A package is a set of related prototypes and helper libraries the define the prototype parts\.  A package allows you to easily distribute and reuse code in any ksonnet *application\.* For more information about ksonnet packages, refer the [ksonnet concepts documentation in the ksonnet project's github repo](https://github.com/ksonnet/ksonnet/blob/master/docs/concepts.md)\. 
++ <a name="aOQ9CAbQpyH"></a>**Kubeconfig**: a file that is used to configure access to a cluster is sometimes called a *kubeconfig file*\. This is a generic way of referring to configuration files\. It does not mean that there is a file named `kubeconfig`\. The default location for the file is in `~/.kube`\. 
++ <a name="aOQ9CAhMdR3"></a>**kubectl**: a command line interface for running commands against Kubernetes clusters\. 
++ <a name="aOQ9CAq2LpS"></a>**Kubeflow: **a tool for making deployments of machine learning \(ML\) workflows on Kubernetes simple, portable and scalable\. Use of Kubeflow helps keep the deployment of ML workloads independent of the cluster setup, helping support reproducibility of ML workflow lifecycles and reuse building blocks across different workflows\. Kubeflow also provides support for visualization and collaboration in ML workflows\. 
++ <a name="aOQ9CAwguVF"></a>**Kubernetes or k8s:** a container orchestration for scaling, deployment and management of containerized application\. 
++ <a name="aOQ9CAUaHSU"></a>**manifests**: a file containing [metadata](https://en.wikipedia.org/wiki/Metadata) for a group of accompanying files that are part of a set or coherent unit\. In Kubernetes parlance, the set of resources deployed and the desired state of the resources are defined in a resource manifest file\. 
++ <a name="aOQ9CAeeGlP"></a>**namespace**: Kubernetes supports multiple virtual clusters backed by the same physical cluster\. These virtual clusters are called namespaces\. Namespaces provide a scope for names\. Names of resources need to be unique within a namespace, but not across namespaces\. Namespaces are a way to divide cluster resources between multiple users\. Namespaces are intended for use in environments with many users spread across multiple teams, or projects\.  
++ <a name="aOQ9CAZX2jn"></a>**pod**:  a collection of related containers providing a service or functionality\.  
++ <a name="aOQ9CATJzwU"></a>**pod file**: a yaml format file that contains the instructions for the pod; this includes references for what actions or jobs the cluster should run\. 
