@@ -8,18 +8,21 @@ This section will guide you on how to run training on Deep Learning Containers f
 
 For a complete list of AWS Deep Learning Containers, refer to [Deep Learning Containers Images](deep-learning-containers-images.md)\. 
 
+**Note**  
+MKL users: read the [AWS Deep Learning Containers MKL Recommendations](deep-learning-containers-mkl.md) to get the best training or inference performance\.
+
 ## TensorFlow Training<a name="deep-learning-containers-ec2-tutorials-training-tf"></a>
 
  We can run containers with the following commands\. Please note that you must use 'nvidia\-docker' for GPU images\. 
 + For CPU:
 
   ```
-  docker run -it <cpu training container>
+  $ docker run -it <cpu training container>
   ```
 + For GPU:
 
   ```
-  nvidia-docker run -it <gpu training container>
+  $ nvidia-docker run -it <gpu training container>
   ```
 
  The previous command runs the container in interactive mode and provides a shell prompt inside the container\. You can then run the following to import TensorFlow: 
@@ -43,12 +46,12 @@ For a complete list of AWS Deep Learning Containers, refer to [Deep Learning Con
 + 
 
   ```
-  cd keras
+  $ cd keras
   ```
 + 
 
   ```
-  python examples/mnist_cnn.py
+  $ python examples/mnist_cnn.py
   ```
 
 You will see that training has started\.
@@ -59,24 +62,24 @@ To begin training with MXNet, first run the following command to run the contain
 + For CPU:
 
   ```
-  docker run -it <cpu training container>
+  $ docker run -it <cpu training container>
   ```
 + For GPU:
 
   ```
-  nvidia-docker run -it <gpu training container>
+  $ nvidia-docker run -it <gpu training container>
   ```
 
 In the terminal of the container, run the following to begin training:
 + For CPU:
 
   ```
-  git clone -b v1.4.x https://github.com/apache/incubator-mxnet.git
+  $ git clone -b v1.4.1 https://github.com/apache/incubator-mxnet.git
   python incubator-mxnet/example/image-classification/train_mnist.py
   ```
 + For GPU:
 
   ```
-  git clone -b v1.4.x https://github.com/apache/incubator-mxnet.git
+  $ git clone -b v1.4.1 https://github.com/apache/incubator-mxnet.git
   python incubator-mxnet/example/image-classification/train_mnist.py --gpus 0
   ```

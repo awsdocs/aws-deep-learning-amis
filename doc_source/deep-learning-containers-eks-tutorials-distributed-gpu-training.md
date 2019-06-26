@@ -102,7 +102,7 @@ Your first task is to create a pod file\(mx\_job\_dist\.yaml\) for your job acco
          template:
            spec:
              containers:
-               - image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/aws-samples-mxnet-training:1.4.0-gpu-py36-cu90-ubuntu16.04-example
+               - image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/aws-samples-mxnet-training:1.4.1-gpu-py36-cu100-ubuntu16.04-example
                  name: mxnet
              restartPolicy: OnFailure
        - replicas: 2
@@ -110,7 +110,7 @@ Your first task is to create a pod file\(mx\_job\_dist\.yaml\) for your job acco
          template:
            spec:
              containers:
-               - image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/aws-samples-mxnet-training:1.4.0-gpu-py36-cu90-ubuntu16.04-example
+               - image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/aws-samples-mxnet-training:1.4.1-gpu-py36-cu100-ubuntu16.04-example
                  name: mxnet
              restartPolicy: OnFailure
        - replicas: 2
@@ -118,7 +118,7 @@ Your first task is to create a pod file\(mx\_job\_dist\.yaml\) for your job acco
          template:
            spec:
              containers:
-               - image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/aws-samples-mxnet-training:1.4.0-gpu-py36-cu90-ubuntu16.04-example
+               - image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/aws-samples-mxnet-training:1.4.1-gpu-py36-cu100-ubuntu16.04-example
                  name: mxnet
                  command: ["python"]
                  args: ["/incubator-mxnet/example/image-classification/train_mnist.py","--num-epochs","1","--num-layers","2","--kv-store","dist_device_sync","--gpus","0,1"]
@@ -174,7 +174,7 @@ Your first task is to create a pod file\(mx\_job\_dist\.yaml\) for your job acco
            creationTimestamp: null
          spec:
            containers:
-           - image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/aws-samples-mxnet-training:1.4.0-gpu-py36-cu90-ubuntu16.04-example
+           - image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/aws-samples-mxnet-training:1.4.1-gpu-py36-cu100-ubuntu16.04-example
              name: mxnet
              resources: {}
            restartPolicy: OnFailure
@@ -186,7 +186,7 @@ Your first task is to create a pod file\(mx\_job\_dist\.yaml\) for your job acco
            creationTimestamp: null
          spec:
            containers:
-           - image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/aws-samples-mxnet-training:1.4.0-gpu-py36-cu90-ubuntu16.04-example
+           - image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/aws-samples-mxnet-training:1.4.1-gpu-py36-cu100-ubuntu16.04-example
              name: mxnet
              resources: {}
      - PsRootPort: 9091
@@ -209,11 +209,11 @@ Your first task is to create a pod file\(mx\_job\_dist\.yaml\) for your job acco
              - "0"
              command:
              - python
-             image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/aws-samples-mxnet-training:1.4.0-gpu-py36-cu90-ubuntu16.04-example
+             image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/aws-samples-mxnet-training:1.4.1-gpu-py36-cu100-ubuntu16.04-example
              name: mxnet
              resources:
                limits:
-                 nvidia.com/gpu: "1"
+                 nvidia.com/gpu: 1
            restartPolicy: OnFailure
      terminationPolicy:
        chief:

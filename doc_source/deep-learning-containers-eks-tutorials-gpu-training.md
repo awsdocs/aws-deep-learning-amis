@@ -4,6 +4,9 @@ This section is for training on GPU clusters\.
 
 For a complete list of AWS Deep Learning Containers, refer to [Deep Learning Containers Images](deep-learning-containers-images.md)\. 
 
+**Note**  
+MKL users: read the [AWS Deep Learning Containers MKL Recommendations](deep-learning-containers-mkl.md) to get the best training or inference performance\.
+
 **Topics**
 + [MXNet](#deep-learning-containers-eks-tutorials-gpu-training-mxnet)
 + [TensorFlow](#deep-learning-containers-eks-tutorials-gpu-training-tf)
@@ -23,9 +26,9 @@ This tutorial will guide you on training with MXNet on your single node GPU clus
      restartPolicy: OnFailure
      containers:
      - name: mxnet-training
-       image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/mxnet-training:1.4.0-gpu-py36-cu90-ubuntu16.04
+       image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/mxnet-training:1.4.1-gpu-py36-cu100-ubuntu16.04
        command: ["/bin/sh","-c"]
-       args: ["git clone -b 1.4.0 https://github.com/apache/incubator-mxnet.git && python ./incubator-mxnet/example/image-classification/train_mnist.py"]
+       args: ["git clone -b v1.4.x https://github.com/apache/incubator-mxnet.git && python ./incubator-mxnet/example/image-classification/train_mnist.py"]
    ```
 
 1. Assign the pod file to the cluster using kubectl\.
@@ -93,9 +96,12 @@ This tutorial will guide you on training TensorFlow models on your single node G
      restartPolicy: OnFailure
      containers:
      - name: tensorflow-training
-       image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/tensorflow-inference:1.13-gpu-py36-cu100-ubuntu16.04
+       image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/beta-tensorflow-training:1.13-py3-gpu-with-horovod-build
        command: ["/bin/sh","-c"]
        args: ["git clone https://github.com/fchollet/keras.git && python /keras/examples/mnist_cnn.py"]
+       resources:
+         limits:
+           nvidia.com/gpu: 1
    ```
 
 1. Assign the pod file to the cluster using kubectl\.

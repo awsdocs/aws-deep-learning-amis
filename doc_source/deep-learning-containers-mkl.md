@@ -59,7 +59,7 @@ export KMP_SETTINGS=0
  The following is an example on setting en environment variable called `OMP_NUM_THREADS` for docker run\. 
 
 ```
-ubuntu@ip-172-31-95-248:~$ docker run -e OMP_NUM_THREADS=36 -it --entrypoint "" 841569659894.dkr.ecr.us-east-1.amazonaws.com/beta-tensorflow-inference:1.13-py2-cpu-build bash
+ubuntu@ip-172-31-95-248:~$ docker run -e OMP_NUM_THREADS=36 -it --entrypoint "" 999999999999.dkr.ecr.us-east-1.amazonaws.com/beta-tensorflow-inference:1.13-py2-cpu-build bash
 root@d437faf9b684:/# echo $OMP_NUM_THREADS
 36
 ```
@@ -82,7 +82,7 @@ To specify the environment variables for a container at runtime in ECS, you must
             "-c"
         ],
         "name": "EC2TFInference",
-        "image": "841569659894.dkr.ecr.us-east-1.amazonaws.com/tf-inference:1.12-cpu-py3-ubuntu16.04",
+        "image": "999999999999.dkr.ecr.us-east-1.amazonaws.com/tf-inference:1.12-cpu-py3-ubuntu16.04",
         "memory": 8111,
         "cpu": 256,
         "essential": true,
@@ -134,7 +134,7 @@ To specify the environment variables for a container at runtime in ECS, you must
 ```
       containers:
       - name: squeezenet-service
-        image: 841569659894.dkr.ecr.us-east-1.amazonaws.com/beta-mxnet-inference:1.4.0-py3-gpu-build
+        image: 999999999999.dkr.ecr.us-east-1.amazonaws.com/beta-mxnet-inference:1.4.0-py3-gpu-build
         command:
         - mxnet-model-server
         args:

@@ -6,5 +6,4 @@ For configuration information, choose one of the following links\.
 
 **Topics**
 + [Configure a Windows Client](setup-jupyter-configure-client-windows.md)
-+ [Configure a Linux Client](setup-jupyter-configure-client-linux.md)
-+ [Configure a MacOS Client](setup-jupyter-configure-client-mac.md)
++ [Configure a Linux or macOS Client](setup-jupyter-configure-client-linux.md)

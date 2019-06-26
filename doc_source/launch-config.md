@@ -8,10 +8,9 @@ You should also know which instance type and region you're going to choose\. If 
 We will use p2\.xlarge as the default instance type in the examples\. Just replace this with whichever instance type you have in mind\.
 
 **Important**  
-If you plan to use [Elastic Inference](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-inference.html), you have [Elastic Inference Prerequisites](ei-prerequisites.md) that must be completed prior to launching your DLAMI\.
+If you plan to use Elastic Inference, you have [Elastic Inference Setup](https://docs.aws.amazon.com/elastic-inference/latest/developerguide/setting-up-ei.html) that must be completed prior to launching your DLAMI\.
 
 **Topics**
-+ [Elastic Inference Prerequisites](ei-prerequisites.md)
 + [Step 1: Launch a DLAMI](launch.md)
 + [EC2 Console](launch-from-console.md)
 + [Marketplace Search](launch-from-marketplace.md)

@@ -4,6 +4,9 @@ This section is for training on CPU clusters\.
 
 For a complete list of AWS Deep Learning Containers, refer to [Deep Learning Containers Images](deep-learning-containers-images.md)\. 
 
+**Note**  
+MKL users: read the [AWS Deep Learning Containers MKL Recommendations](deep-learning-containers-mkl.md) to get the best training or inference performance\.
+
 **Topics**
 + [MXNet](#deep-learning-containers-eks-tutorials-cpu-training-mxnet)
 + [TensorFlow](#deep-learning-containers-eks-tutorials-cpu-training-tf)
@@ -23,9 +26,9 @@ This tutorial will guide you on training with MXNet on your single node CPU clus
      restartPolicy: OnFailure
      containers:
      - name: mxnet-training
-       image: 	763104351884.dkr.ecr.us-east-1.amazonaws.com/mxnet-inference:1.4.0-cpu-py36-ubuntu16.04
+       image: 	763104351884.dkr.ecr.us-east-1.amazonaws.com/mxnet-inference:1.4.1-cpu-py36-ubuntu16.04
        command: ["/bin/sh","-c"]
-       args: ["git clone -b 1.4.0 https://github.com/apache/incubator-mxnet.git && python ./incubator-mxnet/example/image-classification/train_mnist.py"]
+       args: ["git clone -b v1.4.x https://github.com/apache/incubator-mxnet.git && python ./incubator-mxnet/example/image-classification/train_mnist.py"]
    ```
 
 1. Assign the pod file to the cluster using kubectl\.

@@ -4,6 +4,9 @@ This section will guide you on how to run inference on AWS Deep Learning Contain
 
 For a complete list of AWS Deep Learning Containers, refer to [Deep Learning Containers Images](deep-learning-containers-images.md)\. 
 
+**Note**  
+MKL users: read the [AWS Deep Learning Containers MKL Recommendations](deep-learning-containers-mkl.md) to get the best training or inference performance\.
+
 **Topics**
 + [MXNet](#deep-learning-containers-eks-tutorials-gpu-inference-mxnet)
 + [TensorFlow](#deep-learning-containers-eks-tutorials-gpu-inference-tf)
@@ -80,28 +83,26 @@ In this approach, you create a Kubernetes Service and a Deployment\. A service e
        spec:
          containers:
          - name: squeezenet-service
-           image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/mxnet-inference:1.4.0-gpu-py36-cu90-ubuntu16.04
-           command:
-           - mxnet-model-server
+           image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/mxnet-inference:1.4.2-gpu-py36-cu100-ubuntu16.04
            args:
+           - mxnet-model-server
            - --start
            - --mms-config /home/model-server/config.properties
-           - --models squeezenet=https://s3.amazonaws.com/model-server/models/squeezenet_v1.1/squeezenet_v1.1.model
+           - --models squeezenet=https://s3.amazonaws.com/model-server/model_archive_1.0/squeezenet_v1.1.mar
            ports:
            - name: mms
              containerPort: 8080
            - name: mms-management
              containerPort: 8081
            imagePullPolicy: IfNotPresent
-           env:
-           - name: AWS_REGION
-             value: us-east-1
-           - name: S3_USE_HTTPS
-             value: "true"
-           - name: S3_VERIFY_SSL
-             value: "true"
-           - name: S3_ENDPOINT
-             value: s3.us-east-1.amazonaws.com
+           resources:
+             limits:
+               cpu: 4
+               memory: 4Gi
+               nvidia.com/gpu: 1
+             requests:
+               cpu: "1"
+               memory: 1Gi
    ```
 
 1. Apply the configuration to a new pod in the previously defined namespace:
@@ -331,7 +332,7 @@ In this approach, you create a Kubernetes Service and a Deployment\. A service e
                value: s3.us-east-1.amazonaws.com
                resources:
                  limits:
-                   cpu: "4"
+                   cpu: 4
                    memory: 4Gi
                    nvidia.com/gpu: 1
                  requests:
