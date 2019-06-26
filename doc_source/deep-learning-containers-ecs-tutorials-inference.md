@@ -4,6 +4,9 @@ This section will guide you on how to run inference on AWS Deep Learning Contain
 
 For a complete list of AWS Deep Learning Containers, refer to [Deep Learning Containers Images](deep-learning-containers-images.md)\. 
 
+**Note**  
+MKL users: read the [AWS Deep Learning Containers MKL Recommendations](deep-learning-containers-mkl.md) to get the best training or inference performance\.
+
 **Topics**
 + [TensorFlow Inference](#deep-learning-containers-ecs-tutorials-inference-tf)
 + [MXNet Inference](#deep-learning-containers-ecs-tutorials-inference-mxnet)
@@ -12,7 +15,7 @@ For a complete list of AWS Deep Learning Containers, refer to [Deep Learning Con
 
 The following examples use a sample Docker image that adds either CPU or GPU inference scripts to AWS Deep Learning Containers\.
 
-### CPU\-based Inferece<a name="deep-learning-containers-ecs-tutorials-inference-tf-cpu"></a>
+### CPU\-Based Inference<a name="deep-learning-containers-ecs-tutorials-inference-tf-cpu"></a>
 
 Use the following example to run CPU\-based inference\.
 
@@ -25,13 +28,13 @@ Use the following example to run CPU\-based inference\.
    	],
    	"containerDefinitions": [{
    		"command": [
-   			"mkdir -p /test && cd /test && git clone -b r1.13 https://github.com/tensorflow/serving.git && tensorflow_model_server --port=8500 --rest_api_port=8501 --model_name=saved_model_half_plus_two_cpu --model_base_path=/test/serving/tensorflow_serving/servables/tensorflow/testdata/saved_model_half_plus_two_cpu"
+   			"mkdir -p /test && cd /test && git clone -b r1.13 https://github.com/tensorflow/serving.git && tensorflow_model_server --port=8500 --rest_api_port=8501 --model_name=saved_model_half_plus_two --model_base_path=/test/serving/tensorflow_serving/servables/tensorflow/testdata/saved_model_half_plus_two_cpu"
    		],
    		"entryPoint": [
    			"sh",
    			"-c"
    		],
-   		"name": "EC2TFInference",
+   		"name": "tensorflow-inference-container",
    		"image": "763104351884.dkr.ecr.us-east-1.amazonaws.com/tensorflow-inference:1.13-cpu-py36-ubuntu16.04",
    		"memory": 8111,
    		"cpu": 256,
@@ -54,9 +57,9 @@ Use the following example to run CPU\-based inference\.
    		"logConfiguration": {
    			"logDriver": "awslogs",
    			"options": {
-   				"awslogs-group": "/ecs/TFInference",
-   				"awslogs-region": "us-west-2",
-   				"awslogs-stream-prefix": "ecs",
+   				"awslogs-group": "/ecs/tensorflow-inference-gpu",
+   				"awslogs-region": "us-east-1",
+   				"awslogs-stream-prefix": "half-plus-two",
    				"awslogs-create-group": "true"
    			}
    		}
@@ -64,7 +67,7 @@ Use the following example to run CPU\-based inference\.
    	"volumes": [],
    	"networkMode": "bridge",
    	"placementConstraints": [],
-   	"family": "Ec2TFInference"
+   	"family": "tensorflow-inference"
    }
    ```
 
@@ -105,7 +108,7 @@ Use the following example to run CPU\-based inference\.
 1. To run inference, use the following command, replacing the external IP address with the external link IP address from the previous step\.
 
    ```
-   curl -d '{"instances": [1.0, 2.0, 5.0]}' -X POST http://<External ip>:8501/v1/models/saved_model_half_plus_two_cpu:predict
+   curl -d '{"instances": [1.0, 2.0, 5.0]}' -X POST http://<External ip>:8501/v1/models/saved_model_half_plus_two:predict
    ```
 
    The following is sample output\.
@@ -132,13 +135,13 @@ If you are unable to connect to the external IP address, be sure that your corpo
    	],
    	"containerDefinitions": [{
    		"command": [
-   			"mkdir -p /test && cd /test && git clone -b r1.13 https://github.com/tensorflow/serving.git && tensorflow_model_server --port=8500 --rest_api_port=8501 --model_name=saved_model_half_plus_two_gpu --model_base_path=/test/serving/tensorflow_serving/servables/tensorflow/testdata/saved_model_half_plus_two_gpu"
+   			"mkdir -p /test && cd /test && git clone -b r1.13 https://github.com/tensorflow/serving.git && tensorflow_model_server --port=8500 --rest_api_port=8501 --model_name=saved_model_half_plus_two --model_base_path=/test/serving/tensorflow_serving/servables/tensorflow/testdata/saved_model_half_plus_two"
    		],
    		"entryPoint": [
    			"sh",
    			"-c"
    		],
-   		"name": "EC2TFInference",
+   		"name": "tensorflow-inference-container",
    		"image": "763104351884.dkr.ecr.us-east-1.amazonaws.com/tensorflow-inference:1.13-gpu-py36-cu100-ubuntu16.04",
    		"memory": 8111,
    		"cpu": 256,
@@ -175,7 +178,7 @@ If you are unable to connect to the external IP address, be sure that your corpo
    	"volumes": [],
    	"networkMode": "bridge",
    	"placementConstraints": [],
-   	"family": "Ec2TFInference"
+   	"family": "TensorFlowInference"
    }
    ```
 
@@ -247,10 +250,10 @@ Before you can run a task on your ECS cluster, you must register a task definiti
    	],
    	"containerDefinitions": [{
    		"command": [
-   			"mxnet-model-server --start --mms-config /home/model-server/config.properties --models  squeezenet=https://s3.amazonaws.com/model-server/models/squeezenet_v1.1/squeezenet_v1.1.model"
+   			"mxnet-model-server --start --mms-config /home/model-server/config.properties --models squeezenet=https://s3.amazonaws.com/model-server/models/squeezenet_v1.1/squeezenet_v1.1.model"
    		],
-   		"name": "ECSMXInference",
-   		"image": "763104351884.dkr.ecr.us-east-1.amazonaws.com/mxnet-inference:1.4.0-cpu-py36-ubuntu16.04",
+   		"name": "mxnet-inference-container",
+   		"image": "763104351884.dkr.ecr.us-east-1.amazonaws.com/mxnet-inference:1.4.1-cpu-py36-ubuntu16.04",
    		"memory": 8111,
    		"cpu": 256,
    		"essential": true,
@@ -270,7 +273,7 @@ Before you can run a task on your ECS cluster, you must register a task definiti
    			"options": {
    				"awslogs-group": "/ecs/mxnet-inference-cpu",
    				"awslogs-region": "us-east-1",
-   				"awslogs-stream-prefix": "ecs",
+   				"awslogs-stream-prefix": "squeezenet",
    				"awslogs-create-group": "true"
    			}
    		}
@@ -278,7 +281,7 @@ Before you can run a task on your ECS cluster, you must register a task definiti
    	"volumes": [],
    	"networkMode": "bridge",
    	"placementConstraints": [],
-   	"family": "EcsMXInference"
+   	"family": "mxnet-inference"
    }
    ```
 
@@ -365,8 +368,8 @@ If you are unable to connect to the external IP address, be sure that your corpo
 		"command": [
 			"mxnet-model-server --start --mms-config /home/model-server/config.properties --models  squeezenet=https://s3.amazonaws.com/model-server/models/squeezenet_v1.1/squeezenet_v1.1.model"
 		],
-		"name": "ECSMXInference",
-		"image": "763104351884.dkr.ecr.us-east-1.amazonaws.com/mxnet-inference:1.4.0-gpu-py36-cu90-ubuntu16.04",
+		"name": "mxnet-inference-container",
+		"image": "763104351884.dkr.ecr.us-east-1.amazonaws.com/mxnet-inference:1.4.1-gpu-py36-cu100-ubuntu16.04",
 		"memory": 8111,
 		"cpu": 256,
 		"resourceRequirements": [{
@@ -390,7 +393,7 @@ If you are unable to connect to the external IP address, be sure that your corpo
 			"options": {
 				"awslogs-group": "/ecs/mxnet-inference-gpu",
 				"awslogs-region": "us-east-1",
-				"awslogs-stream-prefix": "ecs",
+				"awslogs-stream-prefix": "squeezenet",
 				"awslogs-create-group": "true"
 			}
 		}
@@ -398,7 +401,7 @@ If you are unable to connect to the external IP address, be sure that your corpo
 	"volumes": [],
 	"networkMode": "bridge",
 	"placementConstraints": [],
-	"family": "EcsMXInference"
+	"family": "mxnet-inference"
 }
 ```
 

@@ -56,4 +56,4 @@ You now have an Amazon ECS cluster with container instances running\. Verify tha
 
 1. On the **Cluster** page, choose **ECS Instances**\.
 
-1. Verify that the **Agent Connected** value is **True** for the `instance-id` created in previous step\. Also, note the CPU available and Memory available from the console as these values can be useful in the following tutorials\. It might take a few minutes to appear in the console\.
+1. Verify that the **Agent Connected** value is **True** for the `instance-id` created in previous step\. Also, note the [CPU available and Memory available from the console](https://console.aws.amazon.com/ecs/home?#/clusters/ecs-ec2-training-inference/containerInstances) as these values can be useful in the following tutorials\. It might take a few minutes to appear in the console\.

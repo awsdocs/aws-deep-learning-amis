@@ -10,8 +10,7 @@ To set up a Jupyter notebook, you:
 For more information about Jupyter notebooks, see [Jupyter](http://jupyter.org/)\. 
 
 **Topics**
-+ [Configure Jupyter Notebook on Your DLAMI](setup-jupyter-configure-server.md)
-+ [Custom SSL and Server Configuration](setup-jupyter-config.md)
++ [Secure Your Jupyter Server](setup-jupyter-config.md)
 + [Start the Jupyter notebook server](setup-jupyter-start-server.md)
 + [Configure the Client to Connect to the Jupyter Server](setup-jupyter-configure-client.md)
 + [Test by Logging in to the Jupyter notebook server](setup-jupyter-login.md)

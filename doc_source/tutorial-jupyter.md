@@ -2,24 +2,10 @@
 
 Tutorials and examples ship with each of the deep learning projects' source and in most cases they will run on any DLAMI\. If you chose the [Deep Learning AMI with Conda](overview-conda.md), you get the added benefit of a few hand\-picked tutorials already set up and ready to try out\. 
 
+**Important**  
 To run the Jupyter notebook tutorials installed on the DLAMI, you will need to [Set up a Jupyter Notebook Server](setup-jupyter.md)\.
 
 Once the Jupyter server is running, you can run the tutorials through your web browser\. If you are running the Deep Learning AMI with Conda or if you have set up Python environments, you can switch Python kernels from the Jupyter notebook interface\. Select the appropriate kernel before trying to run a framework\-specific tutorial\. Further examples of this are provided for users of the Deep Learning AMI with Conda\.
-
-As a quick recap of how to start up Jupyter and connect, run the following on your instance\.
-
-```
-$ source activate python3
-$ jupyter notebook
-```
-
-Then run the following locally on your macOS or Linux client\. For Windows, see detailed instructions at [Set up PuTTY](setup-jupyter-configure-client-windows.md#setup-jupyter-win)\. Note, for an Amazon Linux AMI, the user name is ec2\-user\.
-
-```
-$ ssh -i ~/mykeypair.pem -L 8157:127.0.0.1:8888 ubuntu@ec2-###-##-##-###.compute-1.amazonaws.com
-```
-
-If you want to try other tutorials, just download them to this folder and run them from Jupyter\.
 
 **Note**  
 Many tutorials require additional Python modules that may not be set up on your DLAMI\. If you get an error like `"xyz module not found"`, log in to the DLAMI, activate the environment as described above, then install the necessary modules\. 
@@ -29,7 +15,7 @@ Deep learning tutorials and examples often rely on one or more GPUs\. If your in
 
 ## Navigating the Installed Tutorials<a name="tutorial-jupyter-nav"></a>
 
-Once you're logged in to the Jupyter server and can see the tutorials directory, you will be presented with folders of tutorials by each framework name\. If you don't see a framework listed, then tutorials are not available for that framework on your current DLAMI\. Click on the name of the framework to see the listed tutorials, then click a tutorial to launch it\.
+Once you're logged in to the Jupyter server and can see the tutorials directory \(on Deep Learning AMI with Conda only\), you will be presented with folders of tutorials by each framework name\. If you don't see a framework listed, then tutorials are not available for that framework on your current DLAMI\. Click on the name of the framework to see the listed tutorials, then click a tutorial to launch it\.
 
 The first time you run a notebook on the Deep Learning AMI with Conda, it will want to know which environment you would like to use\. It will prompt you to select from a list\. Each environment is named according to this pattern:
 

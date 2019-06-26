@@ -52,7 +52,7 @@ Solution: This is a concurrency issue that can occur when multiple users with di
 
 ```
 $ APP_NAME=kubeflow-tf-hvd; ks init ${APP_NAME}; cd ${APP_NAME}
-INFO Using context "arn:aws:eks:eu-west-1:841569659894:cluster/training-gpu-1" from kubeconfig file "/home/ubuntu/.kube/config"
+INFO Using context "arn:aws:eks:eu-west-1:999999999999:cluster/training-gpu-1" from kubeconfig file "/home/ubuntu/.kube/config"
 ERROR Could not create app; directory '/home/ubuntu/kubeflow-tf-hvd' already exists
 ```
 

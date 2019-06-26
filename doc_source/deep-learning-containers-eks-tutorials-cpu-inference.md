@@ -5,6 +5,9 @@ This section will guide you on how to run inference on AWS Deep Learning Contain
 For a complete list of AWS Deep Learning Containers, refer to [Deep Learning Containers Images](deep-learning-containers-images.md)\. 
 
 **Note**  
+MKL users: read the [AWS Deep Learning Containers MKL Recommendations](deep-learning-containers-mkl.md) to get the best training or inference performance\.
+
+**Note**  
 For the following CPU and GPU based inference examples for MXNet, a [pre\-trained squeezenet model](https://s3.amazonaws.com/model-server/models/squeezenet_v1.1/squeezenet_v1.1.model) is public, so you do not need to modify the provided yaml files\. The TensorFlow examples will have you download the model, upload to an S3 bucket of your choice, modify the provided yaml file with your AWS CLI security settings, then use the modified yaml file for inference\.
 
 **Topics**
@@ -62,28 +65,18 @@ In this approach, you create a Kubernetes Service and a Deployment\. A service e
        spec:
          containers:
          - name: squeezenet-service
-           image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/mxnet-inference:1.4.0-gpu-py36-cu90-ubuntu16.04
-           command:
-           - mxnet-model-server
+           image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/mxnet-inference:1.4.1-cpu-py36-ubuntu16.04
            args:
+           - mxnet-model-server
            - --start
            - --mms-config /home/model-server/config.properties
-           - --models squeezenet=https://s3.amazonaws.com/model-server/models/squeezenet_v1.1/squeezenet_v1.1.model
+           - --models squeezenet=https://s3.amazonaws.com/model-server/model_archive_1.0/squeezenet_v1.1.mar
            ports:
            - name: mms
              containerPort: 8080
            - name: mms-management
              containerPort: 8081
            imagePullPolicy: IfNotPresent
-           env:
-           - name: AWS_REGION
-             value: us-east-1
-           - name: S3_USE_HTTPS
-             value: "true"
-           - name: S3_VERIFY_SSL
-             value: "true"
-           - name: S3_ENDPOINT
-             value: s3.us-east-1.amazonaws.com
    ```
 
 1. Apply the configuration to a new pod in the previously defined namespace:
@@ -202,7 +195,7 @@ In this approach, you create a Kubernetes Service and a Deployment\. A service e
    $ kubectl -n ${NAMESPACE} apply -f secret.yaml
    ```
 
-1. In this example, you will clone the [tensorflow\-serving](https://github.com/tensorflow/serving/) repository and sync a pretrained model to an S3 bucket\. The following sample names the bucket `tensorflow-serving-models`\. It also syncs a saved models to an S3 bucket called `saved_model_half_plus_two_cpu`\.
+1. In this example, you will clone the [tensorflow\-serving](https://github.com/tensorflow/serving/) repository and sync a pretrained model to an S3 bucket\. The following sample names the bucket `tensorflow-serving-models`\. It also syncs a saved models to an S3 bucket called `saved_model_half_plus_two`\.
 
    ```
    $ git clone https://github.com/tensorflow/serving/
@@ -212,7 +205,7 @@ In this approach, you create a Kubernetes Service and a Deployment\. A service e
 1. Sync the CPU model\.
 
    ```
-   $ aws s3 sync saved_model_half_plus_two_cpu s3://<your_s3_bucket>/saved_model_half_plus_two_cpu
+   $ aws s3 sync saved_model_half_plus_two_cpu s3://<your_s3_bucket>/saved_model_half_plus_two
    ```
 
 1. Create the file `tf_inference.yaml`\. Use the contents of the next code block as its content, and update `--model_base_path` to use your S3 bucket\.
@@ -265,8 +258,8 @@ In this approach, you create a Kubernetes Service and a Deployment\. A service e
              args:
              - --port=9000
              - --rest_api_port=8500
-             - --model_name=saved_model_half_plus_two_cpu
-             - --model_base_path=s3://tensorflow-trained-models/saved_model_half_plus_two_cpu
+             - --model_name=saved_model_half_plus_two
+             - --model_base_path=s3://tensorflow-trained-models/saved_model_half_plus_two
              ports:
              - containerPort: 8500
              - containerPort: 9000

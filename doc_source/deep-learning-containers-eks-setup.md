@@ -78,7 +78,7 @@ Before you start, consider the location of your training data or where you want 
    $ sudo mv /tmp/eksctl /usr/local/bin
    ```
 
-1. Install `kubectl` by running the following commands\. For further information on kubeclt refer to: https://docs\.aws\.amazon\.com/eks/latest/userguide/install\-kubectl\.html
+1. Install `kubectl` by running the following commands\. For further information on kubectl refer to: https://docs\.aws\.amazon\.com/eks/latest/userguide/install\-kubectl\.html
 
    ```
    $ curl -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.11.5/2018-12-06/bin/linux/amd64/kubectl
@@ -149,7 +149,7 @@ The rest of this guide assumes *<us\-east\-1>* as the region\.
    You should see something similar to the following output:
 
    ```
-   Added new context arn:aws:eks:us-east-1:841569659894:cluster/training-1 to /home/ubuntu/.kube/config
+   Added new context arn:aws:eks:us-east-1:999999999999:cluster/training-1 to /home/ubuntu/.kube/config
    ```
 
 1. If you plan to use GPU instance types, make sure to run the following step to install the NVIDIA device plugin for Kubernetes:
@@ -223,11 +223,6 @@ Refer to the previous section's discussion on using the eksctl command to launch
   ```
   $ aws eks —region us-east-1 update-kubeconfig —name training-gpu-1
   ```
-+ Once you have updated the config the previous example of installing the NVIDIA plugin is accomplished as follows:
-
-  ```
-  $ kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v1.11/nvidia-device-plugin.yml
-  ```
 + If you follow all of the examples in this guide you will frequently switch between active clusters, so you can orchestrate training or inference or use different frameworks running on different clusters\.
 
 ## Cleanup<a name="deep-learning-containers-eks-setup-cleanup"></a>
@@ -242,13 +237,6 @@ If you only want to delete a pod run the following:
 
 ```
 $ kubectl delete pods <name>
-```
-
-If you want to delete a ksonnet job, change directories to where you launched the job and run the following:
-
-```
-$ ks delete default
-$ ks component rm openmpi
 ```
 
 If you want to reset the secret for access to the cluster run the following:

@@ -4,6 +4,9 @@ This section will guide you on how to run training on AWS Deep Learning Containe
 
 For a complete list of AWS Deep Learning Containers, refer to [Deep Learning Containers Images](deep-learning-containers-images.md)\. 
 
+**Note**  
+MKL users: read the [AWS Deep Learning Containers MKL Recommendations](deep-learning-containers-mkl.md) to get the best training or inference performance\.
+
 **Topics**
 + [TensorFlow Training](#deep-learning-containers-ecs-tutorials-training-tf)
 + [MXNet Training](#deep-learning-containers-ecs-tutorials-training-mxnet)
@@ -28,9 +31,9 @@ Before you can run a task on your ECS cluster, you must register a task definiti
      			"sh",
      			"-c"
      		],
-     		"name": "TFconsole",
+     		"name": "tensorflow-training-container",
      		"image": "763104351884.dkr.ecr.us-east-1.amazonaws.com/tensorflow-training:1.13-cpu-py36-ubuntu16.04",
-     		"memory": 1111,
+     		"memory": 4000,
      		"cpu": 256,
      		"essential": true,
      		"portMappings": [{
@@ -50,7 +53,7 @@ Before you can run a task on your ECS cluster, you must register a task definiti
      	"volumes": [],
      	"networkMode": "bridge",
      	"placementConstraints": [],
-     	"family": "tf"
+     	"family": "TensorFlow"
      }
      ```
    + For GPU
@@ -69,7 +72,7 @@ Before you can run a task on your ECS cluster, you must register a task definiti
                      "sh",
                      "-c"
                   ],
-               "name": "TFconsole",
+               "name": "tensorflow-training-container",
                "image": "763104351884.dkr.ecr.us-east-1.amazonaws.com/tensorflow-training:1.13-horovod-gpu-py36-cu100-ubuntu16.04",
                "memory": 6111,
                "cpu": 256,
@@ -89,7 +92,8 @@ Before you can run a task on your ECS cluster, you must register a task definiti
                    "options": {
                        "awslogs-group": "awslogs-tf-ecs",
                        "awslogs-region": "us-east-1",
-                       "awslogs-stream-prefix": "tf"
+                       "awslogs-stream-prefix": "tf",
+           				"awslogs-create-group": "true"
                    }
                }
              }
@@ -97,7 +101,7 @@ Before you can run a task on your ECS cluster, you must register a task definiti
            "volumes": [],
            "networkMode": "bridge",
            "placementConstraints": [],
-           "family": "tf"
+           "family": "tensorflow-training"
          }
      ```
 
@@ -140,15 +144,15 @@ Before you can run a task on your ECS cluster, you must register a task definiti
         "containerDefinitions":[
            {
               "command":[
-                 "git clone -b 1.3.1 https://github.com/apache/incubator-mxnet.git && python /incubator-mxnet/example/image-classification/train_mnist.py"
+                 "git clone -b 1.4 https://github.com/apache/incubator-mxnet.git && python /incubator-mxnet/example/image-classification/train_mnist.py"
               ],
               "entryPoint":[
                  "sh",
                  "-c"
               ],
               "name":"mxnet-training",
-              "image":"763104351884.dkr.ecr.us-east-1.amazonaws.com/mxnet-training:1.4.0-cpu-py36-ubuntu16.04",
-              "memory":1111,
+              "image":"763104351884.dkr.ecr.us-east-1.amazonaws.com/mxnet-training:1.4.1-cpu-py36-ubuntu16.04",
+              "memory":4000,
               "cpu":256,
               "essential":true,
               "portMappings":[
@@ -175,7 +179,7 @@ Before you can run a task on your ECS cluster, you must register a task definiti
         "placementConstraints":[
      
         ],
-        "family":"mx"
+        "family":"mxnet"
      }
      ```
    +  For GPU:
@@ -188,14 +192,14 @@ Before you can run a task on your ECS cluster, you must register a task definiti
         "containerDefinitions":[
            {
               "command":[
-                 "git clone -b 1.3.1 https://github.com/apache/incubator-mxnet.git && python /incubator-mxnet/example/image-classification/train_mnist.py --gpus 0"
+                 "git clone -b 1.4 https://github.com/apache/incubator-mxnet.git && python /incubator-mxnet/example/image-classification/train_mnist.py --gpus 0"
               ],
               "entryPoint":[
                  "sh",
                  "-c"
               ],
               "name":"mxnet-training",
-              "image":"763104351884.dkr.ecr.us-east-1.amazonaws.com/mxnet-training:1.4.0-gpu-py36-cu90-ubuntu16.04",
+              "image":"763104351884.dkr.ecr.us-east-1.amazonaws.com/mxnet-training:1.4.1-gpu-py36-cu100-ubuntu16.04",
               "memory":4000,
               "cpu":256,
               "resourceRequirements":[
@@ -229,7 +233,7 @@ Before you can run a task on your ECS cluster, you must register a task definiti
         "placementConstraints":[
      
         ],
-        "family":"mx"
+        "family":"mxnet-training"
      }
      ```
 

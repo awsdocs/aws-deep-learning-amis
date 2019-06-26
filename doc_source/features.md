@@ -13,15 +13,12 @@ For more information on selecting the best DLAMI for you, take a look at [Gettin
 This is the full list of supported frameworks by Deep Learning AMI with Conda:
 + Apache MXNet
 + Caffe
-+ Caffe2
-+ CNTK
++ Caffe2\*\*
++ CNTK\*\*
 + Keras
 + PyTorch
 + TensorFlow
 + Theano\*\*
-
-**Note**  
-\*\* Theano is being phased out, as it is no longer an active project\.
 
 ## Preinstalled GPU Software<a name="features-gpu"></a>
 

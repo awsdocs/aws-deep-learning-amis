@@ -2,7 +2,7 @@
 
 ## Using the Deep Learning Base AMI<a name="tutorial-base-overview"></a>
 
-The Base AMI comes with a foundational platform of GPU drivers and acceleration libraries to deploy your own customized deep learning environment\. By default the AMI is configured with NVIDIA CUDA 9 environment\. However, you can also switch to a CUDA 10 or CUDA 8 environment\. Refer to the following instructions for how to do this\.
+The Base AMI comes with a foundational platform of GPU drivers and acceleration libraries to deploy your own customized deep learning environment\. By default the AMI is configured with NVIDIA CUDA 10 environment\. However, you can also switch to a CUDA 9 or CUDA 8 environment\. Refer to the following instructions for how to do this\.
 
 ## Configuring CUDA Versions<a name="tutorial-base-cuda"></a>
 
@@ -12,6 +12,12 @@ You can select and verify a particular CUDA version with the following bash comm
   ```
   $ sudo rm /usr/local/cuda
   sudo ln -s /usr/local/cuda-10.0 /usr/local/cuda
+  ```
++ CUDA 9\.2:
+
+  ```
+  $ sudo rm /usr/local/cuda
+  sudo ln -s /usr/local/cuda-9.2 /usr/local/cuda
   ```
 + CUDA 9:
 
