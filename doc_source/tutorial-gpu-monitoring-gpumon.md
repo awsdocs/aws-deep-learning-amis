@@ -51,6 +51,12 @@ For more information on creating an IAM user and adding policies for CloudWatch,
    $ source activate python2
    ```
 
+1. Install the [NVIDIA Python bindings](https://pypi.org/project/nvidia-ml-py/). The script uses these to access GPU monitoring functions.
+
+   ```
+   $ pip install nvidia-ml-py
+   ```
+
 1. Run the gpumon utility in background\.
 
    ```
