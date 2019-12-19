@@ -25,7 +25,7 @@ This is the full list of supported frameworks by Deep Learning AMI with Conda:
 Even if you use a CPU\-only instance, the DLAMI will have [NVIDIA CUDA](https://developer.nvidia.com/cuda-zone) and [NVIDIA cuDNN](https://developer.nvidia.com/cudnn)\. The installed software is the same regardless of the instance type\. Keep in mind that GPU\-specific tools only work on an instance that has at least one GPU\. More information on this is covered in the [Selecting the Instance Type for DLAMI](instance-select.md)\.
 + [NVIDIA CUDA](https://developer.nvidia.com/cuda-zone) 9
 + [NVIDIA cuDNN](https://developer.nvidia.com/cudnn) 7
-+ CUDA 8 is available as well\. See the [CUDA Installations and Framework Bindings](overview-cuda.md) for more information\.
++ CUDA 8, 9, 10, and 10\.1 are available as well\. See the [CUDA Installations and Framework Bindings](overview-cuda.md) for more information\.
 
 ## Model Serving and Visualization<a name="features-gpu"></a>
 

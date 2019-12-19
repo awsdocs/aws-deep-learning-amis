@@ -1,10 +1,10 @@
 # Setup<a name="deep-learning-containers-eks-setup"></a>
 
-This guide will help you setup a Deep Learning environment using Amazon Elastic Container Service for Kubernetes \(Amazon EKS\) and AWS Deep Learning Containers\. Using EKS you can scale a production\-ready environment for multi\-node training and inference with Kubernetes containers\.
+This guide will help you setup a Deep Learning environment using Amazon Elastic Kubernetes Service \(Amazon EKS\) and AWS Deep Learning Containers\. Using Amazon EKS you can scale a production\-ready environment for multiple\-node training and inference with Kubernetes containers\.
 
-If you're not familiar with Kubernetes or EKS yet, that's okay\. This guide and the related EKS documentation will help you understand how to use the family of Kubernetes tools so you can scale a deep learning training or inference system with Kubernetes and EKS\. This guide assumes that you're already familiar with your deep learning framework's multi\-node implementations, or for inference, how to set up an inference server outside of containers\.
+If you're not familiar with Kubernetes or Amazon EKS yet, that's okay\. This guide and the related Amazon EKS documentation will help you understand how to use the family of Kubernetes tools so you can scale a deep learning training or inference system with Kubernetes and Amazon EKS\. This guide assumes that you're already familiar with your deep learning framework's multiple\-node implementations, or for inference, how to set up an inference server outside of containers\.
 
-A deep learning container setup on EKS consists of one or more containers, forming a cluster\. You can have dedicated cluster types, such as a cluster for training and a cluster for inference\. You might also want different instance types for your training or instance clusters depending on the demands of the deep learning neural networks and models you plan to deploy\.
+A deep learning container setup on Amazon EKS consists of one or more containers, forming a cluster\. You can have dedicated cluster types, such as a cluster for training and a cluster for inference\. You might also want different instance types for your training or instance clusters depending on the demands of the deep learning neural networks and models you plan to deploy\.
 
 **Topics**
 + [Custom Images](#deep-learning-containers-eks-setup-custom-images)
@@ -24,20 +24,20 @@ Custom images are helpful if you want to load your own code or datasets and have
 
 ## Licensing<a name="deep-learning-containers-eks-setup-licensing"></a>
 
-To use GPU hardware, you need to use an AMI that has the necessary GPU drivers\. We recommend using the EKS\-optimized AMI with GPU support, which you will use in subsequent steps of this guide\. Because this AMI includes third\-party software that requires an end user license agreement \(EULA\), you must subscribe to the EKS\-optimized AMI in AWS Marketplace and accept the EULA before you can use the AMI in your worker node groups\.
+To use GPU hardware, you need to use an AMI that has the necessary GPU drivers\. We recommend using the Amazon EKS\-optimized AMI with GPU support, which you will use in subsequent steps of this guide\. Because this AMI includes third\-party software that requires an end user license agreement \(EULA\), you must subscribe to the EKS\-optimized AMI in AWS Marketplace and accept the EULA before you can use the AMI in your worker node groups\.
 
 **Important**  
 To subscribe to the AMI, visit the [AWS Marketplace](https://aws.amazon.com/marketplace/pp/B07GRHFXGM)\.
 
 ## Security Config<a name="deep-learning-containers-eks-setup-security-config"></a>
 
-To use EKS you must have a user account that has access to several security permissions\. These are set with the IAM tool\.
+To use Amazon EKS you must have a user account that has access to several security permissions\. These are set with the IAM tool\.
 
 1. Create an IAM user or update an existing IAM user\. Refer to the IAM documentation for further info on creating or editing an IAM user\.
 
 1. Get the credentials of this user\. Under Users, select your user, select Security Credentials, select Create access key pair, and download the key pair or copy the info for use later\.
 
-1. Add policies to this IAM user\. These will provide the required access for EKS, IAM, and EC2\. First, open the IAM console at https://console\.aws\.amazon\.com/iam/\.
+1. Add policies to this IAM user\. These will provide the required access for Amazon EKS, IAM, and Amazon Elastic Compute Cloud \(Amazon EC2\)\. First, open the IAM console at https://console\.aws\.amazon\.com/iam/\.
 
 1. Search for AmazonEKSAdminPolicy, click the checkbox\.
 
@@ -57,13 +57,13 @@ To use EKS you must have a user account that has access to several security perm
 
 ## Gateway Node<a name="deep-learning-containers-eks-setup-gateway-node"></a>
 
-To setup an EKS cluster it is recommended to use the open source tool, `eksctl`\. It is also recommended to use an EC2 instance with the Deep Learning Base AMI \(Ubuntu\) as your base of operations for allocating and controlling your cluster\. It is possible to run these tools locally on your PC or an EC2 instance you already have running, however to simplify the guide we will assume you're using a Deep Learning Base AMI \(DLAMI\) with Ubuntu 16\.04\. We'll refer to this as your gateway node\. 
+To setup an Amazon EKS cluster it is recommended to use the open source tool, `eksctl`\. It is also recommended to use an Amazon EC2 instance with the Deep Learning Base AMI \(Ubuntu\) as your base of operations for allocating and controlling your cluster\. It is possible to run these tools locally on your PC or an Amazon EC2 instance you already have running, however to simplify the guide we will assume you're using a Deep Learning Base AMI \(DLAMI\) with Ubuntu 16\.04\. We'll refer to this as your gateway node\. 
 
-Before you start, consider the location of your training data or where you want to run your cluster for responding to inference requests\. Typically your data and cluster for training or inference should be in the same region\. Also, you will want to spin up your gateway node in this same region\. You can follow this quick [10 minute tutorial](https://aws.amazon.com/getting-started/tutorials/get-started-dlami/) that will guide you on how to launch a DLAMI to use as your gateway node\.
+Before you start, consider the location of your training data or where you want to run your cluster for responding to inference requests\. Typically your data and cluster for training or inference should be in the same Region\. Also, you will want to spin up your gateway node in this same Region\. You can follow this quick [10 minute tutorial](https://aws.amazon.com/getting-started/tutorials/get-started-dlami/) that will guide you on how to launch a DLAMI to use as your gateway node\.
 
 1. Login to your gateway node\.
 
-1. Install or upgrade AWS CLI\. To access the required new kubernetes features, you must have the latest version\.
+1. Install or upgrade AWS CLI\. To access the required new Kubernetes features, you must have the latest version\.
 
    ```
    $ sudo pip install --upgrade awscli
@@ -111,13 +111,13 @@ Before you start, consider the location of your training data or where you want 
 
 1. Examine the following command to create a cluster using a p3\.8xlarge instance type\. You will need to make modifications to it before you run it\.
    + name is what you will use to manage your cluster\. You can change `cluster-name` to be whatever name you like as long as there are no spaces or special characters\.
-   + nodes is the number of containers you want in your cluster\. In this example, we're starting with three nodes\.
+   + nodes is the number of instances you want in your cluster\. In this example, we're starting with three nodes\.
    + node\-type refers to instance class\. You can choose a different instance class if you already know what kind will work best for your situation\. 
    + timeout and \*ssh\-access \*can be left alone\.
-   + ssh\-public\-key is the name of the key that you want to use to login your worker nodes\. Either use a security key you already use or create a new one but be sure to swap out the ssh\-public\-key with a key that was allocated for the region you used\. Note: You only need to provide the key name as seen in the 'key pairs' section of the EC2 Console\. 
-   + region is the EC2 region where the cluster will be launched\. If you plan to use training data that resides in a specific region \(other than *<us\-east\-1>*\) it is recommended that you use the same region\. The ssh\-public\-key must have access to launch instances in this region\.
+   + ssh\-public\-key is the name of the key that you want to use to login your worker nodes\. Either use a security key you already use or create a new one but be sure to swap out the ssh\-public\-key with a key that was allocated for the Region you used\. Note: You only need to provide the key name as seen in the 'key pairs' section of the Amazon EC2 Console\. 
+   + Region is the Amazon EC2 Region where the cluster will be launched\. If you plan to use training data that resides in a specific Region \(other than *<us\-east\-1>*\) it is recommended that you use the same Region\. The ssh\-public\-key must have access to launch instances in this Region\.
 **Note**  
-The rest of this guide assumes *<us\-east\-1>* as the region\.
+The rest of this guide assumes *<us\-east\-1>* as the Region\.
    + auto\-kubeconfig can be left alone\.
 
 1. Once you have made changes to the command, run it, and wait\. It can take several minutes for a single node cluster, and will take even longer if you chose to create a large cluster\.
@@ -245,13 +245,13 @@ If you want to reset the secret for access to the cluster run the following:
 $ kubectl delete secret ${SECRET} -n ${NAMESPACE} || true
 ```
 
-If you want to delete a nodegroup attached to a cluster, run the following:
+If you want to delete a node group attached to a cluster, run the following:
 
 ```
 $ eksctl delete nodegroup --name <cluster_name>
 ```
 
-To attach a nodegroup to a cluster, run the following:
+To attach a node group to a cluster, run the following:
 
 ```
 $ eksctl create nodegroup

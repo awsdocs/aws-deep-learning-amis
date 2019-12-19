@@ -45,16 +45,10 @@ For more information on creating an IAM user and adding policies for CloudWatch,
    + Change the region in gpumon\.py if your instance is NOT in us\-east\-1\.
    + Change other parameters such as the CloudWatch `namespace` or the reporting period with `store_resolution`\.
 
-1. Currently the script only supports Python 2\.7\. Activate your preferred framework’s Python 2\.7 environment or activate the DLAMI’s general Python 2\.7 environment\. 
+1. Currently the script only supports Python 2\.7\. Activate your preferred framework’s Python 2\.7 environment or activate the DLAMI general Python 2\.7 environment\. 
 
    ```
    $ source activate python2
-   ```
-
-1. Install the [NVIDIA Python bindings](https://pypi.org/project/nvidia-ml-py/). The script uses these to access GPU monitoring functions.
-
-   ```
-   $ pip install nvidia-ml-py
    ```
 
 1. Run the gpumon utility in background\.

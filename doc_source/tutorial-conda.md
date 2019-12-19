@@ -144,7 +144,7 @@ You should see "Hello, Tensorflow\!" Now you have tested two different deep lear
 
 **Tip**  
 Refer to the release notes for information regarding known issues:  
-[Deep Learning AMI \(Ubuntu\) Known Issues](CONDA_UBUNTU1.md#CONDA_UBUNTU1-known-issues)
+[ Known Issues](CONDA_UBUNTU1.md#CONDA_UBUNTU1-known-issues)
 [Deep Learning AMI \(Amazon Linux\) Known Issues](CONDA_AML1.md#CONDA_AML1-known-issues)
 
 **Next Up**  

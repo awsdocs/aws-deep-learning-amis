@@ -98,4 +98,4 @@ You can find more tutorials in the Deep Learning AMI with Conda tutorials folder
 
 1. [Model Server for Apache MXNet \(MMS\)](tutorial-mms.md)
 
-For more tutorials and examples, see the framework's official Python documentation, the [Python API for MXNet](https://mxnet.incubator.apache.org/api/python/index.html), or the [Apache MXNet](https://mxnet.incubator.apache.org/) website\.
+For more tutorials and examples, see the framework's official Python documentation, the [Python API for MXNet](https://mxnet.apache.org/api/python.html), or the [Apache MXNet](https://mxnet.incubator.apache.org/) website\.

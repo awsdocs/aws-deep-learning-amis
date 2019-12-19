@@ -1,7 +1,8 @@
 # Deep Learning AMI with Conda Options<a name="conda"></a>
 
 Use the [Launching and Configuring a DLAMI](launch-config.md) guide to continue with one of these DLAMI\.
-+ [Deep Learning AMI \(Ubuntu\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B077GCH38C)
++ [Deep Learning AMI \(Ubuntu 18\.04\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B07Y43P7X5)
++ [Deep Learning AMI \(Ubuntu 16\.04\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B077GCH38C)
 + [Deep Learning AMI \(Amazon Linux\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B077GF11NF)
 + [Deep Learning AMI \(Amazon Linux 2\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B07NMRZ36T)
 

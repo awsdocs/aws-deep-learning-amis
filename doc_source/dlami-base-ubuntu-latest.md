@@ -1,4 +1,4 @@
-# Release Note Details for Deep Learning Base AMI \(Ubuntu\) Version 2\.0<a name="dlami-base-ubuntu-latest"></a>
+# Release Note Details for Version 2\.0<a name="dlami-base-ubuntu-latest"></a>
 
 ## AWS Deep Learning AMI<a name="dlami-base-ubuntu-latest-dplami"></a>
 
@@ -39,7 +39,7 @@ Choose the flavor of the AMI from the list below in the region of your choice an
 
 [AWS Deep Learning AMI Developer Guide](https://docs.aws.amazon.com/dlami/latest/devguide/gs.html)
 
-## Deep Learning AMI \(Ubuntu\)<a name="dlami-base-ubuntu-latest-regions"></a>
+## <a name="dlami-base-ubuntu-latest-regions"></a>
 
 Available in the following regions:
 

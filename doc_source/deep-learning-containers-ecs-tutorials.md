@@ -1,6 +1,6 @@
 # Tutorials<a name="deep-learning-containers-ecs-tutorials"></a>
 
-This section will guide you on how to run training and inference on AWS Deep Learning Containers for ECS using MXNet and TensorFlow\.
+This section will guide you on how to run training and inference on AWS Deep Learning Containers for ECS using MXNet, PyTorch, and TensorFlow\.
 
 For a complete list of AWS Deep Learning Containers, refer to [Deep Learning Containers Images](deep-learning-containers-images.md)\. 
 
@@ -10,3 +10,4 @@ MKL users: read the [AWS Deep Learning Containers MKL Recommendations](deep-lear
 **Topics**
 + [Training](deep-learning-containers-ecs-tutorials-training.md)
 + [Inference](deep-learning-containers-ecs-tutorials-inference.md)
++ [Custom Entrypoints](deep-learning-containers-ecs-tutorials-custom-entry.md)

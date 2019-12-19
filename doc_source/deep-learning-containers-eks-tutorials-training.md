@@ -1,6 +1,6 @@
 # Training<a name="deep-learning-containers-eks-tutorials-training"></a>
 
-Once you have a cluster running you can try a training job\. This section will guide you through MXNet and TensorFlow training examples\.
+Once you have a cluster running you can try a training job\. This section will guide you through MXNet, PyTorch, and TensorFlow training examples\.
 
 **Topics**
 + [CPU Training](deep-learning-containers-eks-tutorials-cpu-training.md)

@@ -1,7 +1,7 @@
 # Step 1: Launch a DLAMI<a name="launch"></a>
 
 **Note**  
-For this walkthrough, we might make references specific to the Deep Learning AMI \(Ubuntu\)\. Even if you select a different DLAMI, you should be able to follow this guide\.
+For this walkthrough, we might make references specific to the Deep Learning AMI \(Ubuntu 16\.04\)\. Even if you select a different DLAMI, you should be able to follow this guide\.
 
 **Launch the instance**
 

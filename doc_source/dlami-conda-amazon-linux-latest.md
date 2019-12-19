@@ -152,7 +152,7 @@ Available in the following regions:
 + Also tested on p2\.xlarge, c4\.4xlarge\.
 
 ## Known Issues<a name="dlami-conda-amazon-linux-latest-known-issues"></a>
-+ **Issue**: PyTorch tests are broken\. \~/src/bin/testPyTorch \- installs test environment that is not compatible with the pytorch 0\.3\.0
++ **Issue**: PyTorch tests are broken\. \~/src/bin/testPyTorch \- installs test environment that is not compatible with the PyTorch 0\.3\.0
 
   **Workaround**: N/A
 + **Issue**: Tutorials provided by the framework or third parties may have Python dependencies not installed on the DLAMI\. 

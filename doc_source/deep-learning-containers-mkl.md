@@ -45,7 +45,7 @@ export KMP_SETTINGS=0
  ​ 
 + <a name="XPH9CAnBecL"></a>[General best practices for Intel\-optimized TensorFlow Serving](https://github.com/IntelAI/models/blob/master/docs/general/tensorflow_serving/GeneralBestPractices.md) 
 + <a name="XPH9CAmzAjI"></a>[TensorFlow performance](https://www.tensorflow.org/guide/performance/overview) 
-+ <a name="XPH9CAZEy8l"></a>[Some Tips for improving Apache MXNet performance](http://mxnet.apache.org/versions/master/faq/perf.html) 
++ <a name="XPH9CAZEy8l"></a>[Some Tips for improving Apache MXNet performance](https://mxnet.apache.org/api/faq/perf) 
 + <a name="XPH9CAMJJgE"></a>[MXNet with Intel MKL\-DNN \- Performance Benchmarking](https://cwiki.apache.org/confluence/display/MXNET/MXNet+with+Intel+MKL-DNN+-+Performance+Benchmarking#MXNetwithIntelMKL-DNN-PerformanceBenchmarking-InferenceAccuracy) 
 
  ​ 

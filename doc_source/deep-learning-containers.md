@@ -1,8 +1,8 @@
 # What Are AWS Deep Learning Containers?<a name="deep-learning-containers"></a>
 
- This guide will help you setup a Deep Learning environment using AWS Deep Learning Containers\. AWS Deep Learning Containers can include a wide variety of options for deep learning\. For example, you can choose your deep learning framework, such as TensorFlow or MXNet, the CUDA version, and distributed training performance enhancers like Horovod\.
+ This guide will help you setup a Deep Learning environment using AWS Deep Learning Containers\. AWS Deep Learning Containers can include a wide variety of options for deep learning\. For example, you can choose your deep learning framework, such as TensorFlow, PyTorch, or MXNet, the CUDA version, and distributed training performance enhancers like Horovod\. Deep Learning Containers can be used for distributed training on EC2, ECS, and EKS\.
 
-This guide includes setup and tutorials for using Deep Learning Containers on EC2, ECS, EKS, and SageMaker\.
+ This guide includes setup and tutorials for using Deep Learning Containers on EC2, ECS, EKS, and SageMaker\.
 
 **Topics**
 + [AWS Deep Learning Containers on Amazon EC2](deep-learning-containers-ec2.md)

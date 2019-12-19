@@ -7,6 +7,7 @@ For a complete list of AWS Deep Learning Containers, refer to [Deep Learning Con
 **Topics**
 + [MXNet](#deep-learning-containers-eks-tutorials-distributed-gpu-training-mxnet)
 + [TensorFlow with Horovod](#deep-learning-containers-eks-tutorials-distributed-gpu-training-tf)
++ [PyTorch](#deep-learning-containers-eks-tutorials-distributed-gpu-training-pytorch)
 
 To run distributed training on EKS, you will be using Kubeflow\. The Kubeflow project is dedicated to making deployments of machine learning \(ML\) workflows on Kubernetes simple, portable and scalable\. 
 
@@ -28,8 +29,6 @@ To run distributed training on EKS, you will be using Kubeflow\. The Kubeflow pr
 ## MXNet<a name="deep-learning-containers-eks-tutorials-distributed-gpu-training-mxnet"></a>
 
 This tutorial will guide you on distributed training with MXNet on your multi\-node GPU cluster\. It uses Parameter Server\. To run MXNet distributed training on EKS, we will use the [Kubernetes MXNet\-operator](https://www.kubeflow.org/docs/components/mxnet/) called `MXJob`\. It provides a custom resource that makes it easy to run distributed or non\-distributed MXNet jobs \(training and tuning\) on Kubernetes\.
-
-## Add MXNet support in your Kubeflow deployment
 
 1. Setup a namespace\.
 
@@ -53,7 +52,7 @@ This tutorial will guide you on distributed training with MXNet on your multi\-n
 
    ```
    $ ks registry add kubeflow github.com/kubeflow/kubeflow/tree/${KUBEFLOW_VERSION}/kubeflow
-   $ ks pkg install kubeflow/mxnet-job
+   $ ks pkg install kubeflow/mxnet-job@v${KUBEFLOW_VERSION}
    ```
 
 1. Generate Kubernetes\-compatible, jsonnet component manifest file\.
@@ -78,7 +77,7 @@ This tutorial will guide you on distributed training with MXNet on your multi\-n
 
 ## Running MNIST distributed training with parameter server example
 
-Your first task is to create a pod file\(mx\_job\_dist\.yaml\) for your job according to the available cluster configuration and job to run\. There are 3 jobModes you need to specify: Scheduler, Server and Worker\. You can specify how many pods you want to spawn with the field replicas\. 
+Your first task is to create a pod file\(mx\_job\_dist\.yaml\) for your job according to the available cluster configuration and job to run\. There are 3 jobModes you need to specify: Scheduler, Server and Worker\. You can specify how many pods you want to spawn with the field replicas\. The instance type of the Scheduler, Server, and Worker will be of the type specified at cluster creation\.
 + Scheduler: There is only one scheduler\. The role of the scheduler is to set up the cluster\. This includes waiting for messages that each node has come up and which port the node is listening on\. The scheduler then lets all processes know about every other node in the cluster, so that they can communicate with each other\.
 + Server: There can be multiple servers which store the model’s parameters, and communicate with workers\. A server may or may not be co\-located with the worker processes\.
 + Worker: A worker node actually performs training on a batch of training samples\. Before processing each batch, the workers pull weights from servers\. The workers also send gradients to the servers after each batch\. Depending on the workload for training a model, it might not be a good idea to run multiple worker processes on the same machine\.
@@ -268,18 +267,19 @@ This tutorial will guide you on how to setup distributed training of TensorFlow 
 1. Install mpi\-operator from kubeflow in this app's folder\.
 
    ```
-   $ KUBEFLOW_VERSION=master
+   $ KUBEFLOW_VERSION=v0.5.1
    $ ks registry add kubeflow github.com/kubeflow/kubeflow/tree/${KUBEFLOW_VERSION}/kubeflow
    $ ks pkg install kubeflow/common@${KUBEFLOW_VERSION}
    $ ks pkg install kubeflow/mpi-job@${KUBEFLOW_VERSION}
    $ ks generate mpi-operator mpi-operator
+   $ ks param set mpi-operator image mpioperator/mpi-operator:0.2.0
    $ ks apply default -c mpi-operator
    ```
 
 1. Create a MPI Job template and define the number of nodes \(replicas\) and number of GPUs each node has \(gpusPerReplica\), you can also bring your image and customize command\. 
 
    ```
-   IMAGE="763104351884.dkr.ecr.us-east-1.amazonaws.com/aws-samples-tensorflow-training:1.13-horovod-gpu-py36-cu100-ubuntu16.04-example"
+   IMAGE="763104351884.dkr.ecr.us-east-1.amazonaws.com/aws-samples-tensorflow-training:1.14.0-gpu-py36-cu100-ubuntu16.04-example"
    GPUS_PER_WORKER=2
    NUMBER_OF_WORKERS=3
    JOB_NAME=tf-resnet50-horovod-job
@@ -338,3 +338,117 @@ This tutorial will guide you on how to setup distributed training of TensorFlow 
    $ ks delete default
    $ cd .. && rm -rf ${APP_NAME}
    ```
+
+## PyTorch<a name="deep-learning-containers-eks-tutorials-distributed-gpu-training-pytorch"></a>
+
+This tutorial will guide you on distributed training with PyTorch on your multi\-node GPU cluster\. It uses Gloo as the backend\.
+
+1. Setup a namespace\.
+
+   ```
+   $ NAMESPACE=pytorch-multi-node-training; kubectl create namespace ${NAMESPACE}
+   ```
+
+1. Set the app name and initialize it\.
+
+   ```
+   $ APP_NAME=eks-pytorch-mnist-app; ks init ${APP_NAME}; cd ${APP_NAME}
+   ```
+
+1. Change the namespace used by the default environment to `${NAMESPACE}`\.
+
+   ```
+   $ ks env set default --namespace ${NAMESPACE}
+   ```
+
+1. Install pytorch\-operator for kubeflow\. This is needed to run PyTorch distributed training with parameter server\.
+
+   ```
+   $ export KUBEFLOW_VERSION=0.6.1
+   $ ks registry add kubeflow github.com/kubeflow/kubeflow/tree/v${KUBEFLOW_VERSION}/kubeflow
+   $ ks pkg install kubeflow/pytorch-job@v${KUBEFLOW_VERSION}
+   ```
+
+1. Generate Kubernetes\-compatible, jsonnet component manifest file\.
+
+   ```
+   $ ks generate pytorch-operator pytorch-operator
+   ```
+
+1. Apply the configuration settings\.
+
+   ```
+   $ ks apply default -c pytorch-operator
+   ```
+
+1. Using a Custom Resource Definition \(CRD\) gives users the ability to create and manage PyTorch Jobs just like built\-in K8s resources\. Verify that the PyTorch custom resource is installed\.
+
+   ```
+   $ kubectl get crd
+   ```
+
+1. Apply the nvidia plugin\.
+
+   ```
+   $ kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v1.12/nvidia-device-plugin.yml
+   ```
+
+1.  Use the following text to create a gloo\-based distributed data parallel job\. Save it in a file called `distributed.yaml`\.
+
+   ```
+   apiVersion: kubeflow.org/v1
+   kind: PyTorchJob
+   metadata:
+     name: "kubeflow-pytorch-gpu-dist-job"
+   spec:
+     pytorchReplicaSpecs:
+       Master:
+         replicas: 1
+         restartPolicy: OnFailure
+         template:
+           spec:
+             containers:
+             - name: "pytorch"
+               image: "763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-training:1.3.1-gpu-py36-cu101-ubuntu16.04"
+               args:
+                 - "--backend"
+                 - "gloo"
+                 - "--epochs"
+                 - "5"
+       Worker:
+         replicas: 2
+         restartPolicy: OnFailure
+         template:
+           spec:
+             containers:
+             - name: "pytorch"
+               image: "763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-training:1.3.1-gpu-py36-cu101-ubuntu16.04 "
+               args:
+                 - "--backend"
+                 - "gloo"
+                 - "--epochs"
+                 - "5"
+               resources:
+                 limits:
+                   nvidia.com/gpu: 1
+   ```
+
+1. Run distributed training job with the pod file you just created\.
+
+   ```
+   $ # kubectl create -f distributed.yaml
+   ```
+
+1. You can check the status of the job using the following:
+
+   ```
+   $ kubectl logs kubeflow-pytorch-gpu-dist-job
+   ```
+
+   To view logs continuously, use:
+
+   ```
+   $kubectl logs -f <pod>
+   ```
+
+See [EKS Cleanup](https://docs.aws.amazon.com/dlami/latest/devguide/deep-learning-containers-eks-setup.html#deep-learning-containers-eks-setup-cleanup) for information on cleaning up a cluster after you're done using it\.

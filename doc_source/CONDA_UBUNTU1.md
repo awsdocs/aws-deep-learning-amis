@@ -1,4 +1,4 @@
-# Release Note Details for Deep Learning AMI \(Ubuntu\) Version 1\.0<a name="CONDA_UBUNTU1"></a>
+# Release Note Details for Version 1\.0<a name="CONDA_UBUNTU1"></a>
 
 ## AWS Deep Learning AMI<a name="CONDA_UBUNTU1-dplami"></a>
 
@@ -108,9 +108,9 @@ The deep learning frameworks have been tested with [MNIST](http://yann.lecun.com
 
 The scripts are available in the /home/ubuntu/src/bin directory\.
 
-## Deep Learning AMI \(Ubuntu\) Regions<a name="CONDA_UBUNTU1-regions"></a>
+## Regions<a name="CONDA_UBUNTU1-regions"></a>
 
-Deep Learning AMI \(Ubuntu\)s are available in the following regions:
+s are available in the following regions:
 + US East \(Ohio\): us\-east\-2
 + US East \(N\. Virginia\): us\-east\-1
 + US West \(N\. California\): us\-west\-1
@@ -133,7 +133,7 @@ Deep Learning AMI \(Ubuntu\)s are available in the following regions:
 + Built on p2\.16xlarge\.
 + Also tested on p2\.xlarge, c4\.4xlarge\.
 
-## Deep Learning AMI \(Ubuntu\) Known Issues<a name="CONDA_UBUNTU1-known-issues"></a>
+## Known Issues<a name="CONDA_UBUNTU1-known-issues"></a>
 + **Issue**: Tutorials provided by the framework or third parties may have Python dependencies not installed on the DLAMI\. 
 
   **Workaround**: You will need to install those while in the activated environment with conda or pip\.
