@@ -33,7 +33,8 @@ This tutorial shows you how to use example Chainer scripts to train a model with
 
    ```
    (chainer_p36) :~$ cd ~/src
-   (chainer_p36) :~/src$ git clone https://github.com/chainer/chainer.git
+   (chainer_p36) :~/src$ CHAINER_VERSION=v$(python -c "import chainer; print(chainer.__version__)")
+   (chainer_p36) :~/src$ git clone -b $CHAINER_VERSION https://github.com/chainer/chainer.git
    (chainer_p36) :~/src$ cd chainer/examples/mnist
    ```
 
@@ -221,12 +222,6 @@ Chainer also automatically logs results, graph loss and accuracy, and produces o
    ```
 
    The `result` directory contains two files in \.png format: `accuracy.png` and `loss.png`\. 
-
-1. To generate the computational graph, run the following command:
-
-   ```
-   (chainer_p36) :~/src/chainer/examples/mnist/result$ dot -Tpng mnist_result/cg.dot -o mnist_result/cg.png
-   ```
 
 1. To view the graphs, use the `scp` command to copy them to your local computer\.
 

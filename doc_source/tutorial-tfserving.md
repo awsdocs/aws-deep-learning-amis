@@ -43,7 +43,7 @@ The following is an example you can try for serving different models like Incept
 1. Launch the server\. Note, that for Amazon Linux, you must change the directory used for `model_base_path`, from `/home/ubuntu` to `/home/ec2-user`\.
 
    ```
-   $ tensorflow_model_server --model_name=inception --model_base_path=/home/ubuntu/SERVING_INCEPTION/SERVING_INCEPTION --port=9000
+   $ tensorflow_model_server --model_name=inception --model_base_path=/home/ubuntu/examples/tensorflow-serving/SERVING_INCEPTION --port=9000
    ```
 
 1. With the server running in the foreground you will need to launch another terminal session to continue\. Open a new terminal and activate TensorFlow with `source activate tensorflow_p27`\. Then use your preferred text editor to create a script that has the following content\. Name it `inception_client.py`\. This script will take an image filename as a parameter, and get a prediction result from the pre\-trained model\.

@@ -10,5 +10,7 @@ The following are the deep learning frameworks installed on the Deep Learning AM
 + [Keras](tutorial-keras.md)
 + [PyTorch](tutorial-pytorch.md)
 + [TensorFlow](tutorial-tensorflow.md)
++ [TensorFlow 2](tutorial-tensorflow-2.md)
 + [TensorFlow with Horovod](activate-horovod.md)
++ [TensorFlow 2 with Horovod](activate-horovod-2.md)
 + [Theano](tutorial-theano.md)

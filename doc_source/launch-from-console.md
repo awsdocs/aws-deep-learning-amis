@@ -1,5 +1,8 @@
 # EC2 Console<a name="launch-from-console"></a>
 
+**Note**  
+To launch an instance with Elastic Fabric Adapter \(EFA\), refer to [these steps\.](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-efa-launching.html) 
+
 1. Open the [EC2 Console](https://console.aws.amazon.com/ec2)\.
 
 1. Note your current region in the top\-most navigation\. If this isn't your desired AWS Region, change this option before proceeding\. For more information, see [EC2 Regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region)\.

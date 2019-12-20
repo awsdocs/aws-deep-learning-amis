@@ -162,7 +162,7 @@ Amazon Linux based Deep Learning AMIs are available in the following regions:
 ## Known Issues<a name="known-issues-6"></a>
 + Need to use sudo to run the testCNTK script\.
 
-  e\.g\.\. sudo \./testCNTK
+  For example, sudo \./testCNTK
 
 ## Not Supported<a name="not-supported-6"></a>
 + Functioning of multiple frameworks together in the same Python process has not been tested\.

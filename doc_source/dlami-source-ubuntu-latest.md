@@ -6,7 +6,7 @@ The Deep Learning AMIs are prebuilt with CUDA9 and MXNet and also contain the An
 
 ## Highlights of the Release<a name="dlami-source-ubuntu-latest-highlights"></a>
 
-1. Used Deep Learning Base AMI \(Ubuntu\) as the base AMI 
+1. Used as the base AMI 
 
 1. Refreshed TensorFlow master with CUDA9/Volta support
 

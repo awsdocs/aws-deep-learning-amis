@@ -1,4 +1,4 @@
-# Release Note Details for Deep Learning Base AMI \(Ubuntu\) Version 1\.0<a name="BASE_UBUNTU1"></a>
+# Release Note Details for Version 1\.0<a name="BASE_UBUNTU1"></a>
 
 ## AWS Deep Learning AMI<a name="dplami-a"></a>
 
@@ -39,7 +39,7 @@ Choose the flavor of the AMI from the list below in the region of your choice an
 
 [AWS Deep Learning AMI Developer Guide](https://docs.aws.amazon.com/dlami/latest/devguide/gs.html)
 
-## Deep Learning AMI \(Ubuntu\)<a name="amazonlinuxami-a"></a>
+## <a name="amazonlinuxami-a"></a>
 
 This AMI is available in the following regions:
 + US East \(Ohio\): us\-east\-2
@@ -55,7 +55,7 @@ This AMI is available in the following regions:
 + Built on p2\.16xlarge\.
 + Also tested on p2\.xlarge, c4\.4xlarge\.
 
-## Deep Learning Base AMI \(Ubuntu\) Known Issues<a name="BASE_UBUNTU-known-issues"></a>
+## Known Issues<a name="BASE_UBUNTU-known-issues"></a>
 + **Issue**: The MOTD has an incorrect link to these release notes\.
 
   **Workaround**: If you made here, then you already know\.

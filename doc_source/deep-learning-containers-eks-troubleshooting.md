@@ -21,7 +21,7 @@ ERROR registry 'kubeflow' does not exist
  Solution: Run the following command\.  
 
 ```
-ks registry add kubeflow github.com/google/kubeflow/tree/master/kubeflow
+ks registry add kubeflow github.com/google/kubefl ow/tree/master/kubeflow
 ```
 
  Error: context deadline exceeded 

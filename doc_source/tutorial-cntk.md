@@ -4,7 +4,7 @@
 
 This tutorial shows how to activate CNTK on an instance running the Deep Learning AMI with Conda \(DLAMI on Conda\) and run a CNTK program\.
 
-When a stable Conda package of a framework is released, it's tested and pre\-installed on the DLAMI\. If you want to run the latest, untested nightly build, you can [Install CNTK's Nightly Build \(experimental\)](#tutorial-cntk-install) manually\. 
+When a stable Conda package of a framework is released, it's tested and pre\-installed on the DLAMI\. If you want to run the latest, untested nightly build, you can [Install the CNTK Nightly Build \(experimental\)](#tutorial-cntk-install) manually\. 
 
 **To run CNTK on the DLAMI with Conda**
 
@@ -44,7 +44,7 @@ When a stable Conda package of a framework is released, it's tested and pre\-ins
      try_set_default_device(gpu(0))
      ```
 
-## Install CNTK's Nightly Build \(experimental\)<a name="tutorial-cntk-install"></a>
+## Install the CNTK Nightly Build \(experimental\)<a name="tutorial-cntk-install"></a>
 
 You can install the latest CNTK build into either or both of the CNTK Conda environments on your Deep Learning AMI with Conda\.
 

@@ -1,6 +1,6 @@
 # TensorFlow with Horovod<a name="tutorial-horovod-tensorflow"></a>
 
-This tutorial shows how to use TensorFlow with Horovod on a Deep Learning AMI with Conda\. Horovod is pre\-installed in the Conda environments for TensorFlow\. The Python 3 environment is recommended\. The instructions here assume you have a working DLAMI instance with one or more GPUs\. For more information, see [How to Get Started with the DLAMI](gs.md#getting-started)\.
+This tutorial shows how to use TensorFlow with Horovod on a Deep Learning AMI with Conda\. Horovod is preinstalled in the Conda environments for TensorFlow\. The Python 3 environment is recommended\. The instructions here assume you have a working DLAMI instance with one or more GPUs\. For more information, see [How to Get Started with the DLAMI](gs.md#getting-started)\.
 
 **Note**  
 Only P3\.\*, P2\.\*, and G3\.\* instance types are supported\.
@@ -49,9 +49,9 @@ Only P3\.\*, P2\.\*, and G3\.\* instance types are supported\.
 
 ## Configure Your Horovod Hosts File<a name="tutorial-horovod-tensorflow-configure"></a>
 
-You can use Horovod for single\-node, multi\-GPU training, or for multi\-node, multi\-GPU training\. If you plan to use multiple nodes for distributed training, you must add each DLAMI's private IP address to a hosts file\. The DLAMI you are currently logged into is referred to as the leader\. Other DLAMI instances that are part of the cluster are referred to as members\.
+You can use Horovod for single\-node, multi\-GPU training, or for multiple\-node, multi\-GPU training\. If you plan to use multiple nodes for distributed training, you must add each DLAMI private IP address to a hosts file\. The DLAMI you are currently logged into is referred to as the leader\. Other DLAMI instances that are part of the cluster are referred to as members\.
 
-Before you start this section, launch one or more DLAMIs, and wait for them to be in the "Ready" state\. The example scripts expect a hosts file, so even if you plan to use only one DLAMI, create a hosts file with only one entry\. If you edit the hosts file after training commences, you must restart training for added or removed hosts to take effect\.
+Before you start this section, launch one or more DLAMI, and wait for them to be in the **Ready** state\. The example scripts expect a hosts file, so even if you plan to use only one DLAMI, create a hosts file with only one entry\. If you edit the hosts file after training commences, you must restart training for added or removed hosts to take effect\.
 
 **To configure Horovod for training**
 
@@ -140,7 +140,7 @@ In the `~/examples/horovod/tensorflow/utils` directory on your DLAMI you find th
 
 1. Visit [image\-net\.org](http://image-net.org), create an account, acquire an access key, and download the dataset\. [image\-net\.org](http://image-net.org) hosts the raw dataset\. To download it, you are required to have an ImageNet account and an access key\. The account is free, and to get the free access key you must agree to the ImageNet license\. 
 
-1. Use the image pre\-processing script to generate a TFRecord format dataset from the raw ImageNet dataset\. From the `~/examples/horovod/tensorflow/utils/preprocess` directory:
+1. Use the image preprocessing script to generate a TFRecord format dataset from the raw ImageNet dataset\. From the `~/examples/horovod/tensorflow/utils/preprocess` directory:
 
    ```
    python preprocess_imagenet.py \
@@ -165,7 +165,7 @@ In the `~/examples/horovod/tensorflow/utils` directory on your DLAMI you find th
 ## Train a ResNet\-50 ImageNet Model on a Single DLAMI<a name="tutorial-horovod-tensorflow-imagenet"></a>
 
 **Note**  
-The script in this tutorial expects the pre\-processed training data to be in the `~/data/tf-imagenet/` folder\. Refer to [Prepare the ImageNet Dataset](#tutorial-horovod-tensorflow-imagenet-prep) for instructions\.
+The script in this tutorial expects the preprocessed training data to be in the `~/data/tf-imagenet/` folder\. Refer to [Prepare the ImageNet Dataset](#tutorial-horovod-tensorflow-imagenet-prep) for instructions\.
 A hosts file is required\. Refer to [Configure Your Horovod Hosts File](#tutorial-horovod-tensorflow-configure) for instructions\.
 
 **Use Horovod to Train a ResNet50 CNN on the ImageNet Dataset**
@@ -189,19 +189,19 @@ A hosts file is required\. Refer to [Configure Your Horovod Hosts File](#tutoria
 ## Train a ResNet\-50 ImageNet Model on a Cluster of DLAMIs<a name="tutorial-horovod-tensorflow-imagenet-distributed"></a>
 
 **Note**  
-The script in this tutorial expects the pre\-processed training data to be in the `~/data/tf-imagenet/` folder\. Refer to [Prepare the ImageNet Dataset](#tutorial-horovod-tensorflow-imagenet-prep) for instructions\.
+The script in this tutorial expects the preprocessed training data to be in the `~/data/tf-imagenet/` folder\. Refer to [Prepare the ImageNet Dataset](#tutorial-horovod-tensorflow-imagenet-prep) for instructions\.
 A hosts file is required\. Refer to [Configure Your Horovod Hosts File](#tutorial-horovod-tensorflow-configure) for instructions\.
 
 This example walks you through training a ResNet\-50 model on a prepared dataset across multiple nodes in a cluster of DLAMIs\. 
 + For faster performance, we recommend that you have the dataset locally on each member of the cluster\.
 
-  Use this copyclust function to copy data to other members\.
+  Use this `copyclust` function to copy data to other members\.
 
   ```
   function copyclust(){ while read -u 10 host; do host=${host%% slots*}; rsync -azv "$2" $host:"$3"; done 10<$1; };
   ```
 
- Or, if you have the files sitting in an S3 bucket, use the runclust function to download the files to each member directly\.
+ Or, if you have the files sitting in an S3 bucket, use the `runclust` function to download the files to each member directly\.
 
 ```
 runclust hosts "tmux new-session -d \"export AWS_ACCESS_KEY_ID=YOUR_ACCESS_KEY && export AWS_SECRET_ACCESS_KEY=YOUR_SECRET && aws s3 sync s3://your-imagenet-bucket ~/data/tf-imagenet/ && aws s3 sync s3://your-imagenet-validation-bucket ~/data/tf-imagenet/\""

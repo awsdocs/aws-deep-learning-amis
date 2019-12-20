@@ -57,7 +57,7 @@ You can install the latest TensorFlow build into either or both of the TensorFlo
 
 1. Remove the currently installed TensorFlow\.
 **Note**  
-The remaining steps assume you are using the `mxnet_p36` environment\.
+The remaining steps assume you are using the `tensorflow_p36` environment\.
 
    ```
    (tensorflow_p36)$ pip uninstall tensorflow

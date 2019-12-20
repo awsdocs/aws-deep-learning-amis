@@ -72,7 +72,7 @@ Create a new file with your text editor, and use the following program in a scri
 
 ```
 import cntk as C
-# Import the PyTorch model into CNTK via CNTK's import API
+# Import the PyTorch model into CNTK via the CNTK import API
 z = C.Function.load("torch_model.onnx", device=C.device.cpu(), format=C.ModelFormat.ONNX)
 ```
 
@@ -81,7 +81,7 @@ After you run this script, CNTK will have loaded the model\.
 You may also export to ONNX using CNTK by appending the following to your previous script then running it\.
 
 ```
-# Export the model to ONNX via CNTK's export API
+# Export the model to ONNX via the CNTK export API
 z.save("cntk_model.onnx", format=C.ModelFormat.ONNX)
 ```
 

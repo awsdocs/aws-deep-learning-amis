@@ -6,7 +6,7 @@ With mixed\-precision training you can deploy larger networks with the same amou
 **Tip**  
 Be sure to check the website for your framework of choice, and search for "mixed precision" or "fp16" for the latest optimization techniques\. Here are some mixed\-precision guides you might find helpful:  
 [Mixed\-precision training with TensorFlow \(video\)](https://devblogs.nvidia.com/mixed-precision-resnet-50-tensor-cores/) \- on the NVIDIA blog site\.
-[Mixed\-precision training using float16 with MXNet](https://mxnet.incubator.apache.org/versions/master/faq/float16.html) \- an FAQ article on the MXNet website\.
+[Mixed\-precision training using float16 with MXNet](https://mxnet.apache.org/api/faq/float16) \- an FAQ article on the MXNet website\.
 [NVIDIA Apex: a tool for easy mixed\-precision training with PyTorch](https://devblogs.nvidia.com/apex-pytorch-easy-mixed-precision-training/) \- a blog article on the NVIDIA website\.
 
 You might be interested in these other topics on GPU monitoring and optimization:

@@ -1,7 +1,8 @@
 # Deep Learning Base AMI Options<a name="base"></a>
 
 Use the [Launching and Configuring a DLAMI](launch-config.md) guide to continue with one of these DLAMI\.
-+ [Deep Learning Base AMI \(Ubuntu\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B077GCZ4GR)
++ [Deep Learning Base AMI \(Ubuntu 18\.04\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B07Y3VDBNS)
++ [Deep Learning Base AMI \(Ubuntu 16\.04\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B077GCZ4GR)
 + [Deep Learning Base AMI \(Amazon Linux\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B077GFM7L7)
 + [Deep Learning Base AMI \(Amazon Linux 2\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B07NMRZ463)
 

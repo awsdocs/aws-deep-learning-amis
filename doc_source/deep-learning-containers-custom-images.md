@@ -2,7 +2,7 @@
 
 ## How to Build Custom Images<a name="dlc-custom"></a>
 
-We can easily customize both training and inference with AWS Deep Learning Containers to add custom frameworks, libraries, and packages using dockerfiles\.
+We can easily customize both training and inference with AWS Deep Learning Containers to add custom frameworks, libraries, and packages using Docker files\.
 
 ### Training with TensorFlow<a name="dlc-custom-training"></a>
 

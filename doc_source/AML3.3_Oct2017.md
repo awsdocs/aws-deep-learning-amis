@@ -179,7 +179,7 @@ Amazon Linux based Deep Learning AMIs are available in the following regions:
 ## Known Issues<a name="known-issues-7"></a>
 + Need to use sudo to run the testCNTK script\.
 
-  e\.g\.\. sudo \./testCNTK
+  For example, sudo \./testCNTK
 + The conda environments keras1\.2\_p3 and keras1\.2\_p2 come with CPU only version of MXNet\.
 
   To use Keras with an MXNet backend to train on GPUs, you can workaround this issue by running the following:

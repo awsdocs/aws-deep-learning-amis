@@ -20,7 +20,7 @@
 
    ```
    import cntk as C
-   # Import the Chainer model into CNTK via CNTK's import API
+   # Import the Chainer model into CNTK via the CNTK import API
    z = C.Function.load("vgg16.onnx", device=C.device.cpu(), format=C.ModelFormat.ONNX)
    print("Loaded vgg16.onnx!")
    ```
@@ -48,7 +48,7 @@
    from IPython.core.display import display
    import pickle
    
-   # Import the model into CNTK via CNTK's import API
+   # Import the model into CNTK via the CNTK import API
    z = C.Function.load("vgg16.onnx", device=C.device.cpu(), format=C.ModelFormat.ONNX)
    print("Loaded vgg16.onnx!")
    img = Image.open("Siberian_Husky_bi-eyed_Flickr.jpg")

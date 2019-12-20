@@ -10,6 +10,7 @@ MKL users: read the [AWS Deep Learning Containers MKL Recommendations](deep-lear
 **Topics**
 + [MXNet](#deep-learning-containers-eks-tutorials-cpu-training-mxnet)
 + [TensorFlow](#deep-learning-containers-eks-tutorials-cpu-training-tf)
++ [PyTorch](#deep-learning-containers-eks-tutorials-cpu-training-pytorch)
 
 ## MXNet<a name="deep-learning-containers-eks-tutorials-cpu-training-mxnet"></a>
 
@@ -26,7 +27,7 @@ This tutorial will guide you on training with MXNet on your single node CPU clus
      restartPolicy: OnFailure
      containers:
      - name: mxnet-training
-       image: 	763104351884.dkr.ecr.us-east-1.amazonaws.com/mxnet-inference:1.4.1-cpu-py36-ubuntu16.04
+       image: 	763104351884.dkr.ecr.us-east-1.amazonaws.com/mxnet-inference:1.6.0-cpu-py36-ubuntu16.04
        command: ["/bin/sh","-c"]
        args: ["git clone -b v1.4.x https://github.com/apache/incubator-mxnet.git && python ./incubator-mxnet/example/image-classification/train_mnist.py"]
    ```
@@ -96,7 +97,7 @@ This tutorial will guide you on training TensorFlow models on your single node C
      restartPolicy: OnFailure
      containers:
      - name: tensorflow-training
-       image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/tensorflow-training:1.13-cpu-py36-ubuntu16.04
+       image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/tensorflow-training:1.15.0-cpu-py36-ubuntu18.04
        command: ["/bin/sh","-c"]
        args: ["git clone https://github.com/fchollet/keras.git && python /keras/examples/mnist_cnn.py"]
    ```
@@ -160,3 +161,95 @@ This tutorial will guide you on training TensorFlow models on your single node C
    ```
 
 1. You can check the logs to watch the training progress\. You can also continue to check “get pods” to refresh the status\. When the status changes to “Completed” you will know that the training job is done\.
+
+## PyTorch<a name="deep-learning-containers-eks-tutorials-cpu-training-pytorch"></a>
+
+This tutorial will guide you on training with PyTorch on your single node CPU cluster\.
+
+1. Create a pod file for your cluster\. A pod file will provide the instructions for what the cluster should run\. This pod file will download the PyTorch repository and run an MNIST example\. Open vi or vim, then copy and paste the following content\. Save this file as `pytorch.yaml`\.
+
+   ```
+   apiVersion: v1
+   kind: Pod
+   metadata:
+     name: pytorch-training
+   spec:
+     restartPolicy: OnFailure
+     containers:
+     - name: pytorch-training
+       image: 763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-training:1.3.1-cpu-py36-ubuntu16.04 
+       command:
+         - "/bin/sh"
+         - "-c"
+       args:
+       - "git clone https://github.com/pytorch/examples.git && python examples/mnist/main.py --no-cuda"
+       env:
+       - name: OMP_NUM_THREADS
+         value: "36"
+       - name: KMP_AFFINITY
+         value: "granularity=fine,verbose,compact,1,0"
+       - name: KMP_BLOCKTIME
+         value: "1"
+   ```
+
+1. Assign the pod file to the cluster using kubectl\.
+
+   ```
+   $ kubectl create -f pytorch.yaml
+   ```
+
+1. You should see the following output:
+
+   ```
+   pod/pytorch-training created
+   ```
+
+1. Check the status\. The name of the job "pytorch\-training” was in the pytorch\.yaml file\. It will now appear in the status\. If you're running any other tests or have previously run something, it will appear in this list\. Run this several times until you see the status change to “Running”\.
+
+   ```
+   $ kubectl get pods
+   ```
+
+   You should see the following output:
+
+   ```
+   NAME READY STATUS RESTARTS AGE
+   pytorch-training 0/1 Running 8 19m
+   ```
+
+1. Check the logs to see the training output\.
+
+   ```
+   $ kubectl logs pytorch-training
+   ```
+
+   You should see something similar to the following output:
+
+   ```
+   Cloning into 'examples'...
+   Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz to ../data/MNIST/raw/train-images-idx3-ubyte.gz
+   9920512it [00:00, 40133996.38it/s]                           
+   Extracting ../data/MNIST/raw/train-images-idx3-ubyte.gz to ../data/MNIST/raw
+   Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz to ../data/MNIST/raw/train-labels-idx1-ubyte.gz
+   Extracting ../data/MNIST/raw/train-labels-idx1-ubyte.gz to ../data/MNIST/raw
+   32768it [00:00, 831315.84it/s]
+   Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz to ../data/MNIST/raw/t10k-images-idx3-ubyte.gz
+   1654784it [00:00, 13019129.43it/s]                           
+   Extracting ../data/MNIST/raw/t10k-images-idx3-ubyte.gz to ../data/MNIST/raw
+   Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to ../data/MNIST/raw/t10k-labels-idx1-ubyte.gz
+   8192it [00:00, 337197.38it/s]
+   Extracting ../data/MNIST/raw/t10k-labels-idx1-ubyte.gz to ../data/MNIST/raw
+   Processing...
+   Done!
+   Train Epoch: 1 [0/60000 (0%)]    Loss: 2.300039
+   Train Epoch: 1 [640/60000 (1%)]    Loss: 2.213470
+   Train Epoch: 1 [1280/60000 (2%)]    Loss: 2.170460
+   Train Epoch: 1 [1920/60000 (3%)]    Loss: 2.076699
+   Train Epoch: 1 [2560/60000 (4%)]    Loss: 1.868078
+   Train Epoch: 1 [3200/60000 (5%)]    Loss: 1.414199
+   Train Epoch: 1 [3840/60000 (6%)]    Loss: 1.000870
+   ```
+
+1. You can check the logs to watch the training progress\. You can also continue to check “get pods” to refresh the status\. When the status changes to “Completed” you will know that the training job is done\.
+
+See [EKS Cleanup](https://docs.aws.amazon.com/dlami/latest/devguide/deep-learning-containers-eks-setup.html#deep-learning-containers-eks-setup-cleanup) for information on cleaning up a cluster after you're done using it\.

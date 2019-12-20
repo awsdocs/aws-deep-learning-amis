@@ -1,4 +1,4 @@
-# Release Note Details for Deep Learning AMI \(Ubuntu\) Version 2\.0<a name="dlami-conda-ubuntu-latest"></a>
+# Release Note Details for Version 2\.0<a name="dlami-conda-ubuntu-latest"></a>
 
 ## AWS Deep Learning AMI<a name="dlami-conda-ubuntu-latest-dplami"></a>
 
@@ -6,7 +6,7 @@ The AWS Deep Learning AMI are prebuilt with CUDA 8 and 9, and several deep learn
 
 ## Highlights of the Release<a name="dlami-conda-ubuntu-latest-highlights"></a>
 
-1. Used Deep Learning Base AMI \(Ubuntu\) as the base AMI 
+1. Used as the base AMI 
 
 1. CUDA 9
 
@@ -112,7 +112,7 @@ The deep learning frameworks have been tested with [MNIST](http://yann.lecun.com
 
 The scripts are available in the /home/ubuntu/src/bin directory\.
 
-## Deep Learning AMI \(Ubuntu\) Regions<a name="dlami-conda-ubuntu-latest-regions"></a>
+## Regions<a name="dlami-conda-ubuntu-latest-regions"></a>
 
 Available in the following regions:
 
@@ -152,7 +152,7 @@ Available in the following regions:
 + Also tested on p2\.xlarge, c4\.4xlarge\.
 
 ## Known Issues<a name="dlami-conda-ubuntu-latest-known-issues"></a>
-+ **Issue**: PyTorch tests are broken\. \~/src/bin/testPyTorch \- installs test environment that is not compatible with the pytorch 0\.3\.0
++ **Issue**: PyTorch tests are broken\. \~/src/bin/testPyTorch \- installs test environment that is not compatible with the PyTorch 0\.3\.0
 
   **Workaround**: N/A
 + **Issue**: Tutorials provided by the framework or third parties may have Python dependencies not installed on the DLAMI\. 
