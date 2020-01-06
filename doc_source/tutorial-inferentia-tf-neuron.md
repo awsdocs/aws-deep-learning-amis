@@ -5,10 +5,11 @@
  For more information about the Neuron SDK, see the [AWS Neuron SDK documentation](https://github.com/aws/aws-neuron-sdk)\. 
 
 **Topics**
-+ [Prerequisites](#tutorial-inferentia-tf-neuron-prerequisites)
-+ [Activate the Conda environment](#tutorial-inferentia-tf-neuron-activate)
-+ [Resnet50 Compilation](#tutorial-inferentia-tf-neuron-compilation)
-+ [ResNet50 Inference](#tutorial-inferentia-tf-neuron-inference)
+- [Using TensorFlow-Neuron and the AWS Neuron Compiler](#using-tensorflow-neuron-and-the-aws-neuron-compiler)
+  - [Prerequisites](#prerequisites)
+  - [Activate the Conda environment](#activate-the-conda-environment)
+  - [Resnet50 Compilation](#resnet50-compilation)
+  - [ResNet50 Inference](#resnet50-inference)
 
 ## Prerequisites<a name="tutorial-inferentia-tf-neuron-prerequisites"></a>
 
@@ -120,7 +121,7 @@ img_arr = image.img_to_array(img_sgl)
 img_arr2 = np.expand_dims(img_arr, axis=0)
 img_arr3 = resnet50.preprocess_input(img_arr2)
 # Load model
-COMPILED_MODEL_DIR = './resnet50_neuron/'
+COMPILED_MODEL_DIR = './ws_resnet50/resnet50_neuron/'
 predictor_inferentia = tf.contrib.predictor.from_saved_model(COMPILED_MODEL_DIR)
 # Run inference
 model_feed_dict={'input': img_arr3}
