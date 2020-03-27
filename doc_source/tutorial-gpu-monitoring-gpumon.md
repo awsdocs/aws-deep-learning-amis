@@ -56,6 +56,22 @@ For more information on creating an IAM user and adding policies for CloudWatch,
    ```
    (python2)$ gpumon.py &
    ```
+   
+   Or, to make the gpumon utility start automatically on boot, create the file `/etc/systemd/system/gpumon.service` with this content:
+   
+   ```
+    [Unit]
+    Description=gpumon
+    
+    [Service]
+    User=ubuntu
+    ExecStart=/bin/bash -c "/usr/bin/python2.7 /home/ubuntu/tools/GPUCloudWatchMonitor/gpumon.py"
+    
+    [Install]
+    WantedBy=multi-user.target
+    ```
+    
+    and then `sudo systemctl start gpumon` to start it, `sudo systemctl status gpumon` to verify that it started up without apparent problems, and `sudo systemctl enable gpumon` to make it start automatically at boot time.
 
 1. Open your browser to the [https://console\.aws\.amazon\.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/) then select metric\. It will have a namespace 'DeepLearningTrain'\. 
 **Tip**  
