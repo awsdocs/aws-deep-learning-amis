@@ -26,7 +26,7 @@ Connect to the Amazon EC2 instance, and then complete the following procedure\.
    $ cd ~
    $ mkdir ssl
    $ cd ssl
-   $ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mykey.key -out mycert.pem
+   $ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mycert.pem -out mycert.pem
    ```
 
 **Note**  
