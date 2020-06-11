@@ -156,5 +156,5 @@ If you run out of space on the DLAMI, you can choose to uninstall Conda packages
 
 ```
 conda env list
-conda env remove –name <env_name>
+conda env remove --name <env_name>
 ```
