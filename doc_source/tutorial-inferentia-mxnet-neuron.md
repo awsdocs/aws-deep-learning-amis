@@ -78,7 +78,7 @@ compiled_resnet50-symbol.json
 
 ## ResNet50 Inference<a name="tutorial-inferentia-mxnet-neuron-inference"></a>
 
-Create a Python script called **mxnet\_infer\_resnet50\.py** with the following content\. This script downloads a sample image and uses it to run inference with the inference model with the compiled model\. 
+Create a Python script called **mxnet\_infer\_resnet50\.py** with the following content\. This script downloads a sample image and uses it to run inference with the compiled model\. 
 
 ```
 import mxnet as mx

@@ -9,3 +9,4 @@
 + [Using AWS Neuron TensorFlow Serving](tutorial-inferentia-tf-neuron-serving.md)
 + [Using MXNet\-Neuron and the AWS Neuron Compiler](tutorial-inferentia-mxnet-neuron.md)
 + [Using MXNet\-Neuron Model Serving](tutorial-inferentia-mxnet-neuron-serving.md)
++ [Using PyTorch\-Neuron and the AWS Neuron Compiler](tutorial-inferentia-pytorch-neuron.md)

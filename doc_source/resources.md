@@ -1,4 +1,4 @@
-# Resources and Support<a name="resources"></a>
+# Related Information<a name="resources"></a>
 
 **Topics**
 + [Forums](#resources-forums)

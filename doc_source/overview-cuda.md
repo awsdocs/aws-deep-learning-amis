@@ -4,7 +4,7 @@ Deep learning is all pretty cutting edge, however, each framework offers "stable
 
 Look at our guide on [Stable versus Release Candidates](overview-conda.md#overview-conda-stability) for further guidance\.
 
-## Choosing a DLAMI with CUDA<a name="w4aab7b5c17b7"></a>
+## Choosing a DLAMI with CUDA<a name="w19aab7b5c17b7"></a>
 
 The [Deep Learning Base AMI](overview-base.md) has CUDA 8, 9, 10, and 10\.1\.
 
@@ -14,6 +14,9 @@ The [Deep Learning AMI with Conda](overview-conda.md) has CUDA 8 and 9, 10, and 
 + CUDA 9 with cuDNN 7: CNTK, Keras, Theano
 + CUDA 8 with cuDNN 6: Caffe
 
+**Note**  
+We no longer include the CNTK, Caffe, Caffe2 and Theano Conda environments in the AWS Deep Learning AMI starting with the v28 release\. Previous releases of the AWS Deep Learning AMI that contain these environments will continue to be available\. However, we will only provide updates to these environments if there are security fixes published by the open source community for these frameworks\.
+
 For installation options for DLAMI types and operating systems, refer to each of the CUDA version and options pages:
 + [Deep Learning AMI with CUDA 10\.1 Options](cuda10-1.md)
 + [Deep Learning AMI with CUDA 10 Options](cuda10.md)
@@ -22,7 +25,7 @@ For installation options for DLAMI types and operating systems, refer to each of
 + [Deep Learning AMI with Conda Options](conda.md)
 + [Deep Learning Base AMI Options](base.md)
 
-Specific framework version numbers can be found in the [DLAMI: Release Notes](appendix-ami-release-notes.md)
+Specific framework version numbers can be found in the [Release Notes for DLAMI](appendix-ami-release-notes.md)
 
 Choose this DLAMI type or learn more about the different DLAMIs with the Next Up option\.
 
@@ -31,5 +34,5 @@ Choose one of the CUDA versions and review the full list of DLAMIs that have tha
 **Next Up**  
 [DLAMI Operating System Options](overview-os.md)
 
-## Related Topics<a name="w4aab7b5c17b9"></a>
+## Related Topics<a name="w19aab7b5c17b9"></a>
 + For instructions on switching between CUDA versions, refer to the [Using the Deep Learning Base AMI](tutorial-base.md) tutorial\.

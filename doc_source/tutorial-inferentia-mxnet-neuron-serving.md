@@ -40,13 +40,13 @@ source deactivate
  To run this example, download the example code using the following commands: 
 
 ```
-git clone https://github.com/awslabs/mxnet-model-server
-cd mxnet-model-server/examples/mxnet_vision
+git clone https://github.com/awslabs/multi-model-server
+cd multi-model-server/examples/mxnet_vision
 ```
 
 ## Compile the Model<a name="tutorial-inferentia-mxnet-neuron-serving-compile"></a>
 
-Create a Python script called `mxnet-model-server-compile.py` with the following content\. This script compiles the ResNet50 model to the Inferentia device target\. 
+Create a Python script called `multi-model-server-compile.py` with the following content\. This script compiles the ResNet50 model to the Inferentia device target\. 
 
 ```
 import mxnet as mx
@@ -76,7 +76,7 @@ mx.model.save_checkpoint(nn_name + "_compiled", 0, csym, cargs, cauxs)
  To compile the model, use the following command: 
 
 ```
-python mxnet-model-server-compile.py
+python multi-model-server-compile.py
 ```
 
  Your output should look like the following: 
@@ -132,17 +132,17 @@ self.mxnet_ctx = mx.neuron() if gpu_id is None else mx.gpu(gpu_id)
  Package the model with model\-archiver using the following commands: 
 
 ```
-cd ~/mxnet-model-server/examples
+cd ~/multi-model-server/examples
 model-archiver --force --model-name resnet-50_compiled --model-path mxnet_vision --handler mxnet_vision_service:handle
 ```
 
 ## Run Inference<a name="tutorial-inferentia-mxnet-neuron-serving-inference"></a>
 
-Start the MXNet model server and load the model that uses the RESTful API by using the following commands\. Ensure that neuron\-rtd is running with the default settings\. 
+Start the Multi Model Server and load the model that uses the RESTful API by using the following commands\. Ensure that neuron\-rtd is running with the default settings\. 
 
 ```
-cd ~/mxnet-model-server/
-mxnet-model-server --start --model-store examples > /dev/null # Pipe to log file if you want to keep a log of MMS
+cd ~/multi-model-server/
+multi-model-server --start --model-store examples > /dev/null # Pipe to log file if you want to keep a log of MMS
 curl -v -X POST "http://localhost:8081/models?initial_workers=1&max_workers=4&synchronous=true&url=resnet-50_compiled.mar"
 sleep 10 # allow sufficient time to load model
 ```
@@ -150,7 +150,7 @@ sleep 10 # allow sufficient time to load model
  Run inference using an example image with the following commands: 
 
 ```
-curl -O https://raw.githubusercontent.com/awslabs/mxnet-model-server/master/docs/images/kitten_small.jpg
+curl -O https://raw.githubusercontent.com/awslabs/multi-model-server/master/docs/images/kitten_small.jpg
 curl -X POST http://127.0.0.1:8080/predictions/resnet-50_compiled -T kitten_small.jpg
 ```
 
@@ -186,7 +186,7 @@ curl -X POST http://127.0.0.1:8080/predictions/resnet-50_compiled -T kitten_smal
 ```
 curl -X DELETE http://127.0.0.1:8081/models/resnet-50_compiled
 
-mxnet-model-server --stop
+multi-model-server --stop
 
 neuron-cli reset
 ```

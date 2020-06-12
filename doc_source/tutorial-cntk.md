@@ -1,5 +1,8 @@
 # CNTK<a name="tutorial-cntk"></a>
 
+**Note**  
+We no longer include the CNTK, Caffe, Caffe2 and Theano Conda environments in the AWS Deep Learning AMI starting with the v28 release\. Previous releases of the AWS Deep Learning AMI that contain these environments will continue to be available\. However, we will only provide updates to these environments if there are security fixes published by the open source community for these frameworks\.
+
 ## Activating CNTK<a name="tutorial-cntk-overview"></a>
 
 This tutorial shows how to activate CNTK on an instance running the Deep Learning AMI with Conda \(DLAMI on Conda\) and run a CNTK program\.
