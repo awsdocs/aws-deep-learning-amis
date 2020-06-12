@@ -4,8 +4,6 @@
 | --- |--- |--- |
 | [TensorFlow 2](tutorial-tensorflow-2.md) |  The Deep Learning AMI with Conda now comes with TensorFlow 2 with CUDA 10\. | December 3, 2019 | 
 | [AWS Inferentia](tutorial-inferentia.md) |  The Deep Learning AMI now supports AWS Inferentia hardware and the AWS Neuron SDK\. | December 3, 2019 | 
-| [AWS Deep Learning Containers on Amazon EC2](deep-learning-containers-ec2.md) | AWS Deep Learning Containers on Amazon EC2 prerequisites and related info were added to the setup guide\. | March 27, 2019 | 
-| [AWS Deep Learning Containers](deep-learning-containers.md) | Added a new guide for using Deep Learning Containers\. | March 27, 2019 | 
 | [PyTorch 1\.0 with CUDA 10](overview-conda.md#overview-conda-cuda) | The Deep Learning AMI with Conda now comes with PyTorch 1\.0 with CUDA 10\. | December 13, 2018 | 
 | [CUDA 10 available on the Deep Learning Base AMI](overview-cuda.md) | CUDA 10 was added as on option for the Deep Learning Base AMI\. Instructions on how to change and test CUDA versions\. | December 11, 2018 | 
 | [Using TensorFlow Serving with an Inception Model](tutorial-tfserving.md) | An example for using inference with an Inception model was added for TensorFlow Serving, for both with and without Elastic Inference\. | November 28, 2018 | 

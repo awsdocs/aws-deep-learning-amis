@@ -1,6 +1,6 @@
 # AWS Deep Learning AMI, Ubuntu 16\.04 Options<a name="ubuntu"></a>
 
-Use the [Launching and Configuring a DLAMI](launch-config.md) guide to continue with one of these DLAMI\.
+Use the [Launching and Configuring a DLAMI](launch-config.md) guide to continue with one of these DLAMI\. The Deep Learning AMI with Conda comes with environments that support Elastic Inference for Ubuntu 16\.04\. For tutorials and more information on Elastic Inference, see the [Elastic Inference Documentation](https://docs.aws.amazon.com/elastic-inference/latest/developerguide/what-is-ei.html)\.
 + [Deep Learning AMI \(Ubuntu 16\.04\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B077GCH38C)
 + [Deep Learning Base AMI \(Ubuntu 16\.04\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B077GCZ4GR)
 

@@ -9,4 +9,4 @@
 **Research**: If you're a researcher and want to try out a new framework, test out a new model, or train new models, the DLAMI and AWS capabilities for scale can alleviate the pain of tedious installations and management of multiple training nodes\. You can use EMR and AWS CloudFormation templates to easily launch a full cluster of instances that are ready to go for scalable training\.
 
 **Note**  
-While your initial choice might be to upgrade your instance type up to a larger instance with more GPUs \(up to 8\), you can also scale horizontally by creating a cluster of DLAMI instances\. To quickly set up a cluster, you can use the predefined AWS CloudFormation template\. Check out [Resources and Support](resources.md) for more information on cluster builds\. 
+While your initial choice might be to upgrade your instance type up to a larger instance with more GPUs \(up to 8\), you can also scale horizontally by creating a cluster of DLAMI instances\. To quickly set up a cluster, you can use the predefined AWS CloudFormation template\. Check out [Related Information](resources.md) for more information on cluster builds\. 

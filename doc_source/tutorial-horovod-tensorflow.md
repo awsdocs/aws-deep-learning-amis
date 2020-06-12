@@ -5,6 +5,17 @@ This tutorial shows how to use TensorFlow with Horovod on a Deep Learning AMI wi
 **Note**  
 Only P3\.\*, P2\.\*, and G3\.\* instance types are supported\.
 
+**Note**  
+There are two locations where mpirun \(via OpenMPI\) is available\. It is available in `/usr/bin` and `/home/ubuntu/anaconda3/envs/<env>/bin`\. `env` is an environment corresponding to the framework, such as Tensorflow and Apache MXNet\. The mpirun binary in `/usr/bin` outside of the conda environment exists to maintain compatibility with the CNTK framework\. This framework expects v1\.10 at that location\. The newer OpenMPI versions are available in the conda environments\. We recommend using the absolute path of the mpirun binary or the [\-\-prefix flag](https://www.open-mpi.org/faq/?category=running#mpirun-prefix) to run mpi workloads\. For example, with the Tensorflow python36 environment, use either:   
+
+```
+/home/ubuntu/anaconda3/envs/tensorflow_p36/bin/mpirun <args>
+
+or
+
+mpirun --prefix /home/ubuntu/anaconda3/envs/tensorflow_p36/bin <args>
+```
+
 ## Activate and Test TensorFlow with Horovod<a name="tutorial-horovod-tensorflow-activate"></a>
 
 1. Verify that your instance has active GPUs\. NVIDIA provides a tool for this:
@@ -140,7 +151,7 @@ In the `~/examples/horovod/tensorflow/utils` directory on your DLAMI you find th
 
 1. Visit [image\-net\.org](http://image-net.org), create an account, acquire an access key, and download the dataset\. [image\-net\.org](http://image-net.org) hosts the raw dataset\. To download it, you are required to have an ImageNet account and an access key\. The account is free, and to get the free access key you must agree to the ImageNet license\. 
 
-1. Use the image preprocessing script to generate a TFRecord format dataset from the raw ImageNet dataset\. From the `~/examples/horovod/tensorflow/utils/preprocess` directory:
+1. Use the image preprocessing script to generate a TFRecord format dataset from the raw ImageNet dataset\. From the `~/examples/horovod/tensorflow/utils` directory:
 
    ```
    python preprocess_imagenet.py \

@@ -16,7 +16,7 @@ A utility called gpumon\.py is preinstalled on your DLAMI\. It integrates with C
       "Statement": [
            {
                "Action": [
-                   "cloudwatch:PutMetricData",
+                   "cloudwatch:PutMetricData"
                 ],
                 "Effect": "Allow",
                 "Resource": "*"
@@ -45,16 +45,16 @@ For more information on creating an IAM user and adding policies for CloudWatch,
    + Change the region in gpumon\.py if your instance is NOT in us\-east\-1\.
    + Change other parameters such as the CloudWatch `namespace` or the reporting period with `store_resolution`\.
 
-1. Currently the script only supports Python 2\.7\. Activate your preferred framework’s Python 2\.7 environment or activate the DLAMI general Python 2\.7 environment\. 
+1. Currently the script only supports Python 3\. Activate your preferred framework’s Python 3 environment or activate the DLAMI general Python 3 environment\. 
 
    ```
-   $ source activate python2
+   $ source activate python3
    ```
 
 1. Run the gpumon utility in background\.
 
    ```
-   (python2)$ gpumon.py &
+   (python3)$ python gpumon.py &
    ```
 
 1. Open your browser to the [https://console\.aws\.amazon\.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/) then select metric\. It will have a namespace 'DeepLearningTrain'\. 

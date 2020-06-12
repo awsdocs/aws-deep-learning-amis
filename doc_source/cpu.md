@@ -8,6 +8,9 @@ Whether you're on a budget, learning about deep learning, or just want to run a 
 **Note**  
 C5 instances \(not available in all regions\) excel at scientific modelling, batch processing, distributed analytics, high\-performance computing \(HPC\), and machine/deep learning inference\.
 
+**Note**  
+The size of your model should be a factor in selecting an instance\. If your model exceeds an instance's available RAM, select a different instance type with enough memory for your application\. 
+
 **Important**  
 If you plan to use Caffe, you should choose a GPU instance instead\. On the DLAMI, Caffe only works with with GPU support, and cannot be run in CPU mode\.
 

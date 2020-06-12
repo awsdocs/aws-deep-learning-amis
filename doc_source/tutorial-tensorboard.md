@@ -61,7 +61,7 @@ If you need to run both Jupyter server and a TensorBoard server, use a different
 
       **Port Range**: **6006** \(or the port that you assigned to the visualization server\)
 
-      **Source**: **Anywhere** \(**0\.0\.0\.0/0,::/0**\)
+      **Source**: **Custom IP \(specify address/range\)** 
 
 1. Open the web page for the TensorBoard visualizations by using the public IP or DNS address of the EC2 instance that's running the DLAMI with Conda and the port that you opened for TensorBoard: 
 
