@@ -19,16 +19,20 @@
  For Amazon Linux 2, run: 
 
 ```
+sudo yum install aws-neuron-runtime-base
 sudo yum install aws-neuron-runtime
 sudo yum install aws-neuron-tools
+sudo yum install tensorflow-model-server-neuron
 ```
 
  For Ubuntu Linux, run: 
 
 ```
-sudo apt-get update
+sudo apt-get update
+sudo apt-get install aws-neuron-runtime-base
 sudo apt-get install aws-neuron-runtime
 sudo apt-get install aws-neuron-tools
+sudo apt-get install tensorflow-model-server-neuron
 ```
 
 ## Verify Your Instance<a name="tutorial-inferentia-launching-verify"></a>

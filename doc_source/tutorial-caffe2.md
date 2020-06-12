@@ -1,5 +1,8 @@
 # Caffe2<a name="tutorial-caffe2"></a>
 
+**Note**  
+We no longer include the CNTK, Caffe, Caffe2 and Theano Conda environments in the AWS Deep Learning AMI starting with the v28 release\. Previous releases of the AWS Deep Learning AMI that contain these environments will continue to be available\. However, we will only provide updates to these environments if there are security fixes published by the open source community for these frameworks\.
+
 ## Caffe2 Tutorial<a name="tutorial-caffe2-overview"></a>
 
 To activate the framework, follow these instructions on your Deep Learning AMI with Conda\.

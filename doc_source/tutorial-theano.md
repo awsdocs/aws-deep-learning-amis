@@ -2,6 +2,9 @@
 
 ## Theano Tutorial<a name="tutorial-theano-overview"></a>
 
+**Note**  
+We no longer include the CNTK, Caffe, Caffe2 and Theano Conda environments in the AWS Deep Learning AMI starting with the v28 release\. Previous releases of the AWS Deep Learning AMI that contain these environments will continue to be available\. However, we will only provide updates to these environments if there are security fixes published by the open source community for these frameworks\.
+
 To activate the framework, follow these instructions on your Deep Learning AMI with Conda\.
 
 For Theano \+ Keras in Python 3 with CUDA 9 with cuDNN 7:

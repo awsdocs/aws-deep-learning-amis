@@ -18,33 +18,44 @@ The Deep Learning AMI with Conda has been configured for you to easily switch be
 
 After you log in to your server, you will see a server "message of the day" \(MOTD\) describing various Conda commands that you can use to switch between the different deep learning frameworks\. Below is an example MOTD\. Your specific MOTD may vary as new versions of the DLAMI are released\.
 
+**Note**  
+We no longer include the CNTK, Caffe, Caffe2 and Theano Conda environments in the AWS Deep Learning AMI starting with the v28 release\. Previous releases of the AWS Deep Learning AMI that contain these environments will continue to be available\. However, we will only provide updates to these environments if there are security fixes published by the open source community for these frameworks\.
+
 ```
 =============================================================================
        __|  __|_  )
-       _|  (     /   Deep Learning AMI  (Ubuntu)
+       _|  (     /   Deep Learning AMI (Ubuntu 16.04) Version 26.0
       ___|\___|___|
 =============================================================================
 
-Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-1062-aws x86_64v)
+Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-1098-aws x86_64v)
 
 Please use one of the following commands to start the required environment with the framework of your choice:
-for MXNet(+Keras2) with Python3 (CUDA 9.0 and Intel MKL-DNN) _______________________________ source activate mxnet_p36
-for MXNet(+Keras2) with Python2 (CUDA 9.0 and Intel MKL-DNN) _______________________________ source activate mxnet_p27
-for TensorFlow(+Keras2) with Python3 (CUDA 9.0 and Intel MKL-DNN) _____________________ source activate tensorflow_p36
-for TensorFlow(+Keras2) with Python2 (CUDA 9.0 and Intel MKL-DNN) _____________________ source activate tensorflow_p27
-for Theano(+Keras2) with Python3 (CUDA 9.0) _______________________________________________ source activate theano_p36
-for Theano(+Keras2) with Python2 (CUDA 9.0) _______________________________________________ source activate theano_p27
-for PyTorch with Python3 (CUDA 9.0 and Intel MKL) ________________________________________ source activate pytorch_p36
-for PyTorch with Python2 (CUDA 9.0 and Intel MKL) ________________________________________ source activate pytorch_p27
-for CNTK(+Keras2) with Python3 (CUDA 9.0 and Intel MKL-DNN) _________________________________ source activate cntk_p36
-for CNTK(+Keras2) with Python2 (CUDA 9.0 and Intel MKL-DNN) _________________________________ source activate cntk_p27
-for Caffe2 with Python2 (CUDA 9.0) ________________________________________________________ source activate caffe2_p27
-for Caffe with Python2 (CUDA 8.0) __________________________________________________________ source activate caffe_p27
-for Caffe with Python3 (CUDA 8.0) __________________________________________________________ source activate caffe_p35
-for Chainer with Python2 (CUDA 9.0 and Intel iDeep) ______________________________________ source activate chainer_p27
-for Chainer with Python3 (CUDA 9.0 and Intel iDeep) ______________________________________ source activate chainer_p36
-for base Python2 (CUDA 9.0) __________________________________________________________________ source activate python2
-for base Python3 (CUDA 9.0) __________________________________________________________________ source activate python3
+for MXNet(+Keras2) with Python3 (CUDA 10.1 and Intel MKL-DNN) ____________________________________ source activate mxnet_p36
+for MXNet(+Keras2) with Python2 (CUDA 10.1 and Intel MKL-DNN) ____________________________________ source activate mxnet_p27
+for MXNet(+Amazon Elastic Inference) with Python3 _______________________________________ source activate amazonei_mxnet_p36
+for MXNet(+Amazon Elastic Inference) with Python2 _______________________________________ source activate amazonei_mxnet_p27
+for MXNet(+AWS Neuron) with Python3 ___________________________________________________ source activate aws_neuron_mxnet_p36
+for TensorFlow(+Keras2) with Python3 (CUDA 10.0 and Intel MKL-DNN) __________________________ source activate tensorflow_p36
+for TensorFlow(+Keras2) with Python2 (CUDA 10.0 and Intel MKL-DNN) __________________________ source activate tensorflow_p27
+for TensorFlow 2(+Keras2) with Python3 (CUDA 10.0 and Intel MKL-DNN) _______________________ source activate tensorflow2_p36
+for TensorFlow 2(+Keras2) with Python2 (CUDA 10.0 and Intel MKL-DNN) _______________________ source activate tensorflow2_p27
+for Tensorflow(+Amazon Elastic Inference) with Python2 _____________________________ source activate amazonei_tensorflow_p27
+for Tensorflow(+Amazon Elastic Inference) with Python3 _____________________________ source activate amazonei_tensorflow_p36
+for Tensorflow(+AWS Neuron) with Python3 _________________________________________ source activate aws_neuron_tensorflow_p36
+for Theano(+Keras2) with Python3 (CUDA 9.0) _____________________________________________________ source activate theano_p36
+for Theano(+Keras2) with Python2 (CUDA 9.0) _____________________________________________________ source activate theano_p27
+for PyTorch with Python3 (CUDA 10.1 and Intel MKL) _____________________________________________ source activate pytorch_p36
+for PyTorch with Python2 (CUDA 10.1 and Intel MKL) _____________________________________________ source activate pytorch_p27
+for CNTK(+Keras2) with Python3 (CUDA 9.0 and Intel MKL-DNN) _______________________________________ source activate cntk_p36
+for CNTK(+Keras2) with Python2 (CUDA 9.0 and Intel MKL-DNN) _______________________________________ source activate cntk_p27
+for Caffe2 with Python2 (CUDA 9.0) ______________________________________________________________ source activate caffe2_p27
+for Caffe with Python2 (CUDA 8.0) ________________________________________________________________ source activate caffe_p27
+for Caffe with Python3 (CUDA 8.0) ________________________________________________________________ source activate caffe_p35
+for Chainer with Python2 (CUDA 10.0 and Intel iDeep) ___________________________________________ source activate chainer_p27
+for Chainer with Python3 (CUDA 10.0 and Intel iDeep) ___________________________________________ source activate chainer_p36
+for base Python2 (CUDA 10.0) _______________________________________________________________________ source activate python2
+for base Python3 (CUDA 10.0) _______________________________________________________________________ source activate python3
 ```
 
 Each Conda command has the following pattern:
@@ -142,11 +153,6 @@ Now we will switch to TensorFlow\! If you're still in the iPython console use `q
 
 You should see "Hello, Tensorflow\!" Now you have tested two different deep learning frameworks, and you've seen how to switch between frameworks\.
 
-**Tip**  
-Refer to the release notes for information regarding known issues:  
-[ Known Issues](CONDA_UBUNTU1.md#CONDA_UBUNTU1-known-issues)
-[Deep Learning AMI \(Amazon Linux\) Known Issues](CONDA_AML1.md#CONDA_AML1-known-issues)
-
 **Next Up**  
 [Running Jupyter Notebook Tutorials](tutorial-jupyter.md)
 
@@ -156,5 +162,5 @@ If you run out of space on the DLAMI, you can choose to uninstall Conda packages
 
 ```
 conda env list
-conda env remove –name <env_name>
+conda env remove –-name <env_name>
 ```

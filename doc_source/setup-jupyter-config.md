@@ -20,7 +20,7 @@ Connect to the Amazon EC2 instance, and then complete the following procedure\.
    [NotebookPasswordApp] Wrote hashed password to /home/ubuntu/.jupyter/jupyter_notebook_config.json
    ```
 
-1. Create a self\-signed SSL certificate\. Follow the prompts to fill out your locality as you see fit\. Your answers will not impact the functionality of the certificate\.
+1. Create a self\-signed SSL certificate\. Follow the prompts to fill out your locality as you see fit\. You must enter `.` if you wish to leave a prompt blank\. Your answers will not impact the functionality of the certificate\.
 
    ```
    $ cd ~

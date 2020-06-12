@@ -1,0 +1,3 @@
+# Logging and Monitoring in AWS Deep Learning AMI<a name="logging-and-monitoring"></a>
+
+Your AWS Deep Learning AMI instance comes with several GPU monitoring tools including a utility that reports GPU usage statistics to Amazon CloudWatch\. For more information, see [GPU Monitoring and Optimization](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-gpu.html) and [Monitoring Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring_ec2.html)\. 

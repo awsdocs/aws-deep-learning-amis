@@ -1,4 +1,4 @@
-# Apache MXNet \(incubating\)<a name="tutorial-mxnet"></a>
+# Apache MXNet<a name="tutorial-mxnet"></a>
 
 ## Activating MXNet<a name="tutorial-mxnet-overview"></a>
 

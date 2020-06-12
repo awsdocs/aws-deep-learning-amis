@@ -12,5 +12,5 @@ Choose this DLAMI type or learn more about the different DLAMIs with the Next Up
 **Next Up**  
 [CUDA Installations and Framework Bindings](overview-cuda.md)
 
-## Related Topics<a name="w4aab7b5c15b7"></a>
+## Related Topics<a name="w19aab7b5c15b7"></a>
 + [Using the Deep Learning Base AMI](tutorial-base.md)

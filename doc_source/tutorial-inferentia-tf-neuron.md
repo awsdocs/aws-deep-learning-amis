@@ -120,7 +120,7 @@ img_arr = image.img_to_array(img_sgl)
 img_arr2 = np.expand_dims(img_arr, axis=0)
 img_arr3 = resnet50.preprocess_input(img_arr2)
 # Load model
-COMPILED_MODEL_DIR = './resnet50_neuron/'
+COMPILED_MODEL_DIR = './ws_resnet50/resnet50_neuron/'
 predictor_inferentia = tf.contrib.predictor.from_saved_model(COMPILED_MODEL_DIR)
 # Run inference
 model_feed_dict={'input': img_arr3}
