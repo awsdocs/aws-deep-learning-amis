@@ -4,7 +4,7 @@ The Conda DLAMI uses Anaconda virtual environments\. These environments are conf
 
 These "Conda" AMIs will be the primary DLAMIs\. It will be updated often with the latest versions from the frameworks, and have the latest GPU drivers and software\. It will be generally referred to as *the* AWS Deep Learning AMI in most documents\.
 + The Ubuntu 18\.04 DLAMI has the following frameworks: Apache MXNet, Chainer, PyTorch, TensorFlow, and TensorFlow 2
-+ The Ubuntu 16\.04 and Amazon Linux DLAMI has the following frameworks: Apache MXNet, Caffe, Caffe2 Chainer, CNTK, Keras, PyTorch, TensorFlow, TensorFlow 2, and Theano
++ The Ubuntu 16\.04 and Amazon Linux DLAMI has the following frameworks: Apache MXNet, Chainer, Keras, PyTorch, TensorFlow, and TensorFlow 2
 + The Amazon Linux 2 DLAMI has the following frameworks: Apache MXNet, Chainer, PyTorch, TensorFlow, TensorFlow 2, and Keras
 
 **Note**  
@@ -30,9 +30,7 @@ The Deep Learning AMI with Conda comes with environments that support Elastic In
 
 The Deep Learning AMI with Conda's CUDA version and the frameworks supported for each:
 + CUDA 10\.1 with cuDNN 7: Apache MXNet
-+ CUDA 10 with cuDNN 7: PyTorch, TensorFlow, TensorFlow 2, Apache MXNet, Caffe2, Chainer
-+ CUDA 9 with cuDNN 7: CNTK, Keras, Theano
-+ CUDA 8 with cuDNN 6: Caffe
++ CUDA 10 with cuDNN 7: PyTorch, TensorFlow, TensorFlow 2, Apache MXNet, Chainer
 
 Specific framework version numbers can be found in the [Release Notes for DLAMI](appendix-ami-release-notes.md)
 

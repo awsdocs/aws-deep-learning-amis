@@ -10,9 +10,7 @@ The [Deep Learning Base AMI](overview-base.md) has CUDA 8, 9, 10, and 10\.1\.
 
 The [Deep Learning AMI with Conda](overview-conda.md) has CUDA 8 and 9, 10, and 10\.1\.
 + CUDA 10\.1 with cuDNN 7: Apache MXNet
-+ CUDA 10 with cuDNN 7: PyTorch, TensorFlow, TensorFlow 2, Apache MXNet, Caffe2, Chainer
-+ CUDA 9 with cuDNN 7: CNTK, Keras, Theano
-+ CUDA 8 with cuDNN 6: Caffe
++ CUDA 10 with cuDNN 7: PyTorch, TensorFlow, TensorFlow 2, Apache MXNet, Chainer
 
 **Note**  
 We no longer include the CNTK, Caffe, Caffe2 and Theano Conda environments in the AWS Deep Learning AMI starting with the v28 release\. Previous releases of the AWS Deep Learning AMI that contain these environments will continue to be available\. However, we will only provide updates to these environments if there are security fixes published by the open source community for these frameworks\.

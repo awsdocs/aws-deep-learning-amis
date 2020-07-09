@@ -62,8 +62,13 @@ localhost slots=8
 
 The nccl\_message\_transfer is a simple test to ensure that the NCCL OFI Plugin is working as expected\. The test validates functionality of NCCL's connection establishment and data transfer APIs\. Make sure you use the complete path to mpirun as shown in the example while running NCCL applications with EFA\. Change the params `np` and `N` based on the number of instances and GPUs in your cluster\. For more information, see the [AWS OFI NCCL documentation](https://github.com/aws/aws-ofi-nccl/tree/master/tests)\.
 
+The following nccl\_message\_transfer test is for CUDA 10\.0\. You can run the commands for CUDA 10\.1 and 10\.2 by replacing the CUDA version\.
+
 ```
-/opt/amazon/openmpi/bin/mpirun -n 2 -N 1 --hostfile hosts ~/src/bin/efa-tests/efa-cuda-10.0/nccl_message_transfer
+$/opt/amazon/openmpi/bin/mpirun \
+         -n 2 -N 1 --hostfile hosts \
+         -x LD_LIBRARY_PATH=/usr/local/cuda-10.0/efa/lib:/usr/local/cuda-10.0/lib:/usr/local/cuda-10.0/lib64:/usr/local/cuda-10.0:$LD_LIBRARY_PATH \
+         ~/src/bin/efa-tests/efa-cuda-10.0/nccl_message_transfer
 ```
 
 Your output should look like the following\. You can check the output to see that EFA is being used as the OFI provider\.
@@ -93,18 +98,39 @@ INFO: Function: main Line: 131: NET/OFI Got completions for 255 requests for ran
 
 ### Multi\-node NCCL Performance Test on P3dn\.24xlarge<a name="tutorial-efa-using-multi-node-performance"></a>
 
-To check NCCL Performance with EFA, run the standard NCCL Performance test that is available on the official [NCCL\-Tests Repo](https://github.com/NVIDIA/nccl-tests.git)\. The DLAMI comes with this test already built for both CUDA 10 and CUDA 10\.1\. You can similarly run your own script with EFA\. 
+To check NCCL Performance with EFA, run the standard NCCL Performance test that is available on the official [NCCL\-Tests Repo](https://github.com/NVIDIA/nccl-tests.git)\. The DLAMI comes with this test already built for both CUDA 10\.0, 10\.1, and 10\.2\. You can similarly run your own script with EFA\. 
 
 When constructing your own script, refer to the following guidance:
 + Provide the FI\_PROVIDER="efa" flag to enable EFA use\.
 + Use the complete path to mpirun as shown in the example while running NCCL applications with EFA\.
 + Change the params np and N based on the number of instances and GPUs in your cluster\.
 + Add the NCCL\_DEBUG=INFO flag and make sure that the logs indicate EFA usage as "Selected Provider is EFA"\.
-+ Use the command `watch nvidia-smi` on any of the member nodes to monitor GPU usage\.
 
-```
-$ /opt/amazon/openmpi/bin/mpirun -x FI_PROVIDER="efa" -n 16 -N 8 -x NCCL_DEBUG=INFO -x FI_EFA_TX_MIN_CREDITS=64 -x NCCL_TREE_THRESHOLD=0 --hostfile hosts --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --bind-to none $HOME/src/bin/efa-tests/efa-cuda-10.0/all_reduce_perf -b 8 -e 1G -f 2 -g 1 -c 1 -n 100
-```
+Use the command `watch nvidia-smi` on any of the member nodes to monitor GPU usage\. The following `watch nvidia-smi` commands are for CUDA 10\.0 and depend on the Operating System of your instance\. You can run the commands for CUDA 10\.1 and 10\.2 by replacing the CUDA version\.
++ Amazon Linux and Amazon Linux 2:
+
+  ```
+  $ /opt/amazon/openmpi/bin/mpirun \
+           -x FI_PROVIDER="efa" -n 16 -N 8 \
+           -x NCCL_DEBUG=INFO \
+           -x FI_EFA_TX_MIN_CREDITS=64 \
+           -x NCCL_TREE_THRESHOLD=0 \
+           -x LD_LIBRARY_PATH=/usr/local/cuda-10.0/efa/lib:/usr/local/cuda-10.0/lib:/usr/local/cuda-10.0/lib64:/usr/local/cuda-10.0:/opt/amazon/efa/lib64:/opt/amazon/openmpi/lib64:$LD_LIBRARY_PATH \
+           --hostfile hosts --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --bind-to none \
+           $HOME/src/bin/efa-tests/efa-cuda-10.0/all_reduce_perf -b 8 -e 1G -f 2 -g 1 -c 1 -n 100
+  ```
++ Ubuntu 16\.04 and Ubuntu 18\.04:
+
+  ```
+  $ /opt/amazon/openmpi/bin/mpirun \
+           -x FI_PROVIDER="efa" -n 16 -N 8 \
+           -x NCCL_DEBUG=INFO \
+           -x FI_EFA_TX_MIN_CREDITS=64 \
+           -x NCCL_TREE_THRESHOLD=0 \
+           -x LD_LIBRARY_PATH=/usr/local/cuda-10.0/efa/lib:/usr/local/cuda-10.0/lib:/usr/local/cuda-10.0/lib64:/usr/local/cuda-10.0:/opt/amazon/efa/lib:/opt/amazon/openmpi/lib:$LD_LIBRARY_PATH \
+           --hostfile hosts --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --bind-to none \
+           $HOME/src/bin/efa-tests/efa-cuda-10.0/all_reduce_perf -b 8 -e 1G -f 2 -g 1 -c 1 -n 100
+  ```
 
 Your output should look like the following\.
 

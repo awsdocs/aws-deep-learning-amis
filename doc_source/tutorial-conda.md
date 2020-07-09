@@ -43,15 +43,8 @@ for TensorFlow 2(+Keras2) with Python2 (CUDA 10.0 and Intel MKL-DNN) ___________
 for Tensorflow(+Amazon Elastic Inference) with Python2 _____________________________ source activate amazonei_tensorflow_p27
 for Tensorflow(+Amazon Elastic Inference) with Python3 _____________________________ source activate amazonei_tensorflow_p36
 for Tensorflow(+AWS Neuron) with Python3 _________________________________________ source activate aws_neuron_tensorflow_p36
-for Theano(+Keras2) with Python3 (CUDA 9.0) _____________________________________________________ source activate theano_p36
-for Theano(+Keras2) with Python2 (CUDA 9.0) _____________________________________________________ source activate theano_p27
 for PyTorch with Python3 (CUDA 10.1 and Intel MKL) _____________________________________________ source activate pytorch_p36
 for PyTorch with Python2 (CUDA 10.1 and Intel MKL) _____________________________________________ source activate pytorch_p27
-for CNTK(+Keras2) with Python3 (CUDA 9.0 and Intel MKL-DNN) _______________________________________ source activate cntk_p36
-for CNTK(+Keras2) with Python2 (CUDA 9.0 and Intel MKL-DNN) _______________________________________ source activate cntk_p27
-for Caffe2 with Python2 (CUDA 9.0) ______________________________________________________________ source activate caffe2_p27
-for Caffe with Python2 (CUDA 8.0) ________________________________________________________________ source activate caffe_p27
-for Caffe with Python3 (CUDA 8.0) ________________________________________________________________ source activate caffe_p35
 for Chainer with Python2 (CUDA 10.0 and Intel iDeep) ___________________________________________ source activate chainer_p27
 for Chainer with Python3 (CUDA 10.0 and Intel iDeep) ___________________________________________ source activate chainer_p36
 for base Python2 (CUDA 10.0) _______________________________________________________________________ source activate python2
@@ -162,5 +155,5 @@ If you run out of space on the DLAMI, you can choose to uninstall Conda packages
 
 ```
 conda env list
-conda env remove --name <env_name>
+conda env remove –-name <env_name>
 ```

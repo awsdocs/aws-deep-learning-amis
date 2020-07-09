@@ -6,7 +6,7 @@ This tutorial shows how to use TensorFlow with Horovod on a Deep Learning AMI wi
 Only P3\.\*, P2\.\*, and G3\.\* instance types are supported\.
 
 **Note**  
-There are two locations where mpirun \(via OpenMPI\) is available\. It is available in `/usr/bin` and `/home/ubuntu/anaconda3/envs/<env>/bin`\. `env` is an environment corresponding to the framework, such as Tensorflow and Apache MXNet\. The mpirun binary in `/usr/bin` outside of the conda environment exists to maintain compatibility with the CNTK framework\. This framework expects v1\.10 at that location\. The newer OpenMPI versions are available in the conda environments\. We recommend using the absolute path of the mpirun binary or the [\-\-prefix flag](https://www.open-mpi.org/faq/?category=running#mpirun-prefix) to run mpi workloads\. For example, with the Tensorflow python36 environment, use either:   
+There are two locations where mpirun \(via OpenMPI\) is available\. It is available in `/usr/bin` and `/home/ubuntu/anaconda3/envs/<env>/bin`\. `env` is an environment corresponding to the framework, such as Tensorflow and Apache MXNet\. The newer OpenMPI versions are available in the conda environments\. We recommend using the absolute path of the mpirun binary or the [\-\-prefix flag](https://www.open-mpi.org/faq/?category=running#mpirun-prefix) to run mpi workloads\. For example, with the Tensorflow python36 environment, use either:   
 
 ```
 /home/ubuntu/anaconda3/envs/tensorflow_p36/bin/mpirun <args>
@@ -88,6 +88,13 @@ Before you start this section, launch one or more DLAMI, and wait for them to be
    ```
 
     Save the file and exit back to the leader's terminal\.
+
+1. Add the SSH key used by the member instances to the ssh\-agent\.
+
+   ```
+   eval `ssh-agent -s`
+   ssh-add <key_name>.pem
+   ```
 
 1. Now your leader knows how to reach each member\. This is all going to happen on the private network interfaces\. Next, use a short bash function to help send commands to each member\.
 

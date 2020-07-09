@@ -5,11 +5,10 @@
  For more information about the Neuron SDK, see the [AWS Neuron SDK documentation](https://github.com/aws/aws-neuron-sdk)\. 
 
 **Topics**
-- [Using TensorFlow-Neuron and the AWS Neuron Compiler](#using-tensorflow-neuron-and-the-aws-neuron-compiler)
-  - [Prerequisites](#prerequisites)
-  - [Activate the Conda environment](#activate-the-conda-environment)
-  - [Resnet50 Compilation](#resnet50-compilation)
-  - [ResNet50 Inference](#resnet50-inference)
++ [Prerequisites](#tutorial-inferentia-tf-neuron-prerequisites)
++ [Activate the Conda environment](#tutorial-inferentia-tf-neuron-activate)
++ [Resnet50 Compilation](#tutorial-inferentia-tf-neuron-compilation)
++ [ResNet50 Inference](#tutorial-inferentia-tf-neuron-inference)
 
 ## Prerequisites<a name="tutorial-inferentia-tf-neuron-prerequisites"></a>
 

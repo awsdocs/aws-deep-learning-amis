@@ -121,5 +121,6 @@ Amazon's trademarks and trade dress may not be used in
    + [Infrastructure Security in AWS Deep Learning AMI](infrastructure-security.md)
 + [Related Information](resources.md)
 + [Release Notes for DLAMI](appendix-ami-release-notes.md)
++ [Deprecations for DLAMI](deprecations.md)
 + [Document History for AWS Deep Learning AMI Developer Guide](doc-history.md)
 + [AWS glossary](glossary.md)

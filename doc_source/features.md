@@ -12,15 +12,11 @@ For more information on selecting the best DLAMI for you, take a look at [Gettin
 
 This is the full list of supported frameworks by Deep Learning AMI with Conda:
 + Apache MXNet
-+ Caffe
-+ Caffe2
 + Chainer
-+ CNTK
 + Keras
 + PyTorch
 + TensorFlow
 + TensorFlow 2
-+ Theano
 
 **Note**  
 We no longer include the CNTK, Caffe, Caffe2 and Theano Conda environments in the AWS Deep Learning AMI starting with the v28 release\. Previous releases of the AWS Deep Learning AMI that contain these environments will continue to be available\. However, we will only provide updates to these environments if there are security fixes published by the open source community for these frameworks\.

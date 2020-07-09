@@ -22,19 +22,19 @@
    $ curl -O https://upload.wikimedia.org/wikipedia/commons/b/b5/Siberian_Husky_bi-eyed_Flickr.jpg
    ```
 
-1. Download a list of classes that will work with this model\.
+1. Download a list of classes that work with this model\.
 
    ```
    $ curl -O https://gist.githubusercontent.com/yrevar/6135f1bd8dcf2e0cc683/raw/d133d61a09d7e5a3b36b8c111a8dd5c4b5d560ee/imagenet1000_clsid_to_human.pkl
    ```
-   
-1. Download the pre-trained VGG 16 model in ONNX format\.
+
+1. Download the pre\-trained VGG 16 model in ONNX format\.
 
    ```
    $ wget -O vgg16.onnx https://github.com/onnx/models/raw/master/vision/classification/vgg/model/vgg16-7.onnx
    ```
 
-1. Use your preferred text editor to create a script that has the following content\. This script will use the image of the husky, get a prediction result from the pre\-trained model, then look this up in the file of classes, returning an image classification\.
+1. Use a your preferred text editor to create a script that has the following content\. This script will use the image of the husky, get a prediction result from the pre\-trained model, then look this up in the file of classes, returning an image classification result\.
 
    ```
    import mxnet as mx

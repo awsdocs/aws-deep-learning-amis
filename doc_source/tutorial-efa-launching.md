@@ -2,7 +2,7 @@
 
 The latest DLAMI is ready to use with EFA and comes with the required drivers, kernel modules, libfabric, openmpi and the [NCCL OFI plugin](https://github.com/aws/aws-ofi-nccl/tree/aws) for GPU instances\.
 
-**Supported CUDA Versions**: NCCL Applications with EFA are only supported on CUDA\-10\.0 and CUDA\-10\.1 because the NCCL OFI plugin requires a NCCL version > 2\.4\.2\. 
+**Supported CUDA Versions**: NCCL Applications with EFA are only supported on CUDA\-10\.0, CUDA\-10\.1, and CUDA\-10\.2 because the NCCL OFI plugin requires a NCCL version > 2\.4\.2\. 
 
 Note:
 + When running a NCCL Application using `mpirun` on EFA, you will have to specify the full path to the EFA supported installation as: 
