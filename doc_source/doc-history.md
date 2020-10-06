@@ -2,6 +2,7 @@
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Removed support for CUDA 8 and 9](overview-cuda.md) | The Deep Learning Base AMI and Deep Learning AMI with Conda no longer support CUDA 8 or 9\. | August 19, 2020 | 
 | [TensorFlow 2](tutorial-tensorflow-2.md) |  The Deep Learning AMI with Conda now comes with TensorFlow 2 with CUDA 10\. | December 3, 2019 | 
 | [AWS Inferentia](tutorial-inferentia.md) |  The Deep Learning AMI now supports AWS Inferentia hardware and the AWS Neuron SDK\. | December 3, 2019 | 
 | [PyTorch 1\.0 with CUDA 10](overview-conda.md#overview-conda-cuda) | The Deep Learning AMI with Conda now comes with PyTorch 1\.0 with CUDA 10\. | December 13, 2018 | 
@@ -11,8 +12,8 @@
 | [Elastic Inference](launch-config.md) | Elastic inference prerequisites and related info was added to the setup guide\. | November 28, 2018 | 
 | [MMS v1\.0 released on the DLAMI\.](tutorial-mms.md) | The MMS tutorial was updated to use the new model archive format \(\.mar\) and demonstrates the new start and stop features\. | November 15, 2018 | 
 | [Installing TensorFlow from a Nightly Build](tutorial-tensorflow.md) | A tutorial was added that covers how you can uninstall TensorFlow, then install a nightly build of TensorFlow on your Deep Learning AMI with Conda\. | October 16, 2018 | 
-| [Installing MXNet from a Nightly Build](tutorial-mxnet.md) | A tutorial was added that covers how you can uninstall MXNet, then install a nightly build of MXNet on your Deep Learning AMI with Conda\. | October 16, 2018 | 
 | [Installing CNTK from a Nightly Build](tutorial-cntk.md) | A tutorial was added that covers how you can uninstall CNTK, then install a nightly build of CNTK on your Deep Learning AMI with Conda\. | October 16, 2018 | 
+| [Installing Apache MXNet \(Incubating\) from a Nightly Build](tutorial-mxnet.md) | A tutorial was added that covers how you can uninstall MXNet, then install a nightly build of MXNet on your Deep Learning AMI with Conda\. | October 16, 2018 | 
 | [Installing PyTorch from a Nightly Build](tutorial-pytorch.md) | A tutorial was added that covers how you can uninstall PyTorch, then install a nightly build of PyTorch on your Deep Learning AMI with Conda\. | September 25, 2018 | 
 | [Docker is now pre\-installed on your DLAMI](resources.md#faq) | Since v14 of the Deep Learning AMI with Conda, Docker and NVIDIA's version of Docker for GPUs has been pre\-installed\. | September 25, 2018 | 
 | [TensorBoard Tutorial](tutorial-tensorboard.md#tutorial-tensorboard-example) | Example was moved to \~/examples/tensorboard\. Tutorial paths updated\. | July 23, 2018 | 

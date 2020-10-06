@@ -76,7 +76,7 @@ If you need to run both Jupyter server and a MXBoard server, use a different por
 
    1. Choose **Add Rule**\. 
 
-   1. In the new row, type the followings: 
+   1. In the new row, type the following: 
 
       **Type** : Custom **TCP Rule**
 
@@ -84,7 +84,7 @@ If you need to run both Jupyter server and a MXBoard server, use a different por
 
       **Port Range**: **8888** \(or the port that you assigned to the visualization server\)
 
-      **Source**: **Anywhere** \(**0\.0\.0\.0/0,::/0**\)
+      **Source**: **Custom IP \(specify address/range\)** 
 
 1. If you want to visualize the data from local browser, type the following command to forward the data that is rendering on the EC2 instance to your local machine\.
 

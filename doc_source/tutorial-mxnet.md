@@ -1,6 +1,6 @@
-# Apache MXNet<a name="tutorial-mxnet"></a>
+# Apache MXNet \(Incubating\)<a name="tutorial-mxnet"></a>
 
-## Activating MXNet<a name="tutorial-mxnet-overview"></a>
+## Activating Apache MXNet \(Incubating\)<a name="tutorial-mxnet-overview"></a>
 
 This tutorial shows how to activate MXNet on an instance running the Deep Learning AMI with Conda \(DLAMI on Conda\) and run a MXNet program\.
 
@@ -92,9 +92,9 @@ The remaining steps assume you are using the `mxnet_p36` environment\.
 
 You can find more tutorials in the Deep Learning AMI with Conda tutorials folder, which is in the home directory of the DLAMI\.
 
-1. [Use Apache MXNet for Inference with a ResNet 50 Model](tutorial-mxnet-inference-resnet50.md)
+1. [Use Apache MXNet \(Incubating\) for Inference with a ResNet 50 Model](tutorial-mxnet-inference-resnet50.md)
 
-1. [Use Apache MXNet for Inference with an ONNX Model](tutorial-mxnet-inference-onnx.md)
+1. [Use Apache MXNet \(Incubating\) for Inference with an ONNX Model](tutorial-mxnet-inference-onnx.md)
 
 1. [Model Server for Apache MXNet \(MMS\)](tutorial-mms.md)
 

@@ -1,14 +1,14 @@
-# Use Apache MXNet for Inference with an ONNX Model<a name="tutorial-mxnet-inference-onnx"></a>
+# Use Apache MXNet \(Incubating\) for Inference with an ONNX Model<a name="tutorial-mxnet-inference-onnx"></a>
 
-**How to Use an ONNX Model for Image Inference with MXNet**
+**How to Use an ONNX Model for Image Inference with Apache MXNet \(Incubating\)**
 
 1. 
-   + \(Option for Python 3\) \- Activate the Python 3 MXNet environment:
+   + \(Option for Python 3\) \- Activate the Python 3 Apache MXNet \(Incubating\) environment:
 
      ```
      $ source activate mxnet_p36
      ```
-   + \(Option for Python 2\) \- Activate the Python 2 MXNet environment:
+   + \(Option for Python 2\) \- Activate the Python 2 Apache MXNet \(Incubating\) environment:
 
      ```
      $ source activate mxnet_p27

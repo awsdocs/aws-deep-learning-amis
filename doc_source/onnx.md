@@ -2,6 +2,8 @@
 
 The Deep Learning AMI with Conda now supports [Open Neural Network Exchange](http://onnx.ai/) \(ONNX\) models for some frameworks\. Choose one of the topics listed below to learn how to use ONNX on your Deep Learning AMI with Conda\.
 
+If you want to use an existing ONNX model on a DLAMI, see [Use Apache MXNet \(Incubating\) for Inference with an ONNX Model](tutorial-mxnet-inference-onnx.md)\.
+
 ## About ONNX<a name="onnx-about"></a>
 
 The [Open Neural Network Exchange](http://onnx.ai/) \(ONNX\) is an open format used to represent deep learning models\. ONNX is supported by Amazon Web Services, Microsoft, Facebook, and several other partners\. You can design, train, and deploy deep learning models with any framework you choose\. The benefit of ONNX models is that they can be moved between frameworks with ease\.

@@ -1,14 +1,14 @@
-# Use Apache MXNet for Inference with a ResNet 50 Model<a name="tutorial-mxnet-inference-resnet50"></a>
+# Use Apache MXNet \(Incubating\) for Inference with a ResNet 50 Model<a name="tutorial-mxnet-inference-resnet50"></a>
 
-**How to Use a Pre\-Trained MXNet Model with the Symbol API for Image Inference with MXNet**
+**How to Use a Pre\-Trained Apache MXNet \(Incubating\) Model with the Symbol API for Image Inference with MXNet**
 
 1. 
-   + \(Option for Python 3\) \- Activate the Python 3 MXNet environment:
+   + \(Option for Python 3\) \- Activate the Python 3 Apache MXNet \(Incubating\) environment:
 
      ```
      $ source activate mxnet_p36
      ```
-   + \(Option for Python 2\) \- Activate the Python 2 MXNet environment:
+   + \(Option for Python 2\) \- Activate the Python 2 Apache MXNet \(Incubating\) environment:
 
      ```
      $ source activate mxnet_p27

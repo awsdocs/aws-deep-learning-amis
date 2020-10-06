@@ -3,7 +3,7 @@
 The following are the deep learning frameworks installed on the Deep Learning AMI with Conda\. Click on a framework to learn how to activate it\.
 
 **Topics**
-+ [Apache MXNet](tutorial-mxnet.md)
++ [Apache MXNet \(Incubating\)](tutorial-mxnet.md)
 + [Caffe2](tutorial-caffe2.md)
 + [Chainer](activate-chainer.md)
 + [CNTK](tutorial-cntk.md)

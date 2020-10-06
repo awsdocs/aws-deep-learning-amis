@@ -11,7 +11,7 @@ The Deep Learning AMI with Conda uses Anaconda environments to isolate each fram
 For more information on selecting the best DLAMI for you, take a look at [Getting Started](gs.md)\.
 
 This is the full list of supported frameworks by Deep Learning AMI with Conda:
-+ Apache MXNet
++ Apache MXNet \(Incubating\)
 + Chainer
 + Keras
 + PyTorch

@@ -3,9 +3,9 @@
 The Conda DLAMI uses Anaconda virtual environments\. These environments are configured to keep the different framework installations separate\. It also makes it easy to switch between frameworks\. This is great for learning and experimenting with all of the frameworks the DLAMI has to offer\. Most users find that the new Deep Learning AMI with Conda is perfect for them\. 
 
 These "Conda" AMIs will be the primary DLAMIs\. It will be updated often with the latest versions from the frameworks, and have the latest GPU drivers and software\. It will be generally referred to as *the* AWS Deep Learning AMI in most documents\.
-+ The Ubuntu 18\.04 DLAMI has the following frameworks: Apache MXNet, Chainer, PyTorch, TensorFlow, and TensorFlow 2
-+ The Ubuntu 16\.04 and Amazon Linux DLAMI has the following frameworks: Apache MXNet, Chainer, Keras, PyTorch, TensorFlow, and TensorFlow 2
-+ The Amazon Linux 2 DLAMI has the following frameworks: Apache MXNet, Chainer, PyTorch, TensorFlow, TensorFlow 2, and Keras
++ The Ubuntu 18\.04 DLAMI has the following frameworks: Apache MXNet \(Incubating\), Chainer, PyTorch, TensorFlow, and TensorFlow 2
++ The Ubuntu 16\.04 and Amazon Linux DLAMI has the following frameworks: Apache MXNet \(Incubating\), Chainer, Keras, PyTorch, TensorFlow, and TensorFlow 2
++ The Amazon Linux 2 DLAMI has the following frameworks: Apache MXNet \(Incubating\), Chainer, PyTorch, TensorFlow, TensorFlow 2, and Keras
 
 **Note**  
 We no longer include the CNTK, Caffe, Caffe2 and Theano Conda environments in the AWS Deep Learning AMI starting with the v28 release\. Previous releases of the AWS Deep Learning AMI that contain these environments will continue to be available\. However, we will only provide updates to these environments if there are security fixes published by the open source community for these frameworks\.
@@ -40,5 +40,5 @@ Choose this DLAMI type or learn more about the different DLAMIs with the Next Up
 **Next Up**  
 [Deep Learning Base AMI](overview-base.md)
 
-## Related Topics<a name="w19aab7b5c13c19"></a>
+## Related Topics<a name="w95aab7b5c13c19"></a>
 + For a tutorial on using a Deep Learning AMI with Conda refer to the [Using the Deep Learning AMI with Conda](tutorial-conda.md) tutorial\.
