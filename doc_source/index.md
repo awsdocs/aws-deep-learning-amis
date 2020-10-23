@@ -108,6 +108,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Model Serving](model-serving.md)
          + [Model Server for Apache MXNet (MMS)](tutorial-mms.md)
          + [TensorFlow Serving](tutorial-tfserving.md)
+         + [TorchServe](tutorial-torchserve.md)
 + [Upgrading Your DLAMI](upgrading.md)
    + [Upgrading to a New DLAMI Version](upgrading-dlami.md)
    + [Tips for Software Updates](updating-software.md)

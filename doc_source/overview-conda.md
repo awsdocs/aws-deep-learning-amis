@@ -40,5 +40,5 @@ Choose this DLAMI type or learn more about the different DLAMIs with the Next Up
 **Next Up**  
 [Deep Learning Base AMI](overview-base.md)
 
-## Related Topics<a name="w95aab7b5c13c19"></a>
+## Related Topics<a name="w103aab7b5c13c19"></a>
 + For a tutorial on using a Deep Learning AMI with Conda refer to the [Using the Deep Learning AMI with Conda](tutorial-conda.md) tutorial\.

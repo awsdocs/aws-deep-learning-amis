@@ -1,18 +1,30 @@
 # Release Notes for DLAMI<a name="appendix-ami-release-notes"></a>
 
 For the current DLAMI release notes, see:
-+ [AWS Deep Learning AMI \(Amazon Linux 2\) Version 34\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-ami-amazon-linux-2-version-34-0/)
-+ [AWS Deep Learning AMI \(Amazon Linux\) Version 34\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-ami-amazon-linux-version-34-0/)
-+ [AWS Deep Learning AMI \(Ubuntu 18\.04\) Version 34\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-ami-ubuntu-18-04-version-34-0/)
-+ [AWS Deep Learning AMI \(Ubuntu 16\.04\) Version 34\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-ami-ubuntu-16-04-version-34-0/)
-+ [AWS Deep Learning Base AMI \(Amazon Linux 2\) Version 29\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-base-ami-amazon-linux-2-version-29-0/)
-+ [AWS Deep Learning Base AMI \(Amazon Linux\) Version 29\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-base-ami-amazon-linux-version-29-0/)
-+ [AWS Deep Learning Base AMI \(Ubuntu 18\.04\) Version 29\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-base-ami-ubuntu-18-04-version-29-0/)
-+ [AWS Deep Learning Base AMI \(Ubuntu 16\.04\) Version 29\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-base-ami-ubuntu-16-04-version-29-0/)
++ [AWS Deep Learning AMI \(Amazon Linux 2\) Version 35\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-ami-amazon-linux-2-version-35-0/)
++ [AWS Deep Learning AMI \(Amazon Linux\) Version 35\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-ami-amazon-linux-version-35-0/)
++ [AWS Deep Learning AMI \(Ubuntu 18\.04\) Version 35\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-ami-ubuntu-18-04-version-35-0/)
++ [AWS Deep Learning AMI \(Ubuntu 16\.04\) Version 35\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-ami-ubuntu-16-04-version-35-0/)
++ [AWS Deep Learning Base AMI \(Amazon Linux 2\) Version 30\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-base-ami-amazon-linux-2-version-30-0/)
++ [AWS Deep Learning Base AMI \(Amazon Linux\) Version 30\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-base-ami-amazon-linux-version-30-0/)
++ [AWS Deep Learning Base AMI \(Ubuntu 18\.04\) Version 30\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-base-ami-ubuntu-18-04-version-30-0/)
++ [AWS Deep Learning Base AMI \(Ubuntu 16\.04\) Version 30\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-base-ami-ubuntu-16-04-version-30-0/)
 
 ## Previous DLAMI Release Notes<a name="previous-release-notes"></a>
 
 For the release notes of previous versions, see:
+
+**AWS Deep Learning AMI Version 34**
++ [AWS Deep Learning AMI \(Amazon Linux 2\) Version 34\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-ami-amazon-linux-2-version-34-0/)
++ [AWS Deep Learning AMI \(Amazon Linux\) Version 34\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-ami-amazon-linux-version-34-0/)
++ [AWS Deep Learning AMI \(Ubuntu 18\.04\) Version 34\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-ami-ubuntu-18-04-version-34-0/)
++ [AWS Deep Learning AMI \(Ubuntu 16\.04\) Version 34\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-ami-ubuntu-16-04-version-34-0/)
+
+**AWS Deep Learning Base AMI Version 29**
++ [AWS Deep Learning Base AMI \(Amazon Linux 2\) Version 29\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-base-ami-amazon-linux-2-version-29-0/)
++ [AWS Deep Learning Base AMI \(Amazon Linux\) Version 29\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-base-ami-amazon-linux-version-29-0/)
++ [AWS Deep Learning Base AMI \(Ubuntu 18\.04\) Version 29\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-base-ami-ubuntu-18-04-version-29-0/)
++ [AWS Deep Learning Base AMI \(Ubuntu 16\.04\) Version 29\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-base-ami-ubuntu-16-04-version-29-0/)
 
 **AWS Deep Learning AMI Version 33**
 + [AWS Deep Learning AMI \(Amazon Linux 2\) Version 33\.0](http://aws.amazon.com/releasenotes/aws-deep-learning-ami-amazon-linux-2-version-33-0/)

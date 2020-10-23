@@ -5,3 +5,4 @@ The following are model serving options installed on the Deep Learning AMI with 
 **Topics**
 + [Model Server for Apache MXNet \(MMS\)](tutorial-mms.md)
 + [TensorFlow Serving](tutorial-tfserving.md)
++ [TorchServe](tutorial-torchserve.md)

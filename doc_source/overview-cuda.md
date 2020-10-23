@@ -4,7 +4,7 @@ Deep learning is all pretty cutting edge, however, each framework offers "stable
 
 Look at our guide on [Stable versus Release Candidates](overview-conda.md#overview-conda-stability) for further guidance\.
 
-## Choosing a DLAMI with CUDA<a name="w95aab7b5c17b7"></a>
+## Choosing a DLAMI with CUDA<a name="w103aab7b5c17b7"></a>
 
 The [Deep Learning Base AMI](overview-base.md) has CUDA 10, 10\.1, and 10\.2\.
 
@@ -31,5 +31,5 @@ Choose one of the CUDA versions and review the full list of DLAMIs that have tha
 **Next Up**  
 [DLAMI Operating System Options](overview-os.md)
 
-## Related Topics<a name="w95aab7b5c17b9"></a>
+## Related Topics<a name="w103aab7b5c17b9"></a>
 + For instructions on switching between CUDA versions, refer to the [Using the Deep Learning Base AMI](tutorial-base.md) tutorial\.
