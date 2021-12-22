@@ -4,7 +4,7 @@ The MXNet\-Neuron compilation API provides a method to compile a model graph tha
 
  In this example, you use the API to compile a ResNet\-50 model and use it to run inference\. 
 
- For more information about the Neuron SDK, see the [AWS Neuron SDK documentation](https://github.com/aws/aws-neuron-sdk)\. 
+ For more information about the Neuron SDK, see the [AWS Neuron SDK documentation](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-guide/neuron-frameworks/mxnet-neuron/index.html)\. 
 
 **Topics**
 + [Prerequisites](#tutorial-inferentia-mxnet-neuron-prerequisites)
@@ -14,7 +14,7 @@ The MXNet\-Neuron compilation API provides a method to compile a model graph tha
 
 ## Prerequisites<a name="tutorial-inferentia-mxnet-neuron-prerequisites"></a>
 
- Before using this tutorial, you should have completed the set up steps in [Using the DLAMI with AWS Neuron](tutorial-inferentia-using.md)\. You should also have a familiarity with deep learning and using the DLAMI\. 
+ Before using this tutorial, you should have completed the set up steps in [Launching a DLAMI Instance with AWS Neuron](tutorial-inferentia-launching.md)\. You should also have a familiarity with deep learning and using the DLAMI\. 
 
 ## Activate the Conda Environment<a name="tutorial-inferentia-mxnet-neuron-activate"></a>
 
@@ -22,12 +22,6 @@ The MXNet\-Neuron compilation API provides a method to compile a model graph tha
 
 ```
 source activate aws_neuron_mxnet_p36
-```
-
- Update the Neuron package using the following command: 
-
-```
-conda update mxnet-neuron
 ```
 
 To exit the current conda environment, run: 

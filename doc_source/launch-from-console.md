@@ -11,17 +11,19 @@ To launch an instance with Elastic Fabric Adapter \(EFA\), refer to [these steps
 
 1. Search for the desired instance by name:
 
-   1. Choose **AWS Marketplace**, or\.\.\.
+   1. Select the DLAMI that is right for you\. Find the DLAMI name as listed in the [release notes](https://docs.aws.amazon.com/dlami/latest/devguide/appendix-ami-release-notes) or find the [DLAMI ID](https://docs.aws.amazon.com/dlami/latest/devguide/find-dlami-id) using the AWS CLI\. 
 
-   1. Choose **QuickStart**\. Only a subset of available DLAMI will be listed here\. 
+   1. Choose **Community AMIs**\.
 
-   1. Search for Deep Learning AMI\. Also look for the subtype, such as your desired OS, and if you want Base, Conda, Source, etc\.
+      1. To view a selection of the latest DLAMIs, choose **Quick Start\.**
 
-   1. Browse the options, and then click **Select** on your choice\.
+      1. Choose **AWS Marketplace** to browse additional DLAMIs\. Only a subset of available DLAMIs will be listed here\.
+
+   1. Enter the DLAMI name or search the DLAMI ID\. Browse the options and then click **Select** on your choice\.
 
 1. Review the details, and then choose **Continue**\.
 
-1. Choose an instance type\.
+1. Choose an instance type\. For recommendations on DLAMI instance types, see [Instance Selection](https://docs.aws.amazon.com/dlami/latest/devguide/instance-select.html)\.
 **Note**  
 If you want to use [Elastic Inference](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-inference.html) \(EI\), click **Configure Instance Details**, select **Add an Amazon EI accelerator**, then select the size of the Amazon EI accelerator\.
 

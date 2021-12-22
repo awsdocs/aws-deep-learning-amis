@@ -30,7 +30,7 @@ Even if you use a CPU\-only instance, the DLAMI will have [NVIDIA CUDA](https://
 
 ## Elastic Inference Support<a name="features-ei"></a>
 
-The Deep Learning AMI with Conda comes with environments that support Elastic Inference for both [AWS Deep Learning AMI, Ubuntu 16\.04 Options](ubuntu.md) and [AWS Deep Learning AMI Amazon Linux Options](al.md)\. Elastic Inference environments are not currently supported for [AWS Deep Learning AMI, Ubuntu 18\.04 Options](ubuntu18-04.md) and [AWS Deep Learning AMI Amazon Linux 2 Options](al2.md)\. For tutorials and more information on Elastic Inference, see the [Elastic Inference Documentation](https://docs.aws.amazon.com/elastic-inference/latest/developerguide/what-is-ei.html)\.
+The Deep Learning AMI with Conda comes with environments that support Elastic Inference for both [AWS Deep Learning AMI with Ubuntu 16\.04 Options](ubuntu.md) and [AWS Deep Learning AMI Amazon Linux Options](al.md)\. Elastic Inference environments are not currently supported for [AWS Deep Learning AMI with Ubuntu 18\.04 Options](ubuntu18-04.md) and [AWS Deep Learning AMI Amazon Linux 2 Options](al2.md)\. For tutorials and more information on Elastic Inference, see the [Elastic Inference Documentation](https://docs.aws.amazon.com/elastic-inference/latest/developerguide/what-is-ei.html)\.
 
 ## Model Serving and Visualization<a name="features-gpu"></a>
 

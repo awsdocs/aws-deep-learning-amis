@@ -6,7 +6,7 @@ Use the [Launching and Configuring a DLAMI](launch-config.md) guide to continue 
 + [Deep Learning AMI \(Amazon Linux\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B077GF11NF)
 + [Deep Learning AMI \(Amazon Linux 2\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B07NMRZ36T)
 
-These DLAMIs are available in these regions:
+These DLAMIs are available in these Regions:
 
 
 | Region | Code | 

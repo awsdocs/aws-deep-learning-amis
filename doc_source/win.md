@@ -1,10 +1,9 @@
-# AWS Deep Learning AMI, Windows Options<a name="win"></a>
+# AWS Deep Learning AMI with Windows Options<a name="win"></a>
 
-Use the [Launching and Configuring a DLAMI](launch-config.md) guide to continue with one of these DLAMI\.
+Use the [Launching and Configuring a DLAMI](launch-config.md) guide to continue with one of these DLAMIs\.
 + [Deep Learning AMI \(Windows 2016\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B077Y5DJ8H)
-+ [Deep Learning AMI \(Windows 2012 R2\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B0785ML9TV)
 
-Windows DLAMIs are available in these regions:
+Windows DLAMIs are available in these Regions:
 
 
 | Region | Code | 

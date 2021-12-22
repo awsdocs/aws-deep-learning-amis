@@ -12,6 +12,7 @@ If you plan to use Elastic Inference, you have [Elastic Inference Setup](https:/
 
 **Topics**
 + [Step 1: Launch a DLAMI](launch.md)
++ [DLAMI ID](find-dlami-id.md)
 + [EC2 Console](launch-from-console.md)
 + [Marketplace Search](launch-from-marketplace.md)
 + [Step 2: Connect to the DLAMI](launch-config-connect.md)

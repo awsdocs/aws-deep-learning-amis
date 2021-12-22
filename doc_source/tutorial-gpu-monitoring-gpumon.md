@@ -33,7 +33,7 @@ For more information on creating an IAM user and adding policies for CloudWatch,
    $ aws configure
    ```
 
-1. You might need to make some modifications to the gpumon utility before you run it\. You can find the gpumon utility and README in the following location\.
+1. You might need to make some modifications to the gpumon utility before you run it\. You can find the gpumon utility and README in the location defined in the following code block\. For more information on the `gpumon.py` script, see [the Amazon S3 location of the script\.](https://s3.amazonaws.com/aws-bigdata-blog/artifacts/GPUMonitoring/gpumon.py)
 
    ```
    Folder: ~/tools/GPUCloudWatchMonitor
@@ -43,7 +43,7 @@ For more information on creating an IAM user and adding policies for CloudWatch,
 
    Options:
    + Change the region in gpumon\.py if your instance is NOT in us\-east\-1\.
-   + Change other parameters such as the CloudWatch `namespace` or the reporting period with `store_resolution`\.
+   + Change other parameters such as the CloudWatch `namespace` or the reporting period with `store_reso`\.
 
 1. Currently the script only supports Python 3\. Activate your preferred framework’s Python 3 environment or activate the DLAMI general Python 3 environment\. 
 
@@ -59,7 +59,7 @@ For more information on creating an IAM user and adding policies for CloudWatch,
 
 1. Open your browser to the [https://console\.aws\.amazon\.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/) then select metric\. It will have a namespace 'DeepLearningTrain'\. 
 **Tip**  
-You can change the namespace by modifying gpumon\.py\. You can also modify the reporting interval by adjusting `store_resolution`\. 
+You can change the namespace by modifying gpumon\.py\. You can also modify the reporting interval by adjusting `store_reso`\. 
 
 The following is an example CloudWatch chart reporting on a run of gpumon\.py monitoring a training job on p2\.8xlarge instance\. 
 

@@ -8,21 +8,17 @@ Only P3\.\*, P2\.\*, and G3\.\* instance types are supported\.
 **To activate TensorFlow and test Horovod on the DLAMI with Conda**
 
 1. Open an Amazon Elastic Compute Cloud \(Amazon EC2\) instance of the DLAMI with Conda\. For help getting started with a DLAMI, see [How to Get Started with the DLAMI](gs.md#getting-started)\.
-   + \(Recommended\) For TensorFlow with Horovod on Python 3 with CUDA 9, run this command:
 
-     ```
-     $ source activate tensorflow_p36
-     ```
-   + For TensorFlow with Horovod on Python 2 with CUDA 9, run this command:
+1. \(Recommended\) For TensorFlow 1\.15 with Horovod on Python 3 with CUDA 11, run the following command:
 
-     ```
-     $ source activate tensorflow_p27
-     ```
+   ```
+   $ source activate tensorflow_p37
+   ```
 
 1. Start the iPython terminal:
 
    ```
-   (tensorflow_p36)$ ipython
+   (tensorflow_p37)$ ipython
    ```
 
 1. Test importing TensorFlow with Horovod to verify that it's working properly:

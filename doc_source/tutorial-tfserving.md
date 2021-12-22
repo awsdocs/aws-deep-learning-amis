@@ -1,13 +1,13 @@
 # TensorFlow Serving<a name="tutorial-tfserving"></a>
 
-[TensorFlow Serving](https://www.tensorflow.org/serving/) is a flexible, high\-performance serving system for machine learning models\.
+[TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving) is a flexible, high\-performance serving system for machine learning models\.
 
 The `tensorflow-serving-api` is pre\-installed with Deep Learning AMI with Conda\! You will find an example scripts to train, export, and serve an MNIST model in `~/examples/tensorflow-serving/`\.
 
-To run any of these examples, first connect to your Deep Learning AMI with Conda and activate the Python 2\.7 TensorFlow environment\. The example scripts are not compatible with Python 3\.x\.
+To run any of these examples, first connect to your Deep Learning AMI with Conda and activate the TensorFlow environment\.
 
 ```
-$ source activate tensorflow_p27
+$ source activate tensorflow_p37
 ```
 
 Now change directories to the serving example scripts folder\.
@@ -25,13 +25,13 @@ The following is an example you can try for serving different models like Incept
 1. Download the model\.
 
    ```
-   $ curl -O https://s3-us-west-2.amazonaws.com/aws-tf-serving-ei-example/inception.zip
+   $ curl -O https://s3-us-west-2.amazonaws.com/tf-test-models/INCEPTION.zip
    ```
 
 1. Untar the model\.
 
    ```
-   $ unzip inception.zip
+   $ unzip INCEPTION.zip
    ```
 
 1. Download a picture of a husky\.
@@ -43,51 +43,62 @@ The following is an example you can try for serving different models like Incept
 1. Launch the server\. Note, that for Amazon Linux, you must change the directory used for `model_base_path`, from `/home/ubuntu` to `/home/ec2-user`\.
 
    ```
-   $ tensorflow_model_server --model_name=inception --model_base_path=/home/ubuntu/examples/tensorflow-serving/SERVING_INCEPTION --port=9000
+   $ tensorflow_model_server --model_name=INCEPTION --model_base_path=/home/ubuntu/examples/tensorflow-serving/INCEPTION/INCEPTION --port=9000
    ```
 
-1. With the server running in the foreground you will need to launch another terminal session to continue\. Open a new terminal and activate TensorFlow with `source activate tensorflow_p27`\. Then use your preferred text editor to create a script that has the following content\. Name it `inception_client.py`\. This script will take an image filename as a parameter, and get a prediction result from the pre\-trained model\.
+1. With the server running in the foreground, you need to launch another terminal session to continue\. Open a new terminal and activate TensorFlow with `source activate tensorflow_p37`\. Then use your preferred text editor to create a script that has the following content\. Name it `inception_client.py`\. This script will take an image filename as a parameter, and get a prediction result from the pre\-trained model\.
 
    ```
    from __future__ import print_function
    
    import grpc
    import tensorflow as tf
+   import argparse
    
    from tensorflow_serving.apis import predict_pb2
    from tensorflow_serving.apis import prediction_service_pb2_grpc
    
+   parser = argparse.ArgumentParser(
+       description='TF Serving Test',
+       formatter_class=argparse.ArgumentDefaultsHelpFormatter
+   )
+   parser.add_argument('--server_address', default='localhost:9000',
+                       help='Tenforflow Model Server Address')
+   parser.add_argument('--image', default='Siberian_Husky_bi-eyed_Flickr.jpg',
+                       help='Path to the image')
+   args = parser.parse_args()
    
-   tf.app.flags.DEFINE_string('server', 'localhost:9000',
-                              'PredictionService host:port')
-   tf.app.flags.DEFINE_string('image', '', 'path to image in JPEG format')
-   FLAGS = tf.app.flags.FLAGS
    
-   
-   def main(_):
-     channel = grpc.insecure_channel(FLAGS.server)
+   def main():
+     channel = grpc.insecure_channel(args.server_address)
      stub = prediction_service_pb2_grpc.PredictionServiceStub(channel)
      # Send request
-     with open(FLAGS.image, 'rb') as f:
+     with open(args.image, 'rb') as f:
        # See prediction_service.proto for gRPC request/response details.
-       data = f.read()
        request = predict_pb2.PredictRequest()
-       request.model_spec.name = 'inception'
+       request.model_spec.name = 'INCEPTION'
        request.model_spec.signature_name = 'predict_images'
-       request.inputs['images'].CopyFrom(
-           tf.contrib.util.make_tensor_proto(data, shape=[1]))
+   
+       input_name = 'images'
+       input_shape = [1]
+       input_data = f.read()
+       request.inputs[input_name].CopyFrom(
+         tf.make_tensor_proto(input_data, shape=input_shape))
+   
        result = stub.Predict(request, 10.0)  # 10 secs timeout
        print(result)
+   
      print("Inception Client Passed")
    
+   
    if __name__ == '__main__':
-     tf.app.run()
+     main()
    ```
 
 1. Now run the script passing the server location and port and the husky photo's filename as the parameters\.
 
    ```
-   $ python inception_client.py --server=localhost:9000 --image Siberian_Husky_bi-eyed_Flickr.jpg
+   $ python3 inception_client.py --server=localhost:9000 --image Siberian_Husky_bi-eyed_Flickr.jpg
    ```
 
 ## Train and Serve an MNIST Model<a name="tutorial-tfserving-mnist"></a>

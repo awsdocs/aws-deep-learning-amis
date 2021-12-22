@@ -10,6 +10,8 @@ TensorFlow and TensorBoard are preinstalled with the Deep Learning AMI with Cond
 
 ## Train an MNIST Model and Visualize the Training with TensorBoard<a name="tutorial-tensorboard-example"></a>
 
+
+
 **Visualize MNIST model training with TensorBoard**
 
 1. Connect to your Amazon Elastic Compute Cloud \(Amazon EC2\) instance of the DLAMI with Conda\. 

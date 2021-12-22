@@ -1,13 +1,13 @@
 # Set up a Jupyter Notebook Server<a name="setup-jupyter"></a>
 
-Jupyter Notebook is a web application that allows you to manage notebook documents using a web browser\. 
+A Jupyter notebook server enables you to create and run Jupyter notebooks from your DLAMI instance\. With Jupyter notebooks, you can conduct machine learning \(ML\) experiments for training and inference while using the AWS infrastructure and accessing packages built into the DLAMI\. For more information about Jupyter notebooks, see [the Jupyter Notebook documentation](https://jupyter-notebook.readthedocs.io/en/latest/notebook.html)\. 
 
-To set up a Jupyter notebook, you:
-+ Configure the Jupyter notebook server on your Amazon EC2 instance\.
+To set up a Jupyter notebook server, you must:
++ Configure the Jupyter notebook server on your Amazon EC2 DLAMI instance\.
 + Configure your client so that you can connect to the Jupyter notebook server\. We provide configuration instructions for Windows, macOS, and Linux clients\.
 + Test the setup by logging in to the Jupyter notebook server\.
 
-For more information about Jupyter notebooks, see [Jupyter](http://jupyter.org/)\. 
+To complete the steps to set up a Jupyter, follow the instructions in the following topics\. Once you've set up a Jupyter notebook server, see [Running Jupyter Notebook Tutorials](tutorial-jupyter.md) for information on running the example notebooks that ship in the DLAMI\.
 
 **Topics**
 + [Secure Your Jupyter Server](setup-jupyter-config.md)

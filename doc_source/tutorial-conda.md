@@ -24,36 +24,24 @@ We no longer include the CNTK, Caffe, Caffe2 and Theano Conda environments in th
 ```
 =============================================================================
        __|  __|_  )
-       _|  (     /   Deep Learning AMI (Ubuntu 16.04) Version 31.0
+       _|  (     /   Deep Learning AMI (Ubuntu 18.04) Version 40.0
       ___|\___|___|
 =============================================================================
 
-Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-1111-aws x86_64v)
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1037-aws x86_64v)
 
 Please use one of the following commands to start the required environment with the framework of your choice:
-for MXNet(+Keras2) with Python3 (CUDA 10.1 and Intel MKL-DNN) ____________________________________ source activate mxnet_p36
-for MXNet(+Keras2) with Python2 (CUDA 10.1 and Intel MKL-DNN) ____________________________________ source activate mxnet_p27
-for MXNet(+Amazon Elastic Inference) with Python3 _______________________________________ source activate amazonei_mxnet_p36
-for MXNet(+Amazon Elastic Inference) with Python2 _______________________________________ source activate amazonei_mxnet_p27
-for MXNet(+AWS Neuron) with Python3 ___________________________________________________ source activate aws_neuron_mxnet_p36
-for TensorFlow(+Keras2) with Python3 (CUDA 10.0 and Intel MKL-DNN) __________________________ source activate tensorflow_p36
-for TensorFlow(+Keras2) with Python2 (CUDA 10.0 and Intel MKL-DNN) __________________________ source activate tensorflow_p27
-for TensorFlow 2(+Keras2) with Python3 (CUDA 10.1 and Intel MKL-DNN) _______________________ source activate tensorflow2_p36
-for TensorFlow 2(+Keras2) with Python2 (CUDA 10.1 and Intel MKL-DNN) _______________________ source activate tensorflow2_p27
-for TensorFlow 2.2 with Python3 (CUDA 10.2 and Intel MKL-DNN) _______________________ source activate tensorflow2_latest_p37
-for Tensorflow(+Amazon Elastic Inference) with Python2 _____________________________ source activate amazonei_tensorflow_p27
-for Tensorflow(+Amazon Elastic Inference) with Python3 _____________________________ source activate amazonei_tensorflow_p36
-for Tensorflow 2(+Amazon Elastic Inference) with Python2 __________________________ source activate amazonei_tensorflow2_p27
-for Tensorflow 2(+Amazon Elastic Inference) with Python3 __________________________ source activate amazonei_tensorflow2_p36
+for AWS MX 1.7 (+Keras2) with Python3 (CUDA 10.1 and Intel MKL-DNN) _______________________________ source activate mxnet_p36
+for AWS MX 1.8 (+Keras2) with Python3 (CUDA + and Intel MKL-DNN) ___________________________ source activate mxnet_latest_p37
+for AWS MX(+AWS Neuron) with Python3 ___________________________________________________ source activate aws_neuron_mxnet_p36
+for AWS MX(+Amazon Elastic Inference) with Python3 _______________________________________ source activate amazonei_mxnet_p36
+for TensorFlow(+Keras2) with Python3 (CUDA + and Intel MKL-DNN) _____________________________ source activate tensorflow_p37
 for Tensorflow(+AWS Neuron) with Python3 _________________________________________ source activate aws_neuron_tensorflow_p36
+for TensorFlow 2(+Keras2) with Python3 (CUDA 10.1 and Intel MKL-DNN) _______________________ source activate tensorflow2_p36
+for TensorFlow 2.3 with Python3.7 (CUDA + and Intel MKL-DNN) ________________________ source activate tensorflow2_latest_p37
 for PyTorch 1.4 with Python3 (CUDA 10.1 and Intel MKL) _________________________________________ source activate pytorch_p36
-for PyTorch 1.4 with Python2 (CUDA 10.1 and Intel MKL) _________________________________________ source activate pytorch_p27
-for PyTorch 1.6 with Python3 (CUDA 10.1 and Intel MKL) __________________________________ source activate pytorch_latest_p36
+for PyTorch 1.7.1 with Python3.7 (CUDA 11.0 and Intel MKL) ________________________________ source activate pytorch_latest_p37
 for PyTorch (+AWS Neuron) with Python3 ______________________________________________ source activate aws_neuron_pytorch_p36
-for PyTorch with(+Amazon Elastic Inference) with Python3 _______________________________source activate amazonei_pytorch_p36
-for Chainer with Python2 (CUDA 10.0 and Intel iDeep) ___________________________________________ source activate chainer_p27
-for Chainer with Python3 (CUDA 10.0 and Intel iDeep) ___________________________________________ source activate chainer_p36
-for base Python2 (CUDA 10.0) _______________________________________________________________________ source activate python2
 for base Python3 (CUDA 10.0) _______________________________________________________________________ source activate python3
 ```
 
@@ -61,35 +49,27 @@ Each Conda command has the following pattern:
 
 `source activate framework_python-version`
 
-For example, you may see `for MXNet(+Keras1) with Python3 (CUDA 9) _____________________ source activate mxnet_p36`, which signifies that the environment has MXNet, Keras 1, Python 3, and CUDA 9\. And to activate this environment, the command you would use is:
+For example, you may see `for MXNet(+Keras1) with Python3 (CUDA 10.1) _____________________ source activate mxnet_p36`, which signifies that the environment has MXNet, Keras 1, Python 3, and CUDA 10\.1\. And to activate this environment, the command you would use is:
 
 ```
 $ source activate mxnet_p36
 ```
-
-The other variation of this would be:
-
-```
-$ source activate mxnet_p27
-```
-
-This signifies that the environment will have MXNet and Python 2 \(with Keras 1 and CUDA 9\)\.
 
 ## Start the TensorFlow Environment<a name="tutorial-conda-switch-tf"></a>
 
 **Note**  
 When you launch your first Conda environment, please be patient while it loads\. The Deep Learning AMI with Conda automatically installs the most optimized version of the framework for your EC2 instance upon the framework's first activation\. You should not expect subsequent delays\.
 
-1. Activate the TensorFlow virtual environment for Python 3,
+1. Activate the TensorFlow virtual environment for Python 3\.
 
    ```
-   $ source activate tensorflow_p36
+   $ source activate tensorflow_p37
    ```
 
 1. Start the iPython terminal\.
 
    ```
-   (tensorflow_36)$ ipython
+   (tensorflow_37)$ ipython
    ```
 
 1. Run a quick TensorFlow program\.
@@ -114,8 +94,6 @@ If you're still in the iPython console, use `quit()`, then get ready to switch e
   ```
   $ source activate pytorch_p36
   ```
-
-This activates the environment for PyTorch with Python 3\. Alternatively, you could have activated pytorch\_p27 to get an environment with Python 2\.
 
 ### Test Some PyTorch Code<a name="tutorial-conda-test-pytorch"></a>
 
@@ -160,8 +138,6 @@ If you're still in the iPython console, use `quit()`, then get ready to switch e
   ```
   $ source activate mxnet_p36
   ```
-
-This activates the environment for MXNet with Python 3\. Alternatively, you could have activated mxnet\_p27 to get an environment with Python 2\.
 
 ### Test Some MXNet Code<a name="tutorial-conda-test-mxnet"></a>
 

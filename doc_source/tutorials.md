@@ -10,6 +10,8 @@ The following are tutorials on how to use the Deep Learning AMI with Conda's sof
 + [Elastic Fabric Adapter](tutorial-efa.md)
 + [GPU Monitoring and Optimization](tutorial-gpu.md)
 + [The AWS Inferentia Chip With DLAMI](tutorial-inferentia.md)
++ [The Graviton DLAMI](tutorial-graviton.md)
++ [The Habana DLAMI](tutorial-habana.md)
 + [Inference](tutorial-inference.md)
 + [Using Frameworks with ONNX](onnx.md)
 + [Model Serving](model-serving.md)

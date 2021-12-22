@@ -4,7 +4,7 @@ The PyTorch\-Neuron compilation API provides a method to compile a model graph t
 
 A trained model must be compiled to an Inferentia target before it can be deployed on Inf1 instances\. The following tutorial compiles the torchvision ResNet50 model and exports it as a saved TorchScript module\. This model is then used to run inference\.
 
-For convenience, this tutorial uses an Inf1 instance for both compilation and inference\. In practice, you may compile your model using another instance type, such as the c5 instance family\. You must then deploy your compiled model to the Inf1 inference server\. For more information, see the [AWS Neuron PyTorch SDK Documentation](https://github.com/aws/aws-neuron-sdk/blob/master/docs/pytorch-neuron/tutorial-compile-infer.md)\.
+For convenience, this tutorial uses an Inf1 instance for both compilation and inference\. In practice, you may compile your model using another instance type, such as the c5 instance family\. You must then deploy your compiled model to the Inf1 inference server\. For more information, see the [AWS Neuron PyTorch SDK Documentation](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-guide/neuron-frameworks/pytorch-neuron/index.html)\.
 
 **Topics**
 + [Prerequisites](#tutorial-inferentia-pytorch-neuron-prerequisites)
@@ -14,7 +14,7 @@ For convenience, this tutorial uses an Inf1 instance for both compilation and in
 
 ## Prerequisites<a name="tutorial-inferentia-pytorch-neuron-prerequisites"></a>
 
-Before using this tutorial, you should have completed the set up steps in [Using the DLAMI with AWS Neuron](tutorial-inferentia-using.md)\. You should also have a familiarity with deep learning and using the DLAMI\. 
+Before using this tutorial, you should have completed the set up steps in [Launching a DLAMI Instance with AWS Neuron](tutorial-inferentia-launching.md)\. You should also have a familiarity with deep learning and using the DLAMI\. 
 
 ## Activate the Conda Environment<a name="tutorial-inferentia-pytorch-neuron-activate"></a>
 
@@ -33,6 +33,9 @@ source deactivate
 ## Resnet50 Compilation<a name="tutorial-inferentia-pytorch-neuron-compilation"></a>
 
 Create a Python script called **pytorch\_trace\_resnet50\.py** with the following content\. This script uses the PyTorch\-Neuron compilation Python API to compile a ResNet\-50 model\. 
+
+**Note**  
+There is a dependency between versions of torchvision and the torch package that you should be aware of when compiling torchvision models\. These dependency rules can be managed through pip\. Torchvision==0\.6\.1 matches the torch==1\.5\.1 release, while torchvision==0\.8\.2 matches the torch==1\.7\.1 release\.
 
 ```
 import torch

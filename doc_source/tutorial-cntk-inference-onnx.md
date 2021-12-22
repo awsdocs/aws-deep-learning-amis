@@ -4,7 +4,7 @@
 We no longer include the CNTK, Caffe, Caffe2 and Theano Conda environments in the AWS Deep Learning AMI starting with the v28 release\. Previous releases of the AWS Deep Learning AMI that contain these environments will continue to be available\. However, we will only provide updates to these environments if there are security fixes published by the open source community for these frameworks\.
 
 **Note**  
-The VGG\-16 model used in this tutorial consumes a large amount of memory\. When selecting your instance, you may need an instance with more than 30 GB of RAM\.
+The VGG\-16 model used in this tutorial consumes a large amount of memory\. When selecting your AWS Deep Learning AMI instance, you may need an instance with more than 30 GB of RAM\.
 
 **How to Use an ONNX Model for Inference with CNTK**
 
