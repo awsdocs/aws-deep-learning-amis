@@ -102,7 +102,7 @@ Before you start this section, launch one or more DLAMI, and wait for them to be
    function runclust(){ while read -u 10 host; do host=${host%% slots*}; ssh -o "StrictHostKeyChecking no" $host ""$2""; done 10<$1; };
    ```
 
-1. First order of the day is to tell the other members to not do “StrickHostKeyChecking” as this may cause training to hang\.
+1. Tell the other members not to do “StrickHostKeyChecking” as this may cause training to stop responding\.
 
    ```
    runclust hosts "echo \"StrictHostKeyChecking no\" >> ~/.ssh/config"
@@ -291,7 +291,7 @@ Finished evaluation
 ## Troubleshooting<a name="tutorial-horovod-troubleshooting"></a>
 
 The following command may help get past errors that come up when you experiment with Horovod\. 
-+  If the training crashes for some reason, mpirun may fail to clean up all the python processes on each machine\. In that case before you start the next job kill the python processes on all machines as follows: 
++  If the training crashes for some reason, mpirun may fail to clean up all the python processes on each machine\. In that case, before you start the next job, stop the python processes on all machines as follows: 
 
   ```
   runclust hosts "pkill -9 python"

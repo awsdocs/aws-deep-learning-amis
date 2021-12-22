@@ -2,7 +2,7 @@
 
  This tutorial shows how to use the AWS Neuron compiler to compile the Keras ResNet\-50 model and export it as a saved model in SavedModel format\. This format is a typical TensorFlow model interchangeable format\. You also learn how to run inference on an Inf1 instance with example input\.  
 
- For more information about the Neuron SDK, see the [AWS Neuron SDK documentation](https://github.com/aws/aws-neuron-sdk)\. 
+ For more information about the Neuron SDK, see the [AWS Neuron SDK documentation](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-guide/neuron-frameworks/tensorflow-neuron/index.html)\. 
 
 **Topics**
 + [Prerequisites](#tutorial-inferentia-tf-neuron-prerequisites)
@@ -12,7 +12,7 @@
 
 ## Prerequisites<a name="tutorial-inferentia-tf-neuron-prerequisites"></a>
 
- Before using this tutorial, you should have completed the set up steps in [Using the DLAMI with AWS Neuron](tutorial-inferentia-using.md)\. You should also have a familiarity with deep learning and using the DLAMI\. 
+ Before using this tutorial, you should have completed the set up steps in [Launching a DLAMI Instance with AWS Neuron](tutorial-inferentia-launching.md)\. You should also have a familiarity with deep learning and using the DLAMI\. 
 
 ## Activate the Conda environment<a name="tutorial-inferentia-tf-neuron-activate"></a>
 
@@ -20,12 +20,6 @@
 
 ```
 source activate aws_neuron_tensorflow_p36
-```
-
- Update the Neuron package using the following command: 
-
-```
-conda update tensorflow-neuron
 ```
 
  To exit the current conda environment, run the following command: 

@@ -2,7 +2,7 @@
 
 In this tutorial, you learn to use a pre\-trained MXNet model to perform real\-time image classification with Multi Model Server \(MMS\)\. MMS is a flexible and easy\-to\-use tool for serving deep learning models that are trained using any machine learning or deep learning framework\. This tutorial includes a compilation step using AWS Neuron and an implementation of MMS using MXNet\.
 
- For more information about the Neuron SDK, see the [AWS Neuron SDK documentation](https://github.com/aws/aws-neuron-sdk)\. 
+ For more information about the Neuron SDK, see the [AWS Neuron SDK documentation](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-guide/neuron-frameworks/mxnet-neuron/index.html)\. 
 
 **Topics**
 + [Prerequisites](#tutorial-inferentia-mxnet-neuron-serving-prerequisites)
@@ -13,7 +13,7 @@ In this tutorial, you learn to use a pre\-trained MXNet model to perform real\-t
 
 ## Prerequisites<a name="tutorial-inferentia-mxnet-neuron-serving-prerequisites"></a>
 
- Before using this tutorial, you should have completed the set up steps in [Using the DLAMI with AWS Neuron](tutorial-inferentia-using.md)\. You should also have a familiarity with deep learning and using the DLAMI\. 
+ Before using this tutorial, you should have completed the set up steps in [Launching a DLAMI Instance with AWS Neuron](tutorial-inferentia-launching.md)\. You should also have a familiarity with deep learning and using the DLAMI\. 
 
 ## Activate the Conda Environment<a name="tutorial-inferentia-mxnet-neuron-serving-activate"></a>
 
@@ -21,12 +21,6 @@ In this tutorial, you learn to use a pre\-trained MXNet model to perform real\-t
 
 ```
 source activate aws_neuron_mxnet_p36
-```
-
- Update the Neuron package using the following command: 
-
-```
-conda update mxnet-neuron
 ```
 
  To exit the current conda environment, run: 
@@ -187,8 +181,6 @@ curl -X POST http://127.0.0.1:8080/predictions/resnet-50_compiled -T kitten_smal
 curl -X DELETE http://127.0.0.1:8081/models/resnet-50_compiled
 
 multi-model-server --stop
-
-neuron-cli reset
 ```
 
  You should see the following output: 

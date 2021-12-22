@@ -2,7 +2,7 @@
 
 The latest DLAMI is ready to use with EFA and comes with the required drivers, kernel modules, libfabric, openmpi and the [NCCL OFI plugin](https://github.com/aws/aws-ofi-nccl/tree/aws) for GPU instances\.
 
-**Supported CUDA Versions**: NCCL Applications with EFA are only supported on CUDA\-10\.0, CUDA\-10\.1, and CUDA\-10\.2 because the NCCL OFI plugin requires a NCCL version > 2\.4\.2\. 
+**Supported CUDA Versions**: NCCL Applications with EFA are only supported on CUDA\-10\.0, CUDA\-10\.1, CUDA\-10\.2, and CUDA\-11\.0 because the NCCL OFI plugin requires a NCCL version > 2\.4\.2\. 
 
 Note:
 + When running a NCCL Application using `mpirun` on EFA, you will have to specify the full path to the EFA supported installation as: 
@@ -44,7 +44,11 @@ EFA requires a security group that allows all inbound and outbound traffic to an
 
 ## Launch Your Instance<a name="tutorial-efa-launch"></a>
 
-For more information, see [Launch EFA\-Enabled Instances into a Cluster Placement Group](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa-start.html#efa-start-instances)\.
+EFA on the AWS Deep Learning AMI is currently supported with the following instance types and operating systems:
++  P3dn\.24xlarge: Amazon Linux, Amazon Linux 2, Ubuntu 16\.04, and Ubuntu 18\.04
++  P4d\.24xlarge: Amazon Linux 2, Ubuntu 16\.04, and Ubuntu 18\.04
+
+The following section shows how to launch an EFA enabled DLAMI instance\. For more information on launching an EFA enabled instance, see [Launch EFA\-Enabled Instances into a Cluster Placement Group](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa-start.html#efa-start-instances)\.
 
 1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\. 
 
@@ -52,7 +56,7 @@ For more information, see [Launch EFA\-Enabled Instances into a Cluster Placemen
 
 1. On the **Choose an AMI** page, Select the ‘Deep Learning AMI \(Ubuntu 18\.04\) Version 25\.0 
 
-1. On the **Choose an Instance Type** page, select one of the following supported instance types and then choose **Next: Configure Instance Details\.** Refer to this link for the list of supported instances: [https://docs\.aws\.amazon\.com/AWSEC2/latest/UserGuide/efa\-start\.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa-start.html) 
+1. On the **Choose an Instance Type** page, select one of the following supported instance types and then choose **Next: Configure Instance Details\.** Refer to this link for the list of supported instances: [Get started with EFA and MPI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa-start.html) 
 
 1. On the **Configure Instance Details** page, do the following: 
    + For **Number of instances**, enter the number of EFA\-enabled instances that you want to launch\. 
@@ -155,4 +159,4 @@ bytes   #sent   #ack     total       time     MB/sec    usec/xfer  
 1m      10      =10      20m         0.01s   2122.41     494.05       0.00
 ```
 
-If it hangs or does not complete, ensure that your security group has the correct inbound/outbound rules\. 
+If it stops responding or does not complete, ensure that your security group has the correct inbound/outbound rules\. 

@@ -2,6 +2,8 @@
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Graviton DLAMI](tutorial-graviton.md) |  The AWS Deep Learning AMI now supports images on Arm processor\-based Graviton GPUs\. | November 29, 2021 | 
+| [Habana DLAMI](tutorial-habana.md) |  The AWS Deep Learning AMI now supports Habana Gaudi hardware and the Habana SynapseAI SDK\. | October 25, 2021 | 
 | [Removed support for CUDA 8 and 9](overview-cuda.md) | The Deep Learning Base AMI and Deep Learning AMI with Conda no longer support CUDA 8 or 9\. | August 19, 2020 | 
 | [TensorFlow 2](tutorial-tensorflow-2.md) |  The Deep Learning AMI with Conda now comes with TensorFlow 2 with CUDA 10\. | December 3, 2019 | 
 | [AWS Inferentia](tutorial-inferentia.md) |  The Deep Learning AMI now supports AWS Inferentia hardware and the AWS Neuron SDK\. | December 3, 2019 | 

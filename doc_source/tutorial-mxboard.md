@@ -10,6 +10,8 @@ MXNet, TensorBoard, and MXBoard are preinstalled with the Deep Learning AMI with
 
 ## Using MXNet with MXBoard<a name="tutorial-mxboard-example"></a>
 
+
+
 **Generate MXBoard Log Data Compatible with TensorBoard**
 
 1. Connect to your Amazon Elastic Compute Cloud \(Amazon EC2\) instance of the DLAMI with Conda\. 

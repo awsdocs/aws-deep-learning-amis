@@ -1,7 +1,7 @@
 # Deep Learning AMI Developer Guide
 
 -----
-*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -19,9 +19,10 @@ Amazon's trademarks and trade dress may not be used in
    + [Features of the DLAMI](features.md)
 + [Getting Started](gs.md)
    + [Choosing Your DLAMI](options.md)
-      + [Deep Learning AMI with Conda](overview-conda.md)
-      + [Deep Learning Base AMI](overview-base.md)
       + [CUDA Installations and Framework Bindings](overview-cuda.md)
+      + [Deep Learning Base AMI](overview-base.md)
+      + [Deep Learning AMI with Conda](overview-conda.md)
+      + [DLAMI CPU Architecture Options](overview-cpu.md)
       + [DLAMI Operating System Options](overview-os.md)
    + [AMI Options](ami-options.md)
       + [Deep Learning AMI with Conda Options](conda.md)
@@ -29,17 +30,19 @@ Amazon's trademarks and trade dress may not be used in
       + [Deep Learning AMI with CUDA 10.2 Options](cuda10-2.md)
       + [Deep Learning AMI with CUDA 10.1 Options](cuda10-1.md)
       + [Deep Learning AMI with CUDA 10 Options](cuda10.md)
-      + [AWS Deep Learning AMI, Ubuntu 18.04 Options](ubuntu18-04.md)
-      + [AWS Deep Learning AMI, Ubuntu 16.04 Options](ubuntu.md)
+      + [AWS Deep Learning AMI with Ubuntu 18.04 Options](ubuntu18-04.md)
+      + [AWS Deep Learning AMI with Ubuntu 16.04 Options](ubuntu.md)
       + [AWS Deep Learning AMI Amazon Linux Options](al.md)
       + [AWS Deep Learning AMI Amazon Linux 2 Options](al2.md)
-      + [AWS Deep Learning AMI, Windows Options](win.md)
+      + [AWS Deep Learning AMI with Windows Options](win.md)
    + [Selecting the Instance Type for DLAMI](instance-select.md)
       + [Recommended GPU Instances](gpu.md)
       + [Recommended CPU Instances](cpu.md)
-      + [Pricing for the DLAMI](pricing.md)
+      + [Recommended Inferentia Instances](inferentia.md)
+      + [Recommended Habana Instances](habana.md)
 + [Launching and Configuring a DLAMI](launch-config.md)
    + [Step 1: Launch a DLAMI](launch.md)
+   + [DLAMI ID](find-dlami-id.md)
    + [EC2 Console](launch-from-console.md)
    + [Marketplace Search](launch-from-marketplace.md)
    + [Step 2: Connect to the DLAMI](launch-config-connect.md)
@@ -95,6 +98,12 @@ Amazon's trademarks and trade dress may not be used in
             + [Using MXNet-Neuron and the AWS Neuron Compiler](tutorial-inferentia-mxnet-neuron.md)
             + [Using MXNet-Neuron Model Serving](tutorial-inferentia-mxnet-neuron-serving.md)
             + [Using PyTorch-Neuron and the AWS Neuron Compiler](tutorial-inferentia-pytorch-neuron.md)
+      + [The Graviton DLAMI](tutorial-graviton.md)
+         + [Using the Graviton GPU DLAMI](tutorial-graviton-cuda.md)
+         + [Using the Graviton GPU TensorFlow DLAMI](tutorial-graviton-tensorflow.md)
+         + [Using the Graviton GPU PyTorch DLAMI](tutorial-graviton-pytorch.md)
+      + [The Habana DLAMI](tutorial-habana.md)
+         + [Launching a Habana DLAMI](tutorial-habana-launching.md)
       + [Inference](tutorial-inference.md)
          + [Use Apache MXNet (Incubating) for Inference with an ONNX Model](tutorial-mxnet-inference-onnx.md)
          + [Use Apache MXNet (Incubating) for Inference with a ResNet 50 Model](tutorial-mxnet-inference-resnet50.md)

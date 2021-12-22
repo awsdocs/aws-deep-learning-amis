@@ -2,7 +2,7 @@
 
 This tutorial shows how to construct a graph and add an AWS Neuron compilation step before exporting the saved model to use with TensorFlow Serving\. TensorFlow Serving is a serving system that allows you to scale\-up inference across a network\. Neuron TensorFlow Serving uses the same API as normal TensorFlow Serving\. The only difference is that a saved model must be compiled for AWS Inferentia and the entry point is a different binary named `tensorflow_model_server_neuron`\. The binary is found at `/usr/local/bin/tensorflow_model_server_neuron` and is pre\-installed in the DLAMI\. 
 
- For more information about the Neuron SDK, see the [AWS Neuron SDK documentation](https://github.com/aws/aws-neuron-sdk)\. 
+ For more information about the Neuron SDK, see the [AWS Neuron SDK documentation](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-guide/neuron-frameworks/tensorflow-neuron/index.html)\. 
 
 **Topics**
 + [Prerequisites](#tutorial-inferentia-tf-neuron--serving-prerequisites)
@@ -13,7 +13,7 @@ This tutorial shows how to construct a graph and add an AWS Neuron compilation s
 
 ## Prerequisites<a name="tutorial-inferentia-tf-neuron--serving-prerequisites"></a>
 
- Before using this tutorial, you should have completed the set up steps in [Using the DLAMI with AWS Neuron](tutorial-inferentia-using.md)\. You should also have a familiarity with deep learning and using the DLAMI\. 
+Before using this tutorial, you should have completed the set up steps in [Launching a DLAMI Instance with AWS Neuron](tutorial-inferentia-launching.md)\. You should also have a familiarity with deep learning and using the DLAMI\. 
 
 ## Activate the Conda environment<a name="tutorial-inferentia-tf-neuron-serving-activate"></a>
 
@@ -21,12 +21,6 @@ This tutorial shows how to construct a graph and add an AWS Neuron compilation s
 
 ```
 source activate aws_neuron_tensorflow_p36
-```
-
- Update the Neuron package using the following command: 
-
-```
-conda update tensorflow-neuron
 ```
 
  If you need to exit the current conda environment, run: 
@@ -41,6 +35,7 @@ Create a Python script called `tensorflow-model-server-compile.py` with the fo
 
 ```
 import tensorflow as tf
+import tensorflow.neuron
 import os
 
 tf.keras.backend.set_learning_phase(0)

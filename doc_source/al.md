@@ -1,10 +1,13 @@
 # AWS Deep Learning AMI Amazon Linux Options<a name="al"></a>
 
-Use the [Launching and Configuring a DLAMI](launch-config.md) guide to continue with one of these DLAMI\. The Deep Learning AMI with Conda comes with environments that support Elastic Inference for Amazon Linux\. For tutorials and more information on Elastic Inference, see the [Elastic Inference Documentation](https://docs.aws.amazon.com/elastic-inference/latest/developerguide/what-is-ei.html)\.
+**Note**  
+Amazon Linux is [end\-of\-life](http://aws.amazon.com/blogs/aws/update-on-amazon-linux-ami-end-of-life/) as of December 2020\. There are no longer updates to the Deep Learning AMI \(Amazon Linux\) in new releases as of October 2021\. Previous releases of the Deep Learning AMI \(Amazon Linux\) continue to be available\.
+
+Use the [Launching and Configuring a DLAMI](launch-config.md) guide to continue with one of these DLAMIs\. The Deep Learning AMI with Conda comes with environments that support Elastic Inference for Amazon Linux\. For tutorials and more information about Elastic Inference, see the [Elastic Inference Documentation](https://docs.aws.amazon.com/elastic-inference/latest/developerguide/what-is-ei.html)\.
 + [Deep Learning AMI \(Amazon Linux\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B077GF11NF)
 + [Deep Learning Base AMI \(Amazon Linux\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B077GFM7L7)
 
-These DLAMIs are available in these regions:
+These DLAMIs are available in these Regions:
 
 
 | Region | Code | 

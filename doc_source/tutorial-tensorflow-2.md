@@ -9,16 +9,12 @@ When a stable Conda package of a framework is released, it's tested and pre\-ins
 **To run TensorFlow on the DLAMI with Conda**
 
 1. To activate TensorFlow 2, open an Amazon Elastic Compute Cloud \(Amazon EC2\) instance of the DLAMI with Conda\.
-   + For TensorFlow 2 and Keras 2 on Python 3 with CUDA 10\.0 and MKL\-DNN, run this command:
 
-     ```
-     $ source activate tensorflow2_p36
-     ```
-   + For TensorFlow 2 and Keras 2 on Python 2 with CUDA 10\.0 and MKL\-DNN, run this command:
+1. For TensorFlow 2 and Keras 2 on Python 3 with CUDA 10\.1 and MKL\-DNN, run this command:
 
-     ```
-     $ source activate tensorflow2_p27
-     ```
+   ```
+   $ source activate tensorflow2_p36
+   ```
 
 1. Start the iPython terminal:
 
@@ -42,17 +38,11 @@ You can install the latest TensorFlow 2 build into either or both of the TensorF
 
 **To install TensorFlow from a nightly build**
 
-1. 
-   + For the Python 3 TensorFlow 2 environment, run the following command:
+1. For the Python 3 TensorFlow 2 environment, run the following command:
 
-     ```
-     $ source activate tensorflow2_p36
-     ```
-   + For the Python 2 TensorFlow 2 environment, run the following command:
-
-     ```
-     $ source activate tensorflow2_p27
-     ```
+   ```
+   $ source activate tensorflow2_p36
+   ```
 
 1. Remove the currently installed TensorFlow\.
 **Note**  

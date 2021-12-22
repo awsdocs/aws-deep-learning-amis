@@ -42,7 +42,7 @@
   This depends on the AMI\. The [Deep Learning AMI with Conda](overview-conda.md) has Keras available as a front end for each framework\. The version of Keras depends on the framework's support for it\.
 + **Q\.** Is it free?
 
-  All of the DLAMIs are free\. However, depending on the instance type you choose, the instance may not be free\. See [Pricing for the DLAMI](pricing.md) for more info\.
+  All of the DLAMIs are free\. However, depending on the instance type you choose, the instance may not be free\. See [Pricing for the DLAMI](instance-select.md#pricing) for more info\.
 + **Q\.** I'm getting CUDA errors or GPU\-related messages from my framework\. What's wrong?
 
   Check what instance type you used\. It needs to have a GPU for many examples and tutorials to work\. If running `nvidia-smi` shows no GPU, then you need to spin up another DLAMI using an instance with one or more GPUs\. See [Selecting the Instance Type for DLAMI](instance-select.md) for more info\.

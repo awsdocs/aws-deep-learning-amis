@@ -58,9 +58,11 @@ localhost slots=8
 <private ip of node 2> slots=8
 ```
 
-### 2\-Node NCCL Plugin Check on P3dn\.24xlarge<a name="tutorial-efa-using-2node"></a>
+### 2\-Node NCCL Plugin Check<a name="tutorial-efa-using-2node"></a>
 
 The nccl\_message\_transfer is a simple test to ensure that the NCCL OFI Plugin is working as expected\. The test validates functionality of NCCL's connection establishment and data transfer APIs\. Make sure you use the complete path to mpirun as shown in the example while running NCCL applications with EFA\. Change the params `np` and `N` based on the number of instances and GPUs in your cluster\. For more information, see the [AWS OFI NCCL documentation](https://github.com/aws/aws-ofi-nccl/tree/master/tests)\.
+
+#### P3dn\.24xlarge check<a name="tutorial-efa-using-2node-P3dn.24xlarge"></a>
 
 The following nccl\_message\_transfer test is for CUDA 10\.0\. You can run the commands for CUDA 10\.1 and 10\.2 by replacing the CUDA version\.
 
@@ -68,6 +70,7 @@ The following nccl\_message\_transfer test is for CUDA 10\.0\. You can run the c
 $/opt/amazon/openmpi/bin/mpirun \
          -n 2 -N 1 --hostfile hosts \
          -x LD_LIBRARY_PATH=/usr/local/cuda-10.0/efa/lib:/usr/local/cuda-10.0/lib:/usr/local/cuda-10.0/lib64:/usr/local/cuda-10.0:$LD_LIBRARY_PATH \
+         -x FI_PROVIDER="efa" --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --bind-to none \
          ~/src/bin/efa-tests/efa-cuda-10.0/nccl_message_transfer
 ```
 
@@ -96,7 +99,7 @@ INFO: Function: main Line: 131: NET/OFI Got completions for 255 requests for ran
 INFO: Function: main Line: 131: NET/OFI Got completions for 255 requests for rank 1
 ```
 
-### Multi\-node NCCL Performance Test on P3dn\.24xlarge<a name="tutorial-efa-using-multi-node-performance"></a>
+##### Multi\-node NCCL Performance Test on P3dn\.24xlarge<a name="tutorial-efa-using-multi-node-performance"></a>
 
 To check NCCL Performance with EFA, run the standard NCCL Performance test that is available on the official [NCCL\-Tests Repo](https://github.com/NVIDIA/nccl-tests.git)\. The DLAMI comes with this test already built for both CUDA 10\.0, 10\.1, and 10\.2\. You can similarly run your own script with EFA\. 
 
@@ -113,7 +116,6 @@ Use the command `watch nvidia-smi` on any of the member nodes to monitor GPU usa
   $ /opt/amazon/openmpi/bin/mpirun \
            -x FI_PROVIDER="efa" -n 16 -N 8 \
            -x NCCL_DEBUG=INFO \
-           -x FI_EFA_TX_MIN_CREDITS=64 \
            -x NCCL_TREE_THRESHOLD=0 \
            -x LD_LIBRARY_PATH=/usr/local/cuda-10.0/efa/lib:/usr/local/cuda-10.0/lib:/usr/local/cuda-10.0/lib64:/usr/local/cuda-10.0:/opt/amazon/efa/lib64:/opt/amazon/openmpi/lib64:$LD_LIBRARY_PATH \
            --hostfile hosts --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --bind-to none \
@@ -125,7 +127,6 @@ Use the command `watch nvidia-smi` on any of the member nodes to monitor GPU usa
   $ /opt/amazon/openmpi/bin/mpirun \
            -x FI_PROVIDER="efa" -n 16 -N 8 \
            -x NCCL_DEBUG=INFO \
-           -x FI_EFA_TX_MIN_CREDITS=64 \
            -x NCCL_TREE_THRESHOLD=0 \
            -x LD_LIBRARY_PATH=/usr/local/cuda-10.0/efa/lib:/usr/local/cuda-10.0/lib:/usr/local/cuda-10.0/lib64:/usr/local/cuda-10.0:/opt/amazon/efa/lib:/opt/amazon/openmpi/lib:$LD_LIBRARY_PATH \
            --hostfile hosts --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --bind-to none \
@@ -238,4 +239,180 @@ ip-172-31-41-105:3805:3863 [4] NCCL INFO comm 0x7fec100025b0 rank 4 nranks 16 cu
 # Out of bounds values : 0 OK
 # Avg bus bandwidth    : 2.80613
 #
+```
+
+#### P4d\.24xlarge check<a name="tutorial-efa-using-2node-P4d.24xlarge"></a>
+
+The following nccl\_message\_transfer test is for CUDA 11\.0\.
+
+```
+$/opt/amazon/openmpi/bin/mpirun \
+         -n 2 -N 1 --hostfile hosts \
+         -x LD_LIBRARY_PATH=/usr/local/cuda-11.0/efa/lib:/usr/local/cuda-11.0/lib:/usr/local/cuda-11.0/lib64:/usr/local/cuda-11.0:$LD_LIBRARY_PATH \
+         -x FI_EFA_USE_DEVICE_RDMA=1 -x NCCL_ALGO=ring -x RDMAV_FORK_SAFE=1 --mca pml ^cm \
+         -x FI_PROVIDER="efa" --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --bind-to none \
+         ~/src/bin/efa-tests/efa-cuda-11.0/nccl_message_transfer
+```
+
+Your output should look like the following\. You can check the output to see that EFA is being used as the OFI provider\.
+
+```
+INFO: Function: ofi_init Line: 1078: NET/OFI Running on P4d platform, Setting NCCL_TOPO_FILE environment variable to /usr/local/cuda-11.0/efa/share/aws-ofi-nccl/xml/p4d-24xl-topo.xml
+INFO: Function: ofi_init Line: 1078: NET/OFI Running on P4d platform, Setting NCCL_TOPO_FILE environment variable to /usr/local/cuda-11.0/efa/share/aws-ofi-nccl/xml/p4d-24xl-topo.xml
+INFO: Function: ofi_init Line: 1152: NET/OFI Selected Provider is efa
+INFO: Function: main Line: 68: NET/OFI Process rank 1 started. NCCLNet device used on ip-172-31-79-191 is AWS Libfabric.
+INFO: Function: main Line: 72: NET/OFI Received 4 network devices
+INFO: Function: main Line: 107: NET/OFI Network supports communication using CUDA buffers. Dev: 3
+INFO: Function: main Line: 113: NET/OFI Server: Listening on dev 3
+INFO: Function: ofi_init Line: 1152: NET/OFI Selected Provider is efa
+INFO: Function: main Line: 68: NET/OFI Process rank 0 started. NCCLNet device used on ip-172-31-70-99 is AWS Libfabric.
+INFO: Function: main Line: 72: NET/OFI Received 4 network devices
+INFO: Function: main Line: 107: NET/OFI Network supports communication using CUDA buffers. Dev: 3
+INFO: Function: main Line: 113: NET/OFI Server: Listening on dev 3
+INFO: Function: main Line: 126: NET/OFI Send connection request to rank 1
+INFO: Function: main Line: 160: NET/OFI Send connection request to rank 0
+INFO: Function: main Line: 164: NET/OFI Server: Start accepting requests
+INFO: Function: main Line: 167: NET/OFI Successfully accepted connection from rank 0
+INFO: Function: main Line: 171: NET/OFI Rank 1 posting 255 receive buffers
+INFO: Function: main Line: 130: NET/OFI Server: Start accepting requests
+INFO: Function: main Line: 133: NET/OFI Successfully accepted connection from rank 1
+INFO: Function: main Line: 137: NET/OFI Sent 255 requests to rank 1
+INFO: Function: main Line: 223: NET/OFI Got completions for 255 requests for rank 1
+INFO: Function: main Line: 223: NET/OFI Got completions for 255 requests for rank 0
+```
+
+##### Multi\-node NCCL Performance Test on P4d\.24xlarge<a name="tutorial-efa-using-multi-node-performance"></a>
+
+To check NCCL Performance with EFA, run the standard NCCL Performance test that is available on the official [NCCL\-Tests Repo](https://github.com/NVIDIA/nccl-tests.git)\. The DLAMI comes with this test already built for CUDA 11\.0\. You can similarly run your own script with EFA\. 
+
+When constructing your own script, refer to the following guidance:
++ Provide the FI\_PROVIDER="efa" flag to enable EFA use\.
++ Use the complete path to mpirun as shown in the example while running NCCL applications with EFA\.
++ Change the params np and N based on the number of instances and GPUs in your cluster\.
++ Add the NCCL\_DEBUG=INFO flag and make sure that the logs indicate EFA usage as "Selected Provider is EFA"\.
++ Add the `FI_EFA_USE_DEVICE_RDMA=1` flag to use EFA's RDMA functionality for one\-sided and two\-sided transfer\.
+
+Use the command `watch nvidia-smi` on any of the member nodes to monitor GPU usage\. The following `watch nvidia-smi` commands are for CUDA 11\.0 and depend on the Operating System of your instance\.
++ Amazon Linux 2:
+
+  ```
+  $ /opt/amazon/openmpi/bin/mpirun \
+           -x FI_PROVIDER="efa" -n 16 -N 8 \
+           -x NCCL_DEBUG=INFO \
+           -x FI_EFA_USE_DEVICE_RDMA=1 -x NCCL_ALGO=ring -x RDMAV_FORK_SAFE=1 --mca pml ^cm \
+           -x LD_LIBRARY_PATH=/usr/local/cuda-11.0/efa/lib:/usr/local/cuda-11.0/lib:/usr/local/cuda-11.0/lib64:/usr/local/cuda-11.0:/opt/amazon/efa/lib64:/opt/amazon/openmpi/lib64:$LD_LIBRARY_PATH \
+           --hostfile hosts --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --bind-to none \
+           $HOME/src/bin/efa-tests/efa-cuda-11.0/all_reduce_perf -b 8 -e 1G -f 2 -g 1 -c 1 -n 100
+  ```
++ Ubuntu 16\.04 and Ubuntu 18\.04:
+
+  ```
+  $ /opt/amazon/openmpi/bin/mpirun \
+           -x FI_PROVIDER="efa" -n 16 -N 8 \
+           -x NCCL_DEBUG=INFO \
+           -x FI_EFA_USE_DEVICE_RDMA=1 -x NCCL_ALGO=ring -x RDMAV_FORK_SAFE=1 --mca pml ^cm \
+           -x LD_LIBRARY_PATH=/usr/local/cuda-11.0/efa/lib:/usr/local/cuda-11.0/lib:/usr/local/cuda-11.0/lib64:/usr/local/cuda-11.0:/opt/amazon/efa/lib:/opt/amazon/openmpi/lib:$LD_LIBRARY_PATH \
+           --hostfile hosts --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --bind-to none \
+           $HOME/src/bin/efa-tests/efa-cuda-11.0/all_reduce_perf -b 8 -e 1G -f 2 -g 1 -c 1 -n 100
+  ```
+
+Your output should look like the following\.
+
+```
+# nThread 1 nGpus 1 minBytes 8 maxBytes 1073741824 step: 2(factor) warmup iters: 5 iters: 100 validation: 1 
+    #
+    # Using devices
+    #   Rank  0 Pid  18546 on ip-172-31-70-88 device  0 [0x10] A100-SXM4-40GB
+    #   Rank  1 Pid  18547 on ip-172-31-70-88 device  1 [0x10] A100-SXM4-40GB
+    #   Rank  2 Pid  18548 on ip-172-31-70-88 device  2 [0x20] A100-SXM4-40GB
+    #   Rank  3 Pid  18549 on ip-172-31-70-88 device  3 [0x20] A100-SXM4-40GB
+    #   Rank  4 Pid  18550 on ip-172-31-70-88 device  4 [0x90] A100-SXM4-40GB
+    #   Rank  5 Pid  18551 on ip-172-31-70-88 device  5 [0x90] A100-SXM4-40GB
+    #   Rank  6 Pid  18552 on ip-172-31-70-88 device  6 [0xa0] A100-SXM4-40GB
+    #   Rank  7 Pid  18556 on ip-172-31-70-88 device  7 [0xa0] A100-SXM4-40GB
+    #   Rank  8 Pid  19502 on ip-172-31-78-249 device  0 [0x10] A100-SXM4-40GB
+    #   Rank  9 Pid  19503 on ip-172-31-78-249 device  1 [0x10] A100-SXM4-40GB
+    #   Rank 10 Pid  19504 on ip-172-31-78-249 device  2 [0x20] A100-SXM4-40GB
+    #   Rank 11 Pid  19505 on ip-172-31-78-249 device  3 [0x20] A100-SXM4-40GB
+    #   Rank 12 Pid  19506 on ip-172-31-78-249 device  4 [0x90] A100-SXM4-40GB
+    #   Rank 13 Pid  19507 on ip-172-31-78-249 device  5 [0x90] A100-SXM4-40GB
+    #   Rank 14 Pid  19508 on ip-172-31-78-249 device  6 [0xa0] A100-SXM4-40GB
+    #   Rank 15 Pid  19509 on ip-172-31-78-249 device  7 [0xa0] A100-SXM4-40GB
+    ip-172-31-70-88:18546:18546 [0] NCCL INFO Bootstrap : Using [0]eth0:172.31.71.137<0> [1]eth1:172.31.70.88<0> [2]eth2:172.31.78.243<0> [3]eth3:172.31.77.226<0>
+    ip-172-31-70-88:18546:18546 [0] NCCL INFO NET/OFI Running on P4d platform, Setting NCCL_TOPO_FILE environment variable to /usr/local/cuda-11.0/efa/share/aws-ofi-nccl/xml/p4d-24xl-topo.xml
+    ip-172-31-70-88:18546:18546 [0] NCCL INFO NET/OFI Selected Provider is efa
+    ip-172-31-70-88:18546:18546 [0] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin_v3 symbol.
+    ip-172-31-70-88:18546:18546 [0] NCCL INFO Using network AWS Libfabric
+    NCCL version 2.7.8+cuda11.0
+    ip-172-31-70-88:18552:18552 [6] NCCL INFO Bootstrap : Using [0]eth0:172.31.71.137<0> [1]eth1:172.31.70.88<0> [2]eth2:172.31.78.243<0> [3]eth3:172.31.77.226<0>
+    ip-172-31-70-88:18552:18552 [6] NCCL INFO NET/OFI Running on P4d platform, Setting NCCL_TOPO_FILE environment variable to /usr/local/cuda-11.0/efa/share/aws-ofi-nccl/xml/p4d-24xl-topo.xml
+    ip-172-31-70-88:18551:18551 [5] NCCL INFO Bootstrap : Using [0]eth0:172.31.71.137<0> [1]eth1:172.31.70.88<0> [2]eth2:172.31.78.243<0> [3]eth3:172.31.77.226<0>
+    ip-172-31-70-88:18556:18556 [7] NCCL INFO Bootstrap : Using [0]eth0:172.31.71.137<0> [1]eth1:172.31.70.88<0> [2]eth2:172.31.78.243<0> [3]eth3:172.31.77.226<0>
+    ip-172-31-70-88:18548:18548 [2] NCCL INFO Bootstrap : Using [0]eth0:172.31.71.137<0> [1]eth1:172.31.70.88<0> [2]eth2:172.31.78.243<0> [3]eth3:172.31.77.226<0>
+    ip-172-31-70-88:18550:18550 [4] NCCL INFO Bootstrap : Using [0]eth0:172.31.71.137<0> [1]eth1:172.31.70.88<0> [2]eth2:172.31.78.243<0> [3]eth3:172.31.77.226<0>
+    ip-172-31-70-88:18552:18552 [6] NCCL INFO NET/OFI Selected Provider is efa
+    ip-172-31-70-88:18552:18552 [6] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin_v3 symbol.
+    ip-172-31-70-88:18552:18552 [6] NCCL INFO Using network AWS Libfabric
+    ip-172-31-70-88:18556:18556 [7] NCCL INFO NET/OFI Running on P4d platform, Setting NCCL_TOPO_FILE environment variable to /usr/local/cuda-11.0/efa/share/aws-ofi-nccl/xml/p4d-24xl-topo.xml
+    ip-172-31-70-88:18548:18548 [2] NCCL INFO NET/OFI Running on P4d platform, Setting NCCL_TOPO_FILE environment variable to /usr/local/cuda-11.0/efa/share/aws-ofi-nccl/xml/p4d-24xl-topo.xml
+    ip-172-31-70-88:18550:18550 [4] NCCL INFO NET/OFI Running on P4d platform, Setting NCCL_TOPO_FILE environment variable to /usr/local/cuda-11.0/efa/share/aws-ofi-nccl/xml/p4d-24xl-topo.xml
+    ip-172-31-70-88:18551:18551 [5] NCCL INFO NET/OFI Running on P4d platform, Setting NCCL_TOPO_FILE environment variable to /usr/local/cuda-11.0/efa/share/aws-ofi-nccl/xml/p4d-24xl-topo.xml
+    ip-172-31-70-88:18547:18547 [1] NCCL INFO Bootstrap : Using [0]eth0:172.31.71.137<0> [1]eth1:172.31.70.88<0> [2]eth2:172.31.78.243<0> [3]eth3:172.31.77.226<0>
+    ip-172-31-70-88:18549:18549 [3] NCCL INFO Bootstrap : Using [0]eth0:172.31.71.137<0> [1]eth1:172.31.70.88<0> [2]eth2:172.31.78.243<0> [3]eth3:172.31.77.226<0>
+    ip-172-31-70-88:18547:18547 [1] NCCL INFO NET/OFI Running on P4d platform, Setting NCCL_TOPO_FILE environment variable to /usr/local/cuda-11.0/efa/share/aws-ofi-nccl/xml/p4d-24xl-topo.xml
+    ip-172-31-70-88:18549:18549 [3] NCCL INFO NET/OFI Running on P4d platform, Setting NCCL_TOPO_FILE environment variable to /usr/local/cuda-11.0/efa/share/aws-ofi-nccl/xml/p4d-24xl-topo.xml
+    ip-172-31-70-88:18547:18547 [1] NCCL INFO NET/OFI Selected Provider is efa
+    ip-172-31-70-88:18547:18547 [1] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin_v3 symbol.
+    ip-172-31-70-88:18547:18547 [1] NCCL INFO Using network AWS Libfabric
+    ip-172-31-70-88:18549:18549 [3] NCCL INFO NET/OFI Selected Provider is efa
+    ip-172-31-70-88:18549:18549 [3] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin_v3 symbol.
+    ip-172-31-70-88:18549:18549 [3] NCCL INFO Using network AWS Libfabric
+    ip-172-31-70-88:18551:18551 [5] NCCL INFO NET/OFI Selected Provider is efa
+    ip-172-31-70-88:18551:18551 [5] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin_v3 symbol.
+    ip-172-31-70-88:18551:18551 [5] NCCL INFO Using network AWS Libfabric
+    ip-172-31-70-88:18556:18556 [7] NCCL INFO NET/OFI Selected Provider is efa
+    ip-172-31-70-88:18556:18556 [7] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin_v3 symbol.
+    ip-172-31-70-88:18556:18556 [7] NCCL INFO Using network AWS Libfabric
+    ip-172-31-70-88:18548:18548 [2] NCCL INFO NET/OFI Selected Provider is efa
+    ip-172-31-70-88:18548:18548 [2] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin_v3 symbol.
+    ip-172-31-70-88:18548:18548 [2] NCCL INFO Using network AWS Libfabric
+    ip-172-31-70-88:18550:18550 [4] NCCL INFO NET/OFI Selected Provider is efa
+    ip-172-31-70-88:18550:18550 [4] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin_v3 symbol.
+    ip-172-31-70-88:18550:18550 [4] NCCL INFO Using network AWS Libfabric
+-----------------------------some output truncated-----------------------------------
+    #
+    #                                                     out-of-place                       in-place          
+    #       size         count    type   redop     time   algbw   busbw  error     time   algbw   busbw  error
+    #        (B)    (elements)                     (us)  (GB/s)  (GB/s)            (us)  (GB/s)  (GB/s)       
+    ip-172-31-70-88:18546:18546 [0] NCCL INFO Launch mode Parallel
+               8             2   float     sum    158.9    0.00    0.00  2e-07    158.1    0.00    0.00  1e-07
+              16             4   float     sum    158.3    0.00    0.00  1e-07    159.3    0.00    0.00  1e-07
+              32             8   float     sum    157.8    0.00    0.00  1e-07    158.1    0.00    0.00  1e-07
+              64            16   float     sum    158.7    0.00    0.00  1e-07    158.4    0.00    0.00  6e-08
+             128            32   float     sum    160.2    0.00    0.00  6e-08    158.8    0.00    0.00  6e-08
+             256            64   float     sum    159.8    0.00    0.00  6e-08    159.8    0.00    0.00  6e-08
+             512           128   float     sum    161.7    0.00    0.01  6e-08    161.7    0.00    0.01  6e-08
+            1024           256   float     sum    177.8    0.01    0.01  5e-07    177.4    0.01    0.01  5e-07
+            2048           512   float     sum    198.1    0.01    0.02  5e-07    198.1    0.01    0.02  5e-07
+            4096          1024   float     sum    226.2    0.02    0.03  5e-07    225.8    0.02    0.03  5e-07
+            8192          2048   float     sum    249.3    0.03    0.06  5e-07    249.4    0.03    0.06  5e-07
+           16384          4096   float     sum    250.4    0.07    0.12  5e-07    251.0    0.07    0.12  5e-07
+           32768          8192   float     sum    256.7    0.13    0.24  5e-07    257.2    0.13    0.24  5e-07
+           65536         16384   float     sum    269.8    0.24    0.46  5e-07    271.2    0.24    0.45  5e-07
+          131072         32768   float     sum    288.3    0.45    0.85  5e-07    286.8    0.46    0.86  5e-07
+          262144         65536   float     sum    296.1    0.89    1.66  5e-07    295.6    0.89    1.66  5e-07
+          524288        131072   float     sum    376.7    1.39    2.61  5e-07    382.0    1.37    2.57  5e-07
+         1048576        262144   float     sum    448.6    2.34    4.38  5e-07    451.1    2.32    4.36  5e-07
+         2097152        524288   float     sum    620.2    3.38    6.34  5e-07    615.9    3.41    6.38  5e-07
+         4194304       1048576   float     sum    768.2    5.46   10.24  5e-07    759.8    5.52   10.35  5e-07
+         8388608       2097152   float     sum   1228.5    6.83   12.80  5e-07   1223.3    6.86   12.86  5e-07
+        16777216       4194304   float     sum   2002.7    8.38   15.71  5e-07   2004.5    8.37   15.69  5e-07
+        33554432       8388608   float     sum   2988.8   11.23   21.05  5e-07   3012.0   11.14   20.89  5e-07
+        67108864      16777216   float     sum   8072.1    8.31   15.59  5e-07   8102.4    8.28   15.53  5e-07
+       134217728      33554432   float     sum    11431   11.74   22.01  5e-07    11474   11.70   21.93  5e-07
+       268435456      67108864   float     sum    17603   15.25   28.59  5e-07    17641   15.22   28.53  5e-07
+       536870912     134217728   float     sum    35110   15.29   28.67  5e-07    35102   15.29   28.68  5e-07
+      1073741824     268435456   float     sum    70231   15.29   28.67  5e-07    70110   15.32   28.72  5e-07
+    # Out of bounds values : 0 OK
+    # Avg bus bandwidth    : 7.14456
 ```

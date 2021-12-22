@@ -1,10 +1,10 @@
-# AWS Deep Learning AMI, Ubuntu 18\.04 Options<a name="ubuntu18-04"></a>
+# AWS Deep Learning AMI with Ubuntu 18\.04 Options<a name="ubuntu18-04"></a>
 
 Use the [Launching and Configuring a DLAMI](launch-config.md) guide to continue with one of these DLAMI\. The Deep Learning AMI with Conda does not support Elastic Inference for Ubuntu 18\.04\.
 + [Deep Learning AMI \(Ubuntu 18\.04\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B07Y43P7X5)
 + [Deep Learning Base AMI \(Ubuntu 18\.04\) on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B07Y3VDBNS)
 
-These DLAMIs are available in these regions:
+These DLAMIs are available in these Regions:
 
 
 | Region | Code | 
