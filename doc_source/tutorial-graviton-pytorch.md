@@ -1,6 +1,6 @@
-# Using the Graviton GPU PyTorch DLAMI<a name="tutorial-graviton-pytorch"></a>
+# Using the PyTorch DLAMI with AWS Graviton\-based EC2 instances featuring GPUs<a name="tutorial-graviton-pytorch"></a>
 
-The AWS Deep Learning AMI is ready to use with Arm processor\-based Graviton GPUs, and comes optimized for PyTorch\. The Graviton GPU PyTorch DLAMI includes a Python environment pre\-configured with [PyTorch](http://aws.amazon.com/pytorch), [TorchVision](https://pytorch.org/vision/stable/index.html), and [TorchServe](https://pytorch.org/serve/) for deep learning training and inference use cases\. Check the [release notes](http://aws.amazon.com/releasenotes/deep-learning-ami-graviton-gpu-pytorch-1-10-ubuntu-20-04/) for additional details on the Graviton GPU PyTorch DLAMI\.
+The AWS Deep Learning AMI is ready to use with AWS Graviton\-based EC2 instances featuring GPUs, and comes optimized for PyTorch\. The Graviton GPU PyTorch DLAMI includes a Python environment pre\-configured with [PyTorch](http://aws.amazon.com/pytorch), [TorchVision](https://pytorch.org/vision/stable/index.html), and [TorchServe](https://pytorch.org/serve/) for deep learning training and inference use cases\. Check the [release notes](http://aws.amazon.com/releasenotes/deep-learning-ami-graviton-gpu-pytorch-1-10-ubuntu-20-04/) for additional details on the Graviton GPU PyTorch DLAMI\.
 
 **Topics**
 + [Verify PyTorch Python Environment](#tutorial-graviton-pytorch-environment)
