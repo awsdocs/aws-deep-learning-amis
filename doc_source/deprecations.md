@@ -1,4 +1,4 @@
-# Deprecations for DLAMI<a name="deprecations"></a>
+# DLAMI Deprecation Notices<a name="deprecations"></a>
 
 The following table lists information on deprecated features in the AWS Deep Learning AMI\.
 

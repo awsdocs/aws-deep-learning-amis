@@ -5,7 +5,7 @@ We offer a range of DLAMI options\. To help you select the correct DLAMI for you
 + **Compute Architecture:** x86\-based versus Arm\-based [AWS Graviton](http://aws.amazon.com/ec2/graviton/)
 + **Processor Type:** [GPU](https://docs.aws.amazon.com/dlami/latest/devguide/gpu) versus [CPU](https://docs.aws.amazon.com/dlami/latest/devguide/cpu) versus [Inferentia](https://docs.aws.amazon.com/dlami/latest/devguide/inferentia) versus [Habana](https://docs.aws.amazon.com/dlami/latest/devguide/habana)
 + **SDK:** [CUDA](https://developer.nvidia.com/cuda-toolkit) versus [AWS Neuron](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-intro/get-started.html) versus [SynapsesAI](https://github.com/HabanaAI/Setup_and_Install)
-+ **OS:** Amazon Linux versus Ubuntu versus Windows
++ **OS:** Amazon Linux versus Ubuntu
 
 The rest of the topics in this guide help further inform you and go into more details\. 
 

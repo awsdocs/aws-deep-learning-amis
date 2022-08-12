@@ -1,6 +1,6 @@
 # Launching and Configuring a DLAMI<a name="launch-config"></a>
 
-If you're here you should already have a good idea of which AMI you want to launch\. If not, choose a DLAMI using the AMI selection guidelines found throughout [Getting Started](gs.md) or use the full listing of AMIs in the Appendix section, [AMI Options](ami-options.md)\. 
+If you're here you should already have a good idea of which AMI you want to launch\. If not, choose a DLAMI using the AMI selection guidelines found throughout or use the full listing of AMIs in the Appendix section, \. 
 
 You should also know which instance type and region you're going to choose\. If not, browse [Selecting the Instance Type for DLAMI](instance-select.md)\. 
 

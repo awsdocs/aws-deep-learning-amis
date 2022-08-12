@@ -1,6 +1,8 @@
 # Selecting the Instance Type for DLAMI<a name="instance-select"></a>
 
-Consider the following when selecting an instance type for DLAMI\.
+See the [AWS Deep Learning AMI Catalog](http://aws.amazon.com/releasenotes/aws-deep-learning-ami-catalog/) for recommended Amazon EC2 instance families that are compatible with specific DLAMIs\.
+
+More generally, consider the following when selecting an instance type for a DLAMI\.
 + If you're new to deep learning, then an instance with a single GPU might suit your needs\.
 + If you're budget conscious, then you can use CPU\-only instances\.
 + If you're looking to optimize high performance and cost efficiency for deep learning model inference, then you can use instances with AWS Inferentia chips\.

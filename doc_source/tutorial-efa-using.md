@@ -249,7 +249,7 @@ The following nccl\_message\_transfer test is for CUDA 11\.0\.
 $/opt/amazon/openmpi/bin/mpirun \
          -n 2 -N 1 --hostfile hosts \
          -x LD_LIBRARY_PATH=/usr/local/cuda-11.0/efa/lib:/usr/local/cuda-11.0/lib:/usr/local/cuda-11.0/lib64:/usr/local/cuda-11.0:$LD_LIBRARY_PATH \
-         -x FI_EFA_USE_DEVICE_RDMA=1 -x NCCL_ALGO=ring -x RDMAV_FORK_SAFE=1 --mca pml ^cm \
+         -x FI_EFA_USE_DEVICE_RDMA=1 -x NCCL_ALGO=ring -x --mca pml ^cm \
          -x FI_PROVIDER="efa" --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --bind-to none \
          ~/src/bin/efa-tests/efa-cuda-11.0/nccl_message_transfer
 ```
@@ -299,7 +299,7 @@ Use the command `watch nvidia-smi` on any of the member nodes to monitor GPU usa
   $ /opt/amazon/openmpi/bin/mpirun \
            -x FI_PROVIDER="efa" -n 16 -N 8 \
            -x NCCL_DEBUG=INFO \
-           -x FI_EFA_USE_DEVICE_RDMA=1 -x NCCL_ALGO=ring -x RDMAV_FORK_SAFE=1 --mca pml ^cm \
+           -x FI_EFA_USE_DEVICE_RDMA=1 -x NCCL_ALGO=ring -x --mca pml ^cm \
            -x LD_LIBRARY_PATH=/usr/local/cuda-11.0/efa/lib:/usr/local/cuda-11.0/lib:/usr/local/cuda-11.0/lib64:/usr/local/cuda-11.0:/opt/amazon/efa/lib64:/opt/amazon/openmpi/lib64:$LD_LIBRARY_PATH \
            --hostfile hosts --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --bind-to none \
            $HOME/src/bin/efa-tests/efa-cuda-11.0/all_reduce_perf -b 8 -e 1G -f 2 -g 1 -c 1 -n 100
@@ -310,7 +310,7 @@ Use the command `watch nvidia-smi` on any of the member nodes to monitor GPU usa
   $ /opt/amazon/openmpi/bin/mpirun \
            -x FI_PROVIDER="efa" -n 16 -N 8 \
            -x NCCL_DEBUG=INFO \
-           -x FI_EFA_USE_DEVICE_RDMA=1 -x NCCL_ALGO=ring -x RDMAV_FORK_SAFE=1 --mca pml ^cm \
+           -x FI_EFA_USE_DEVICE_RDMA=1 -x NCCL_ALGO=ring -x --mca pml ^cm \
            -x LD_LIBRARY_PATH=/usr/local/cuda-11.0/efa/lib:/usr/local/cuda-11.0/lib:/usr/local/cuda-11.0/lib64:/usr/local/cuda-11.0:/opt/amazon/efa/lib:/opt/amazon/openmpi/lib:$LD_LIBRARY_PATH \
            --hostfile hosts --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --bind-to none \
            $HOME/src/bin/efa-tests/efa-cuda-11.0/all_reduce_perf -b 8 -e 1G -f 2 -g 1 -c 1 -n 100
