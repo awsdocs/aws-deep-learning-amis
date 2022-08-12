@@ -6,21 +6,12 @@ Look at our guide on [Stable Versus Release Candidates](overview-conda.md#overvi
 
 ## Choose a DLAMI with CUDA<a name="cuda-choose"></a>
 
-The [Deep Learning Base AMI](overview-base.md) has CUDA 10, 10\.1, and 10\.2\.
+The [Deep Learning Base AMI](overview-base.md) has all available CUDA 11 series, including 11\.0, 11\.1, and 11\.2\.
 
-The [Deep Learning AMI with Conda](overview-conda.md) has CUDA 10, 10\.1, and 10\.2\.
-+ CUDA 10\.1 with cuDNN 7: Apache MXNet \(Incubating\), PyTorch, and TensorFlow 2
-+ CUDA 10 with cuDNN 7: TensorFlow and Chainer
+The [Deep Learning AMI with Conda](overview-conda.md) has all available CUDA 11 series, including 11\.0, 11\.1, and 11\.2\.
 
 **Note**  
-We no longer include the CNTK, Caffe, Caffe2, and Theano Conda environments in the AWS Deep Learning AMI starting with the v28 release\. Previous releases of the AWS Deep Learning AMI that contain these environments continue to be available\. However, we only provide updates to these environments if there are security fixes published by the open\-source community for these frameworks\.
-
-For installation options for DLAMI types and operating systems, refer to each of the CUDA version and DLAMI options pages:
-+ [Deep Learning AMI with CUDA 10\.2 Options](cuda10-2.md)
-+ [Deep Learning AMI with CUDA 10\.1 Options](cuda10-1.md)
-+ [Deep Learning AMI with CUDA 10 Options](cuda10.md)
-+ [Deep Learning AMI with Conda Options](conda.md)
-+ [Deep Learning Base AMI Options](base.md)
+We no longer include the CNTK, Caffe, Caffe2, Theano, Chainer, or Keras Conda environments in the AWS Deep Learning AMI starting with the v28 release\. Previous releases of the AWS Deep Learning AMI that contain these environments continue to be available\. However, we only provide updates to these environments if there are security fixes published by the open\-source community for these frameworks\.
 
 For specific framework version numbers, see the [Release Notes for DLAMI](appendix-ami-release-notes.md)
 

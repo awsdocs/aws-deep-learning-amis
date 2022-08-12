@@ -13,7 +13,7 @@ Find the ID for the DLAMI of your choice with the AWS Command Line Interface \(A
    ```
    aws ec2 describe-images --region us-east-1 --owners amazon \
    --filters 'Name=name,Values=Deep Learning AMI (Ubuntu 18.04) Version ??.?' 'Name=state,Values=available' \
-   --query 'reverse(sort_by(Images, &CreationDate))[:1].ImageId' —output text
+   --query 'reverse(sort_by(Images, &CreationDate))[:1].ImageId' --output text
    ```
 **Note**  
 You can specify a release version for a given framework or get the latest release by replacing the version number with a question mark\.

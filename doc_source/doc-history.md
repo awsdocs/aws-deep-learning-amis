@@ -4,11 +4,8 @@
 | --- |--- |--- |
 | [Graviton DLAMI](tutorial-graviton.md) |  The AWS Deep Learning AMI now supports images on Arm processor\-based Graviton GPUs\. | November 29, 2021 | 
 | [Habana DLAMI](tutorial-habana.md) |  The AWS Deep Learning AMI now supports Habana Gaudi hardware and the Habana SynapseAI SDK\. | October 25, 2021 | 
-| [Removed support for CUDA 8 and 9](overview-cuda.md) | The Deep Learning Base AMI and Deep Learning AMI with Conda no longer support CUDA 8 or 9\. | August 19, 2020 | 
 | [TensorFlow 2](tutorial-tensorflow-2.md) |  The Deep Learning AMI with Conda now comes with TensorFlow 2 with CUDA 10\. | December 3, 2019 | 
 | [AWS Inferentia](tutorial-inferentia.md) |  The Deep Learning AMI now supports AWS Inferentia hardware and the AWS Neuron SDK\. | December 3, 2019 | 
-| [PyTorch 1\.0 with CUDA 10](overview-conda.md#overview-conda-cuda) | The Deep Learning AMI with Conda now comes with PyTorch 1\.0 with CUDA 10\. | December 13, 2018 | 
-| [CUDA 10 available on the Deep Learning Base AMI](overview-cuda.md) | CUDA 10 was added as on option for the Deep Learning Base AMI\. Instructions on how to change and test CUDA versions\. | December 11, 2018 | 
 | [Using TensorFlow Serving with an Inception Model](tutorial-tfserving.md) | An example for using inference with an Inception model was added for TensorFlow Serving, for both with and without Elastic Inference\. | November 28, 2018 | 
 | [Training with 256 GPUs with TensorFlow and Horovod](tutorial-horovod-tensorflow.md) | The TensorFlow with Horovod tutorial was updated to add an example of multiple\-node training\. | November 28, 2018 | 
 | [Elastic Inference](launch-config.md) | Elastic inference prerequisites and related info was added to the setup guide\. | November 28, 2018 | 
