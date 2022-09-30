@@ -16,12 +16,13 @@ In the framework version *k\.n\.x*, *k* refers to the major version, *n* refers 
 
 | Framework | Current version | Supported | CUDA version | GitHub GA | End of patch | Single\-framework DLAMI available | Multi\-framework DLAMI available | DLC available | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-|  PyTorch  |  1\.12  |  Yes  |  11\.3 for SageMaker DLC, 11\.6 for DLAMI and EC2/ECS/EKS DLC  |  07/01/2022  |  07/01/2023  |  Yes  |  Yes  |  Yes  | 
-|  PyTorch  |  1\.11  |  Yes  |  11\.3 for SageMaker DLC, 11\.5 for DLAMI and EC2/ECS/EKS DLC  |  03/10/2022  |  03/10/2023  |  Yes  |  No  |  Yes  | 
+|  PyTorch  |  1\.12\.1  |  Yes  |  – 11\.3 for SageMaker DLC  \- 11\.6 for DLAMI and EC2/ECS/EKS DLC  |  07/01/2022  |  07/01/2023  |  Yes  |  Yes  |  Yes  | 
+|  PyTorch  |  1\.11  |  Yes  |  \- 11\.3 for SageMaker DLC  \- 11\.5 for DLAMI and EC2/ECS/EKS DLC  |  03/10/2022  |  03/10/2023  |  Yes  |  No  |  Yes  | 
 |  PyTorch  |  1\.10\.2  |  Yes  |  11\.3  |  10/21/2022  |  10/21/2023  |  Yes  |  No  |  Yes  | 
-|  TensorFlow  |  2\.9\.1  |  Yes  |  11\.2  |  05/17/2022  |  05/17/2023  |  Yes  |  Yes  |  Yes  | 
-|  TensorFlow  |  2\.8\.2  |  Yes  |  11\.2  |  02/02/2022  |  02/02/2023  |  Yes  |  No  |  Yes  | 
-|  TensorFlow  |  2\.7\.3  |  Yes  |  11\.2  |  11/04/2021  |  11/04/2022  |  Yes  |  No  |  Yes  | 
+|  TensorFlow  |  2\.10\.0  |  Yes  |  11\.2  |  09/6/2022  |  09/6/2023  |  Yes  |  Yes  |  Yes  | 
+|  TensorFlow  |  \- 2\.9\.2 for DLAMI  \- 2\.9\.1 for DLC   |  Yes  |  11\.2  |  05/17/2022  |  05/17/2023  |  Yes  |  No  |  Yes  | 
+|  TensorFlow  |  \- 2\.8\.3 for DLAMI  \- 2\.8\.0 for DLC  |  Yes  |  11\.2  |  02/02/2022  |  02/02/2023  |  Yes  |  No  |  Yes  | 
+|  TensorFlow  |  \- 2\.7\.4 for DLAMI  \- 2\.7\.1 for DLC  |  Yes  |  11\.2  |  11/04/2021  |  11/04/2022  |  Yes  |  No  |  Yes  | 
 
 ## Frequently Asked Questions<a name="support-policy-faq"></a>
 + [What framework versions get security patches?](#support-policy-faq-security)
