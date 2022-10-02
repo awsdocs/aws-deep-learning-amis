@@ -8,6 +8,8 @@ For information on related hardware, frameworks, and ID retrieval, see the [AWS 
 ## Single\-framework DLAMI<a name="appendix-ami-release-notes-single"></a>
 
 **TensorFlow\-specific AMI**
++ [AWS Deep Learning AMI GPU TensorFlow 2\.10 \(Amazon Linux 2\)](http://aws.amazon.com/releasenotes/aws-deep-learning-ami-gpu-tensorflow-2-10-amazon-linux-2/)
++ [AWS Deep Learning AMI GPU TensorFlow 2\.10 \(Ubuntu 20\.04\)](http://aws.amazon.com/releasenotes/aws-deep-learning-ami-gpu-tensorflow-2-10-ubuntu-20-04/)
 + [AWS Deep Learning AMI GPU TensorFlow 2\.9 \(Amazon Linux 2\)](http://aws.amazon.com/releasenotes/deep-learning-ami-gpu-tensorflow-2-9-amazon-linux-2/)
 + [AWS Deep Learning AMI GPU TensorFlow 2\.9 \(Ubuntu 20\.04\)](http://aws.amazon.com/releasenotes/deep-learning-ami-gpu-tensorflow-2-9-ubuntu-20-04/)
 + [AWS Deep Learning AMI GPU TensorFlow 2\.8 \(Amazon Linux 2\)](http://aws.amazon.com/releasenotes/live-deep-learning-ami-gpu-tensorflow-2-8-amazon-linux-2/)
