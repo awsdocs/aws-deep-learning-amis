@@ -89,6 +89,8 @@ If you only use one machine learning framework, we recommend a [Single\-framewor
 + [AWS Deep Learning AMI Habana PyTorch SynapseAI \(Ubuntu 18\.04\)](http://aws.amazon.com/releasenotes/aws-deep-learning-ami-habana-pytorch-synapseai-ubuntu-18-04)
 
 ## Base DLAMI<a name="appendix-ami-release-notes-base"></a>
++ [AWS Deep Learning Base AMI Neuron \(Amazon Linux 2\)](http://aws.amazon.com/releasenotes/aws-deep-learning-ami-base-neuron-amazon-linux-2)
++ [AWS Deep Learning Base AMI Neuron \(Ubuntu 20\.04\)](http://aws.amazon.com/releasenotes/aws-deep-learning-ami-base-neuron-ubuntu-20-04)
 + [AWS Deep Learning Base AMI \(Amazon Linux 2\)](http://aws.amazon.com/releasenotes/aws-deep-learning-base-ami-amazon-linux-2)
 + [AWS Deep Learning Base AMI \(Amazon Linux\)](http://aws.amazon.com/releasenotes/aws-deep-learning-base-ami-amazon-linux)
 + [AWS Deep Learning Base AMI GPU CUDA 11 \(Ubuntu 20\.04\)](http://aws.amazon.com/releasenotes/aws-deep-learning-ami-gpu-cuda-11-ubuntu-20-04/)
